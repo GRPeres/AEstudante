@@ -2,9 +2,9 @@
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../static/css/styleguide.css" />
-    <link rel="stylesheet" href="../static/css/main.css" />
-    <title>Office Shop</title>
+    <link rel="stylesheet" href="../static/css/styleguide.css" /> <!-- Estilo do guia de estilo -->
+    <link rel="stylesheet" href="../static/css/main.css" /> <!-- Estilo principal da aplicação -->
+    <title>Office Shop</title> <!-- Título da página -->
   </head>
   <body>
     <div class="desktop">
@@ -12,10 +12,11 @@
         <!-- Barra lateral -->
         <div class="overlap-group">
           <div class="rectangle">
+            <!-- Botões da barra lateral -->
             <button id="homeBtn" class="iconSize buttonBox">
-              <img class= "logo" src="../static/images/eos-icons--content-new.svg" />
+              <img class="logo" src="../static/images/eos-icons--content-new.svg" />
             </button>
-            <button id="settingsBtn" class="iconSize buttonBox">
+            <button id="homeBtn" class="iconSize buttonBox">
               <img src="../static/images/eos-icons--content-new.svg" />
             </button>
             <button id="printerBtn" class="iconSize buttonBox">
@@ -29,18 +30,17 @@
             </button>
           </div>
           <img class="logo" src="../static/images/v8_266.png" /> 
-        </img>
         </div>
-        <!--Fim Barra lateral -->
+        <!-- Fim Barra lateral -->
 
-        <!--Nome da Corporação -->
+        <!-- Nome da Corporação -->
         <p>
           <span class="text-wrapper">A Estudante<br /></span>
           <span class="span">Office shop</span>
         </p>
-        <!--Fim Nome da Corporação -->
+        <!-- Fim Nome da Corporação -->
         
-        <!--Icones Add e Filtro-->
+        <!-- Ícones para Adicionar e Filtrar -->
         <button id="addRowBtn" class="addRow buttonBox">
           <img src="../static/images/eos-icons--content-new.svg" />
         </button>
@@ -48,7 +48,18 @@
           <img src="../static/images/eos-icons--content-lifecycle-management.svg" />
         </button>
 
-        <!--Definição de linha na tabela -->
+        <!-- Input para Filtro -->
+        <div class="floating-box" id="floatingBox" style="display: none;">
+          <select class="dropdown">
+              <option value="option1">Nome</option> <!-- Opção para filtrar por nome -->
+              <option value="option2">Descrição</option> <!-- Opção para filtrar por descrição -->
+              <option value="option3">QTD</option> <!-- Opção para filtrar por quantidade -->
+          </select>
+          <input id="inputFilter" type="text" class="input-box" placeholder="Type something...">
+          <button id="acceptBtn" class="buttonBox">Done</button> <!-- Botão para aceitar o filtro -->
+        </div>
+
+        <!-- Definição de linha na tabela -->
         <div id="tableContainer">
           {% for produto in produtos %}
           <div class="tableRow">
@@ -79,32 +90,33 @@
                 class="trashBtn iconSize buttonBox"
                 style="width: 48px; top: 18px;"
               >
-                <img src="../static/images/eos-icons--content-deleted.svg" />
+                <img src="../static/images/eos-icons--content-deleted.svg" /> <!-- Ícone para deletar -->
               </button>
             </form>
           </div>
           {% endfor %}
         </div>
-        <!--Fim Definição de Linha -->
+        <!-- Fim Definição de Linha -->
       </div>
     </div>
 
     <script>
-      //Função que configura listeners para update e delete
+      // Função que configura listeners para update e delete
       function setupListeners(form) {
-        const id = form.getAttribute("data-id");
+        const id = form.getAttribute("data-id"); // Obtém o ID do produto
         console.log(id);
-        const debounceTime = 3000; // Time in milliseconds
+        const debounceTime = 3000; // Tempo de debounce em milissegundos
         let debounceTimer;
 
+        // Adiciona listeners para os campos de entrada do formulário
         form.querySelectorAll("input").forEach((input) => {
           input.addEventListener("input", function () {
-            // Clear the previous timer
+            // Limpa o timer anterior
             clearTimeout(debounceTimer);
 
-            // Set a new timer
+            // Define um novo timer
             debounceTimer = setTimeout(() => {
-              const formData = new FormData(form);
+              const formData = new FormData(form); // Captura os dados do formulário
               fetch(`/${id}/update`, {
                 method: "POST",
                 body: formData,
@@ -119,11 +131,12 @@
           });
         });
 
+        // Adiciona listener para o botão de deletar
         form.querySelectorAll(".trashBtn").forEach((button) => {
           button.addEventListener("click", function () {
             fetch(`/${id}/delete`, { method: "POST" }).then((response) => {
               if (response.ok) {
-                this.closest(".tableRow").remove();
+                this.closest(".tableRow").remove(); // Remove a linha da tabela
               } else {
                 console.error("Error deleting product");
               }
@@ -132,16 +145,16 @@
         });
       }
 
-      //inserção de listeners nas linhas obtidas do banco de dados durante o startup da web aplicação
+      // Insere listeners nas linhas obtidas do banco de dados durante o startup da aplicação
       document.querySelectorAll(".updateForm").forEach((form) => {
         setupListeners(form);
       });
 
-      //logica da criação de novas linhas na tabela
+      // Lógica da criação de novas linhas na tabela
       document
         .getElementById("addRowBtn")
         .addEventListener("click", function () {
-          //definição do HTML
+          // Definição do HTML para uma nova linha
           const newRow = document.createElement("div");
           newRow.classList.add("tableRow");
           newRow.innerHTML = `
@@ -149,17 +162,17 @@
           <input class="divWrapper defaultBox" style="width: 20%;" name="nome_produtos" placeholder="Nome" />
           <input class="divWrapper defaultBox" style="width: 56.4%;" name="descricao_produtos" placeholder="Descrição" />
           <input class="divWrapper defaultBox" style="width: 1%;" name="quantidade_produtos" placeholder="Qtd" />
-          <button type="button" class="trashBtn iconSize buttonBox" style="width: 48px;">
-              <img src="../static/images/mi--delete(1).svg" />
+          <button  type="button" class="trashBtn iconSize buttonBox" style="width: 48px; top: 18px;">
+              <img src="../static/images/eos-icons--content-deleted.svg" />
           </button>
       </form>
     `;
 
-          //definição da lista objeto representando os elementos de uma linha
+          // Definição da lista objeto representando os elementos de uma linha
           const formElement = newRow.querySelector(".updateForm");
           const formData = new FormData(formElement);
 
-          //invoca o metodo criar linha e recebe de volta o id da linha no banco de dados
+          // Invoca o método para criar a linha e recebe de volta o ID da linha no banco de dados
           fetch("/add", {
             method: "POST",
             body: formData,
@@ -171,82 +184,93 @@
               return response.json();
             })
             .then((data) => {
-              //atualiza o elemento html com o id recebido e configura os listeners para que essa linha possa ser editavel
+              // Atualiza o elemento HTML com o ID recebido e configura os listeners para que essa linha possa ser editável
               formElement.setAttribute("data-id", data.id);
               setupListeners(formElement);
               console.log(
                 "New product added successfully, ID:",
                 formElement.getAttribute("data-id")
               );
-              document.getElementById("tableContainer").appendChild(newRow);
+              document.getElementById("tableContainer").appendChild(newRow); // Adiciona a nova linha à tabela
             })
             .catch((error) => {
               console.error("Error adding new product:", error);
             });
         });
 
+      // Listener para o botão de filtro
       document
         .getElementById("filterBtn")
         .addEventListener("click", function () {
-          // Collect filter criteria from the input fields (you can customize this)
-          const filterData = new FormData();
-          const nameInput = document.querySelector(
-            "input[name='nome_produtos']"
-          ).value;
-          const descriptionInput = document.querySelector(
-            "input[name='descricao_produtos']"
-          ).value;
-          const quantityInput = document.querySelector(
-            "input[name='quantidade_produtos']"
-          ).value;
+          var T = document.getElementById("floatingBox");
+          T.style.display = "block";  // Exibe a caixa de filtro
+          
+          document
+          .getElementById("acceptBtn")
+          .addEventListener("click", function () {
+            // Coleta critérios de filtro dos campos de entrada
+            const filterData = new FormData();
+            const inputFlt = document.getElementById("inputFilter").value; // Valor do input de filtro
+            const dropdownValue = document.querySelector(".dropdown").value; // Valor selecionado no dropdown
 
-          // Append filter criteria to FormData
-          filterData.append("nome_produtos", nameInput);
-          filterData.append("descricao_produtos", descriptionInput);
-          filterData.append("quantidade_produtos", quantityInput);
+            // Anexa critérios de filtro ao FormData
+            switch (dropdownValue) {
+              case 'option1':
+                  console.log('Selected Nome'); // Log para opção de nome
+                  filterData.append('nome_produtos', inputFlt);
+                  break;
+              case 'option2':
+                  console.log('Selected Desc'); // Log para opção de descrição
+                  filterData.append('descricao_produtos', inputFlt);
+                  break;
+              case 'option3':
+                  console.log('Selected QTD'); // Log para opção de quantidade
+                  filterData.append('quantidade_produtos', inputFlt);
+                  break;
+              default:
+                  console.log('No valid option selected');
+            }
 
-          // Send the filter request to the server
-          fetch("/filter", {
-            method: "POST",
-            body: filterData,
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              // Clear existing rows
-              const tableContainer = document.getElementById("tableContainer");
-              tableContainer.innerHTML = "";
+            // Envia a solicitação de filtro para o servidor
+            fetch("/filter", {
+              method: "POST",
+              body: filterData
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                // Limpa as linhas existentes
+                const tableContainer = document.getElementById("tableContainer");
+                tableContainer.innerHTML = "";
 
-              // Add filtered products back to the table
-              data.produtos.forEach((produto) => {
-                const newRow = document.createElement("div");
-                newRow.classList.add("tableRow");
-                newRow.innerHTML = `
+                // Adiciona os produtos filtrados de volta à tabela
+                data.produtos.forEach((produto) => {
+                  const newRow = document.createElement("div");
+                  newRow.classList.add("tableRow");
+                  newRow.innerHTML = `
         <form class="updateForm" data-id="${produto.id_produtos}">
           <input class="divWrapper defaultBox" style="width: 20%;" name="nome_produtos" value="${produto.nome_produtos}" placeholder="Nome" />
           <input class="divWrapper defaultBox" style="width: 56.4%;" name="descricao_produtos" value="${produto.descricao_produtos}" placeholder="Descrição" />
           <input class="divWrapper defaultBox" style="width: 1%;" name="quantidade_produtos" value="${produto.quantidade_produtos}" placeholder="Qtd" />
-          <button type="button" class="trashBtn iconSize defaultBox" style="width: 48px;" data-id="${produto.id_produtos}">
-            <img src="../static/images/mi--delete(1).svg" />
+          <button  type="button" class="trashBtn iconSize buttonBox"  style="width: 48px; top: 18px;">
+            <img src="../static/images/eos-icons--content-deleted.svg" />
           </button>
         </form>
       `;
-                tableContainer.appendChild(newRow);
-                setupListeners(newRow.querySelector(".updateForm")); // Setup listeners for new rows
+                  tableContainer.appendChild(newRow);
+                  setupListeners(newRow.querySelector(".updateForm")); // Configura listeners para novas linhas
+                  T.style.display = "none";  // Oculta a caixa de filtro após a aplicação
+                });
+              })
+              .catch((error) => {
+                console.error("Error filtering products:", error);
               });
-            })
-            .catch((error) => {
-              console.error("Error filtering products:", error);
-            });
+          });
         });
 
-        document
-          .getElementById("homeBtn")
-        .addEventListener("click", function () {
-          fetch("/", {
-            method: "GET"
-          }).then((response) => response.json())
-            });
-
-    </script>
+      // Listener para o botão de home
+      document.getElementById("homeBtn").addEventListener("click", function () {
+        console.error("you pressed the button", error); // Log de erro ao pressionar o botão
+      });
+    </script> 
   </body>
 </html>
