@@ -15,7 +15,7 @@
             <button id="homeBtn" class="iconSize buttonBox">
               <img class= "logo" src="../static/images/eos-icons--content-new.svg" />
             </button>
-            <button id="settingsBtn" class="iconSize buttonBox">
+            <button id="homeBtn" class="iconSize buttonBox">
               <img src="../static/images/eos-icons--content-new.svg" />
             </button>
             <button id="printerBtn" class="iconSize buttonBox">
@@ -47,6 +47,17 @@
         <button id="filterBtn" class="filter buttonBox">
           <img src="../static/images/eos-icons--content-lifecycle-management.svg" />
         </button>
+
+        <!--Input Filtro-->
+        <div class="floating-box" id="floatingBox" style="display: none  ;">
+          <select class="dropdown">
+              <option value="option1">Nome</option>
+              <option value="option2">Descrição</option>
+              <option value="option3">QTD</option>
+          </select>
+          <input id="inputFilter" type="text" class="input-box" placeholder="Type something...">
+          <button id="acceptBtn" class=" buttonBox">Done</button>
+      </div>
 
         <!--Definição de linha na tabela -->
         <div id="tableContainer">
@@ -149,8 +160,8 @@
           <input class="divWrapper defaultBox" style="width: 20%;" name="nome_produtos" placeholder="Nome" />
           <input class="divWrapper defaultBox" style="width: 56.4%;" name="descricao_produtos" placeholder="Descrição" />
           <input class="divWrapper defaultBox" style="width: 1%;" name="quantidade_produtos" placeholder="Qtd" />
-          <button type="button" class="trashBtn iconSize buttonBox" style="width: 48px;">
-              <img src="../static/images/mi--delete(1).svg" />
+          <button  type="button" class="trashBtn iconSize buttonBox" style="width: 48px; top: 18px;">
+              <img src="../static/images/eos-icons--content-deleted.svg" />
           </button>
       </form>
     `;
@@ -188,30 +199,47 @@
       document
         .getElementById("filterBtn")
         .addEventListener("click", function () {
+           
+          var T = document.getElementById("floatingBox");
+          T.style.display = "block";  // <-- Set it to block
+          
+          document
+          .getElementById("acceptBtn")
+          .addEventListener("click", function () {
           // Collect filter criteria from the input fields (you can customize this)
           const filterData = new FormData();
-          const nameInput = document.querySelector(
-            "input[name='nome_produtos']"
-          ).value;
-          const descriptionInput = document.querySelector(
-            "input[name='descricao_produtos']"
-          ).value;
-          const quantityInput = document.querySelector(
-            "input[name='quantidade_produtos']"
-          ).value;
+          const inputFlt = document.getElementById("inputFilter").value;
+          const dropdownValue = document.querySelector(".dropdown").value;
 
           // Append filter criteria to FormData
-          filterData.append("nome_produtos", nameInput);
-          filterData.append("descricao_produtos", descriptionInput);
-          filterData.append("quantidade_produtos", quantityInput);
+          switch (dropdownValue) {
+            case 'option1':
+                // Handle option 1
+                console.log('Selected Nome');
+                filterData.append('nome_produtos', inputFlt);
+                break;
+            case 'option2':
+                // Handle option 2
+                console.log('Selected Desc');
+                filterData.append('descricao_produtos', inputFlt);
+                break;
+            case 'option3':
+                // Handle option 3
+                console.log('Selected QTD');
+                filterData.append('quantidade_produtos', inputFlt);
+                break;
+            default:
+                console.log('No valid option selected');
+        }
 
           // Send the filter request to the server
           fetch("/filter", {
             method: "POST",
-            body: filterData,
+            body: filterData
           })
             .then((response) => response.json())
             .then((data) => {
+
               // Clear existing rows
               const tableContainer = document.getElementById("tableContainer");
               tableContainer.innerHTML = "";
@@ -225,28 +253,25 @@
           <input class="divWrapper defaultBox" style="width: 20%;" name="nome_produtos" value="${produto.nome_produtos}" placeholder="Nome" />
           <input class="divWrapper defaultBox" style="width: 56.4%;" name="descricao_produtos" value="${produto.descricao_produtos}" placeholder="Descrição" />
           <input class="divWrapper defaultBox" style="width: 1%;" name="quantidade_produtos" value="${produto.quantidade_produtos}" placeholder="Qtd" />
-          <button type="button" class="trashBtn iconSize defaultBox" style="width: 48px;" data-id="${produto.id_produtos}">
-            <img src="../static/images/mi--delete(1).svg" />
+          <button  type="button" class="trashBtn iconSize buttonBox"  style="width: 48px; top: 18px;">
+            <img src="../static/images/eos-icons--content-deleted.svg" />
           </button>
         </form>
       `;
                 tableContainer.appendChild(newRow);
                 setupListeners(newRow.querySelector(".updateForm")); // Setup listeners for new rows
+                T.style.display = "none";  // <-- Set it to block
               });
             })
             .catch((error) => {
               console.error("Error filtering products:", error);
             });
+          })
         });
 
-        document
-          .getElementById("homeBtn")
-        .addEventListener("click", function () {
-          fetch("/", {
-            method: "GET"
-          }).then((response) => response.json())
-            });
-
-    </script>
+        document.getElementById("homeBtn").addEventListener("click", function () {
+          console.error("you pressed the button", error);
+        });
+    </script> 
   </body>
 </html>
