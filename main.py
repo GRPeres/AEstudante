@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify, render_template, url_for, redirect
 from flask_login import current_user, LoginManager, login_user, logout_user, login_required, UserMixin
 from dao_bdd import DAO
-import jsonpickle
 
 app = Flask(__name__)
 app.secret_key = 'test1'
