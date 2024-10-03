@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, render_template, url_for, redirect
 from flask_login import current_user, LoginManager, login_user, logout_user, login_required, UserMixin
-from dao_bdd import DAO
+from dao_bdd import *
+from decimal import *
 
 app = Flask(__name__)
 app.secret_key = 'test1'
@@ -26,6 +27,7 @@ def update_produto(id):
     nome_produtos = request.form['nome_produtos']
     descricao_produtos = request.form['descricao_produtos']
     quantidade_produtos = request.form['quantidade_produtos']
+    preco_produtos = request.form['preco_produtos']
     
     produto = dao.readById(id)  # Busca o produto pelo ID
     if produto:
@@ -33,6 +35,7 @@ def update_produto(id):
         produto.nome_produtos = nome_produtos
         produto.descricao_produtos = descricao_produtos
         produto.quantidade_produtos = quantidade_produtos
+        produto.preco_produtos = preco_produtos
         
         dao.update(produto)  # Atualiza o produto no banco de dados
         return ('', 204)  # Retorna resposta 204 (No Content)
@@ -47,6 +50,7 @@ def add_product():
     novo_produto = dao.produto(
         nome_produtos='filler',
         descricao_produtos='filler',
+        preco_produtos=Decimal(0),
         quantidade_produtos='0'
     )
 
@@ -80,12 +84,19 @@ def filter_products():
     nome_produtos = request.form.get('nome_produtos')
     descricao_produtos = request.form.get('descricao_produtos')
     quantidade_produtos = request.form.get('quantidade_produtos')
+    preco_produtos = request.form.get('preco_produtos')
 
     # Aplica filtros com base nos critérios fornecidos
     if nome_produtos:
         produtos = dao.readByNome(nome_produtos)  # Filtra por nome do produto
     elif descricao_produtos:
         produtos = dao.readBy('descricao_produtos', "ilike", descricao_produtos)  # Filtra por descrição do produto
+    elif preco_produtos:
+        try:
+            preco = Decimal(preco_produtos)  # Tenta converter a quantidade para inteiro
+            produtos = dao.readBy('preco_produtos', "==", preco)  # Filtra por quantidade do produto
+        except ValueError:
+            return jsonify({'error': 'Preço must be a number'}), 400  # Retorna erro se a quantidade não for um número
     elif quantidade_produtos:
         try:
             quantidade = int(quantidade_produtos)  # Tenta converter a quantidade para inteiro
@@ -104,6 +115,7 @@ def filter_products():
                 'nome_produtos': produto.nome_produtos,
                 'descricao_produtos': produto.descricao_produtos,
                 'quantidade_produtos': produto.quantidade_produtos,
+                'preco_produtos': produto.preco_produtos,
             }
             for produto in produtos
         ]

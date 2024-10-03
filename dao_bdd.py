@@ -22,6 +22,7 @@ class DAO:
         self.nme = "nome_produtos"
         self.des = "descricao_produtos"
         self.qtd = "quantidade_produtos"
+        self.pre = "preco_produtos"
 
         # Work with ORM sessions
         session_factory = sessionmaker(bind=engine)
