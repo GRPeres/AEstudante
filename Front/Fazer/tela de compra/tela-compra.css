@@ -1,0 +1,422 @@
+.tela-de-compra {
+  position: relative;
+  width: 1370px;
+  height: 1341px;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.tela-de-compra .frame-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0px 32px;
+  position: absolute;
+  top: 17px;
+  left: 27px;
+  background-color: #fff300;
+}
+
+.tela-de-compra .LOGO-a-ESTUDANTE {
+  position: relative;
+  width: 36px;
+  height: 104px;
+  object-fit: cover;
+}
+
+.tela-de-compra .overlap {
+  position: absolute;
+  width: 1388px;
+  height: 1198px;
+  top: 143px;
+  left: 0;
+}
+
+.tela-de-compra .preco {
+  position: absolute;
+  width: 570px;
+  height: 1198px;
+  top: 0;
+  left: 818px;
+}
+
+.tela-de-compra .resumo-do-pedido {
+  position: absolute;
+  height: 50px;
+  top: 87px;
+  left: 58px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 50px;
+  letter-spacing: 0;
+  line-height: 50px;
+  white-space: nowrap;
+}
+
+.tela-de-compra .text-wrapper {
+  position: absolute;
+  height: 24px;
+  top: 325px;
+  left: 44px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #737373;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.tela-de-compra .div {
+  position: absolute;
+  height: 24px;
+  top: 453px;
+  left: 44px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #737373;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.tela-de-compra .cupom-de-desconto {
+  position: absolute;
+  height: 24px;
+  top: 543px;
+  left: 44px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #737373;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.tela-de-compra .text-wrapper-2 {
+  position: absolute;
+  height: 48px;
+  top: 745px;
+  left: 44px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #383737;
+  font-size: 48px;
+  letter-spacing: 0;
+  line-height: 48px;
+  white-space: nowrap;
+}
+
+.tela-de-compra .XXXX-XXR {
+  position: absolute;
+  width: 213px;
+  height: 104px;
+  top: 717px;
+  left: 329px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: 36px;
+}
+
+.tela-de-compra .overlap-group {
+  position: absolute;
+  width: 213px;
+  height: 194px;
+  top: 413px;
+  left: 329px;
+}
+
+.tela-de-compra .XXXX-XXR-2 {
+  top: 90px;
+  left: 0;
+  position: absolute;
+  width: 213px;
+  height: 104px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: 36px;
+}
+
+.tela-de-compra .XXXX-XXR-3 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 213px;
+  height: 104px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: 36px;
+}
+
+.tela-de-compra .XXXX-XXR-4 {
+  top: 285px;
+  left: 329px;
+  position: absolute;
+  width: 213px;
+  height: 104px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: 36px;
+}
+
+.tela-de-compra .produtos {
+  position: absolute;
+  width: 822px;
+  height: 1198px;
+  top: 0;
+  left: 0;
+}
+
+.tela-de-compra .overlap-2 {
+  position: relative;
+  width: 828px;
+  height: 1208px;
+  top: -5px;
+  left: -5px;
+  border-right-width: 5px;
+  border-right-style: solid;
+  border-color: #000000;
+}
+
+.tela-de-compra .text-wrapper-3 {
+  position: absolute;
+  height: 50px;
+  top: 86px;
+  left: 87px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 50px;
+  letter-spacing: 0;
+  line-height: 50px;
+  white-space: nowrap;
+}
+
+.tela-de-compra .group {
+  position: absolute;
+  width: 729px;
+  height: 27px;
+  top: 244px;
+  left: 67px;
+}
+
+.tela-de-compra .text-wrapper-4 {
+  position: absolute;
+  height: 24px;
+  top: 0;
+  left: 0;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.tela-de-compra .text-wrapper-5 {
+  position: absolute;
+  height: 24px;
+  top: 3px;
+  left: 275px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.tela-de-compra .text-wrapper-6 {
+  position: absolute;
+  height: 24px;
+  top: 3px;
+  left: 433px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.tela-de-compra .text-wrapper-7 {
+  position: absolute;
+  height: 24px;
+  top: 0;
+  left: 655px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.tela-de-compra .produto {
+  position: absolute;
+  width: 748px;
+  height: 159px;
+  top: 344px;
+  left: 62px;
+  background-color: #b5b5b5;
+  border-radius: 7px;
+}
+
+.tela-de-compra .image {
+  position: absolute;
+  width: 56px;
+  height: 72px;
+  top: 19px;
+  left: 15px;
+  object-fit: cover;
+}
+
+.tela-de-compra .p {
+  position: absolute;
+  width: 107px;
+  top: 26px;
+  left: 97px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 16px;
+}
+
+.tela-de-compra .pre-o {
+  top: 57px;
+  left: 247px;
+  color: #5a5858;
+  position: absolute;
+  width: 119px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+
+.tela-de-compra .pre-o-2 {
+  top: 60px;
+  left: 626px;
+  color: #000000;
+  position: absolute;
+  width: 119px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+
+.tela-de-compra .quantidade-do-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 17px;
+  position: absolute;
+  top: 61px;
+  left: 466px;
+}
+
+.tela-de-compra .menos {
+  position: relative;
+  width: 14px;
+  height: 2px;
+}
+
+.tela-de-compra .qunatidade-itens {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.tela-de-compra .mais {
+  position: relative;
+  width: 12px;
+  height: 12px;
+}
+
+.tela-de-compra .text-wrapper-8 {
+  position: absolute;
+  top: 129px;
+  left: 107px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 14px;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+.tela-de-compra .text-wrapper-9 {
+  position: absolute;
+  top: 1020px;
+  left: 19px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 24px;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+.tela-de-compra .enviar {
+  display: flex;
+  width: 450px;
+  height: 120px;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
+  padding: 21px 100px;
+  position: absolute;
+  top: 972px;
+  left: 357px;
+  background-color: #009951;
+}
+
+.tela-de-compra .finalizar-pedido {
+  position: relative;
+  width: fit-content;
+  margin-left: -19.5px;
+  margin-right: -19.5px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 32px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 32px;
+  white-space: nowrap;
+}
