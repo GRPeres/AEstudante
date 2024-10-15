@@ -123,5 +123,16 @@ def filter_products():
 
     return jsonify(response_data)  # Retorna os produtos filtrados como JSON
 
+@app.route('/login', methods=['POST'])
+def login():
+    dao = DAO()
+    username = request.form['username']
+    password = request.form['password']
+    
+    if dao.loginDB(username,password):
+        return redirect(url_for('adm'))  # Redirect to the admin page
+    else:
+        return jsonify({'error': 'Invalid credentials'}), 401  # Unauthorized
+    
 # Inicia a aplicação Flask em modo de debug
 app.run(debug=True)

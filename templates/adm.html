@@ -10,8 +10,25 @@
     <!-- Título da página -->
   </head>
   <body>
+  
     <div class="desktop">
-      <div class="overlap">
+      
+      <div class="floating-box" id="modal" style="position: fixed;top: 30%;right: 42%;">
+          <h2>Login</h2>
+          <div class="floating-box">
+              <label for="username">Usuario:</label>
+              <input type="text" placeholder="Usuario" id="username">
+            </div>
+            <div class="floating-box">
+              <label for="password">Senha:</label>
+              <input type="password" placeholder="Senha" id="password">
+            </div>
+            <div class="floating-box">
+              <button id="doneButton">Done</button>
+          </div>
+      </div>
+      
+      <div class="overlap" style="filter: blur(5px);">
         <!-- Barra lateral -->
         <div class="overlap-group">
           <div class="rectangle">
@@ -57,7 +74,7 @@
         </button>
 
         <!-- Input para Filtro -->
-        <div class="floating-box" id="floatingBox" style="display: none">
+        <div class="floating-box" id="floatingBox" style="display: none; position: fixed;top: 20px;right: 20px;">
           <select class="dropdown">
             <option value="option1">Nome</option>
             <!-- Opção para filtrar por nome -->
@@ -305,6 +322,26 @@
       // Listener para o botão de home
       document.getElementById("homeBtn").addEventListener("click", function () {
         console.error("you pressed the button", error); // Log de erro ao pressionar o botão
+      });
+
+      document.getElementById("doneButton").addEventListener("click", function() {
+
+        const loginData = new FormData();
+        loginData.append("username",document.getElementById("username").value);
+        loginData.append("password",document.getElementById("password").value);
+
+        fetch(`/login`, {
+                method: "POST",
+                body: loginData,
+              }).then((response) => {
+                if (response.ok) {
+                  console.log("Login successful");
+                  document.querySelector(".overlap").style.filter = "none";
+                } else {
+                  console.error("Error trying to login");
+                }
+              });
+              document.getElementById("modal").style.display = "none";  
       });
     </script>
   </body>

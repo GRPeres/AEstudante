@@ -63,6 +63,12 @@ class DAO:
 
     def getSes(self):
         return self.ses
+    
+    def loginDB(self, user, password):
+        if self.name == user and self.password == password:
+            return True
+        else:
+            return False
 
     def __del__(self):
         self.ses.close()
