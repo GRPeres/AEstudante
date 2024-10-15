@@ -2,9 +2,12 @@
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../static/css/styleguide.css" /> <!-- Estilo do guia de estilo -->
-    <link rel="stylesheet" href="../static/css/main.css" /> <!-- Estilo principal da aplicação -->
-    <title>Office Shop</title> <!-- Título da página -->
+    <link rel="stylesheet" href="../static/css/styleguide.css" />
+    <!-- Estilo do guia de estilo -->
+    <link rel="stylesheet" href="../static/css/main.css" />
+    <!-- Estilo principal da aplicação -->
+    <title>Office Shop</title>
+    <!-- Título da página -->
   </head>
   <body>
     <div class="desktop">
@@ -14,7 +17,10 @@
           <div class="rectangle">
             <!-- Botões da barra lateral -->
             <button id="homeBtn" class="iconSize buttonBox">
-              <img class="logo" src="../static/images/eos-icons--content-new.svg" />
+              <img
+                class="logo"
+                src="../static/images/eos-icons--content-new.svg"
+              />
             </button>
             <button id="homeBtn" class="iconSize buttonBox">
               <img src="../static/images/eos-icons--content-new.svg" />
@@ -29,7 +35,7 @@
               <img src="../static/images/eos-icons--content-new.svg" />
             </button>
           </div>
-          <img class="logo" src="../static/images/v8_266.png" /> 
+          <img class="logo" src="../static/images/v8_266.png" />
         </div>
         <!-- Fim Barra lateral -->
 
@@ -39,24 +45,37 @@
           <span class="span">Office shop</span>
         </p>
         <!-- Fim Nome da Corporação -->
-        
+
         <!-- Ícones para Adicionar e Filtrar -->
         <button id="addRowBtn" class="addRow buttonBox">
           <img src="../static/images/eos-icons--content-new.svg" />
         </button>
         <button id="filterBtn" class="filter buttonBox">
-          <img src="../static/images/eos-icons--content-lifecycle-management.svg" />
+          <img
+            src="../static/images/eos-icons--content-lifecycle-management.svg"
+          />
         </button>
 
         <!-- Input para Filtro -->
-        <div class="floating-box" id="floatingBox" style="display: none;">
+        <div class="floating-box" id="floatingBox" style="display: none">
           <select class="dropdown">
-              <option value="option1">Nome</option> <!-- Opção para filtrar por nome -->
-              <option value="option2">Descrição</option> <!-- Opção para filtrar por descrição -->
-              <option value="option3">QTD</option> <!-- Opção para filtrar por quantidade -->
+            <option value="option1">Nome</option>
+            <!-- Opção para filtrar por nome -->
+            <option value="option2">Descrição</option>
+            <!-- Opção para filtrar por descrição -->
+            <option value="option3">Preço</option>
+            <!-- Opção para filtrar por quantidade -->
+            <option value="option4">QTD</option>
+            <!-- Opção para filtrar por quantidade -->
           </select>
-          <input id="inputFilter" type="text" class="input-box" placeholder="Type something...">
-          <button id="acceptBtn" class="buttonBox">Done</button> <!-- Botão para aceitar o filtro -->
+          <input
+            id="inputFilter"
+            type="text"
+            class="input-box"
+            placeholder="Type something..."
+          />
+          <button id="acceptBtn" class="buttonBox">Done</button>
+          <!-- Botão para aceitar o filtro -->
         </div>
 
         <!-- Definição de linha na tabela -->
@@ -73,14 +92,22 @@
               />
               <input
                 class="divWrapper defaultBox"
-                style="width: 56.4%"
+                style="width:50.4%"
                 name="descricao_produtos"
                 value="{{ produto.descricao_produtos }}"
                 placeholder="Descrição"
               />
               <input
                 class="divWrapper defaultBox"
-                style="width: 1%"
+                style="width: 4%"
+                step='0.01'
+                name="preco_produtos"
+                value="{{ produto.preco_produtos }}"
+                placeholder="Preço"
+              />
+              <input
+                class="divWrapper defaultBox"
+                style="width: 2%"
                 name="quantidade_produtos"
                 value="{{ produto.quantidade_produtos }}"
                 placeholder="Qtd"
@@ -88,9 +115,10 @@
               <button
                 type="button"
                 class="trashBtn iconSize buttonBox"
-                style="width: 48px; top: 18px;"
+                style="width: 48px; top: 18px"
               >
-                <img src="../static/images/eos-icons--content-deleted.svg" /> <!-- Ícone para deletar -->
+                <img src="../static/images/eos-icons--content-deleted.svg" />
+                <!-- Ícone para deletar -->
               </button>
             </form>
           </div>
@@ -105,7 +133,7 @@
       function setupListeners(form) {
         const id = form.getAttribute("data-id"); // Obtém o ID do produto
         console.log(id);
-        const debounceTime = 3000; // Tempo de debounce em milissegundos
+        const debounceTime = 1000; // Tempo de debounce em milissegundos
         let debounceTimer;
 
         // Adiciona listeners para os campos de entrada do formulário
@@ -160,8 +188,9 @@
           newRow.innerHTML = `
       <form class="updateForm" data-id="null">
           <input class="divWrapper defaultBox" style="width: 20%;" name="nome_produtos" placeholder="Nome" />
-          <input class="divWrapper defaultBox" style="width: 56.4%;" name="descricao_produtos" placeholder="Descrição" />
-          <input class="divWrapper defaultBox" style="width: 1%;" name="quantidade_produtos" placeholder="Qtd" />
+          <input class="divWrapper defaultBox" style="width: 50.4%;" name="descricao_produtos" placeholder="Descrição" />
+          <input class="divWrapper step='0.01' defaultBox" style="width: 4%;" name="preco_produtos" placeholder="Preço" />
+          <input class="divWrapper defaultBox" style="width: 2%;" name="quantidade_produtos" placeholder="Qtd" />
           <button  type="button" class="trashBtn iconSize buttonBox" style="width: 48px; top: 18px;">
               <img src="../static/images/eos-icons--content-deleted.svg" />
           </button>
@@ -203,74 +232,80 @@
         .getElementById("filterBtn")
         .addEventListener("click", function () {
           var T = document.getElementById("floatingBox");
-          T.style.display = "block";  // Exibe a caixa de filtro
-          
+          T.style.display = "block"; // Exibe a caixa de filtro
+
           document
-          .getElementById("acceptBtn")
-          .addEventListener("click", function () {
-            // Coleta critérios de filtro dos campos de entrada
-            const filterData = new FormData();
-            const inputFlt = document.getElementById("inputFilter").value; // Valor do input de filtro
-            const dropdownValue = document.querySelector(".dropdown").value; // Valor selecionado no dropdown
+            .getElementById("acceptBtn")
+            .addEventListener("click", function () {
+              // Coleta critérios de filtro dos campos de entrada
+              const filterData = new FormData();
+              const inputFlt = document.getElementById("inputFilter").value; // Valor do input de filtro
+              const dropdownValue = document.querySelector(".dropdown").value; // Valor selecionado no dropdown
 
-            // Anexa critérios de filtro ao FormData
-            switch (dropdownValue) {
-              case 'option1':
-                  console.log('Selected Nome'); // Log para opção de nome
-                  filterData.append('nome_produtos', inputFlt);
+              // Anexa critérios de filtro ao FormData
+              switch (dropdownValue) {
+                case "option1":
+                  console.log("Selected Nome"); // Log para opção de nome
+                  filterData.append("nome_produtos", inputFlt);
                   break;
-              case 'option2':
-                  console.log('Selected Desc'); // Log para opção de descrição
-                  filterData.append('descricao_produtos', inputFlt);
+                case "option2":
+                  console.log("Selected Desc"); // Log para opção de descrição
+                  filterData.append("descricao_produtos", inputFlt);
                   break;
-              case 'option3':
-                  console.log('Selected QTD'); // Log para opção de quantidade
-                  filterData.append('quantidade_produtos', inputFlt);
+                case "option3":
+                  console.log("Selected Preço"); // Log para opção de quantidade
+                  filterData.append("preco_produtos", inputFlt);
                   break;
-              default:
-                  console.log('No valid option selected');
-            }
+                case "option4":
+                  console.log("Selected QTD"); // Log para opção de quantidade
+                  filterData.append("quantidade_produtos", inputFlt);
+                  break;
+                default:
+                  console.log("No valid option selected");
+              }
 
-            // Envia a solicitação de filtro para o servidor
-            fetch("/filter", {
-              method: "POST",
-              body: filterData
-            })
-              .then((response) => response.json())
-              .then((data) => {
-                // Limpa as linhas existentes
-                const tableContainer = document.getElementById("tableContainer");
-                tableContainer.innerHTML = "";
+              // Envia a solicitação de filtro para o servidor
+              fetch("/filter", {
+                method: "POST",
+                body: filterData,
+              })
+                .then((response) => response.json())
+                .then((data) => {
+                  // Limpa as linhas existentes
+                  const tableContainer =
+                    document.getElementById("tableContainer");
+                  tableContainer.innerHTML = "";
 
-                // Adiciona os produtos filtrados de volta à tabela
-                data.produtos.forEach((produto) => {
-                  const newRow = document.createElement("div");
-                  newRow.classList.add("tableRow");
-                  newRow.innerHTML = `
+                  // Adiciona os produtos filtrados de volta à tabela
+                  data.produtos.forEach((produto) => {
+                    const newRow = document.createElement("div");
+                    newRow.classList.add("tableRow");
+                    newRow.innerHTML = `
         <form class="updateForm" data-id="${produto.id_produtos}">
           <input class="divWrapper defaultBox" style="width: 20%;" name="nome_produtos" value="${produto.nome_produtos}" placeholder="Nome" />
-          <input class="divWrapper defaultBox" style="width: 56.4%;" name="descricao_produtos" value="${produto.descricao_produtos}" placeholder="Descrição" />
-          <input class="divWrapper defaultBox" style="width: 1%;" name="quantidade_produtos" value="${produto.quantidade_produtos}" placeholder="Qtd" />
+          <input class="divWrapper defaultBox" style="width: 50.4%;" name="descricao_produtos" value="${produto.descricao_produtos}" placeholder="Descrição" />
+          <input class="divWrapper defaultBox" step='0.01' style="width: 4%" name="preco_produtos" value="${produto.preco_produtos}" placeholder="Preço" />
+          <input class="divWrapper defaultBox" style="width: 2%;" name="quantidade_produtos" value="${produto.quantidade_produtos}" placeholder="Qtd" />
           <button  type="button" class="trashBtn iconSize buttonBox"  style="width: 48px; top: 18px;">
             <img src="../static/images/eos-icons--content-deleted.svg" />
           </button>
         </form>
       `;
-                  tableContainer.appendChild(newRow);
-                  setupListeners(newRow.querySelector(".updateForm")); // Configura listeners para novas linhas
-                  T.style.display = "none";  // Oculta a caixa de filtro após a aplicação
+                    tableContainer.appendChild(newRow);
+                    setupListeners(newRow.querySelector(".updateForm")); // Configura listeners para novas linhas
+                    T.style.display = "none"; // Oculta a caixa de filtro após a aplicação
+                  });
+                })
+                .catch((error) => {
+                  console.error("Error filtering products:", error);
                 });
-              })
-              .catch((error) => {
-                console.error("Error filtering products:", error);
-              });
-          });
+            });
         });
 
       // Listener para o botão de home
       document.getElementById("homeBtn").addEventListener("click", function () {
         console.error("you pressed the button", error); // Log de erro ao pressionar o botão
       });
-    </script> 
+    </script>
   </body>
 </html>

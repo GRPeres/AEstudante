@@ -1,0 +1,52 @@
+.hover-target {
+  width: 200px;
+  height: 100px;
+  background-color: #4caf50;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Estilo do overlay */
+.overlay {
+  position: absolute;
+  top: 100%; /* Posiciona abaixo do elemento */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  color: white;
+
+  display: none; /* Inicialmente oculto */
+}
+
+/* Overlay visível */
+.overlay.show {
+  display: block;
+}
+
+.barra-de-produtos {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1370px;
+  align-items: center;
+  gap: 30px 70px;
+  padding: 39px 50px;
+  position: relative;
+  background-color: #b5de2e;
+}
+
+.barra-de-produtos .text-wrapper {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 26px;
+  letter-spacing: 0;
+  line-height: 26px;
+  white-space: nowrap;
+}
