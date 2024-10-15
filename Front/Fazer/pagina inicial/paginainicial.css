@@ -1,0 +1,577 @@
+.pagina-inicial {
+  display: flex;
+  flex-direction: column;
+  width: 1358px;
+  height: 2033px;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.pagina-inicial .parte-de-cima {
+  flex-direction: column;
+  height: 188px;
+  background-color: #b5de2e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+}
+
+.pagina-inicial .div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 40px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.pagina-inicial .frame-logo {
+  display: flex;
+  width: 104.71px;
+  height: 104px;
+  align-items: center;
+  gap: 10px;
+  padding: 0px 32px;
+  position: relative;
+  background-color: #fff300;
+}
+
+.pagina-inicial .LOGO-a-ESTUDANTE {
+  position: relative;
+  width: 36px;
+  height: 104px;
+  object-fit: cover;
+}
+
+.pagina-inicial .barra-de-pesquisa {
+  display: flex;
+  width: 695.3px;
+  height: 48px;
+  align-items: center;
+  padding: 6px 8px 8px;
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 7px;
+  border: 1px solid;
+  border-color: #7b961f;
+}
+
+.pagina-inicial .texto {
+  position: relative;
+  width: 528px;
+  height: 30px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+
+.pagina-inicial .lupa {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 6px;
+  left: 652px;
+}
+
+.pagina-inicial .conta {
+  display: flex;
+  width: 172.72px;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  position: relative;
+}
+
+.pagina-inicial .vector {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.pagina-inicial .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 40px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+  background-color: #7b961f;
+}
+
+.pagina-inicial .text-wrapper {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.pagina-inicial .propraganda {
+  position: relative;
+  width: 1370px;
+  height: 471px;
+  margin-left: -6px;
+  margin-right: -6px;
+}
+
+.pagina-inicial .pontos {
+  position: absolute;
+  width: 62px;
+  height: 14px;
+  top: 457px;
+  left: 623px;
+}
+
+.pagina-inicial .ponto {
+  left: 0;
+  background-color: #a3a3a3;
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  top: 0;
+  border-radius: 6.85px/7.09px;
+}
+
+.pagina-inicial .ponto-2 {
+  left: 24px;
+  background-color: #000000;
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  top: 0;
+  border-radius: 6.85px/7.09px;
+}
+
+.pagina-inicial .ponto-3 {
+  left: 48px;
+  background-color: #a3a3a3;
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  top: 0;
+  border-radius: 6.85px/7.09px;
+}
+
+.pagina-inicial .imagem {
+  position: absolute;
+  width: 1358px;
+  height: 430px;
+  top: 0;
+  left: 6px;
+}
+
+.pagina-inicial .proposta {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+}
+
+.pagina-inicial .entrega {
+  display: flex;
+  width: 319px;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-top: -0.82px;
+  margin-bottom: -0.82px;
+}
+
+.pagina-inicial .img {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.pagina-inicial .texto-2 {
+  width: 196px;
+  height: 101.64px;
+  position: relative;
+  margin-right: -4px;
+}
+
+.pagina-inicial .p {
+  position: absolute;
+  width: 192px;
+  top: 60px;
+  left: 0;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #b3b3b3;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 16px;
+}
+
+.pagina-inicial .text-wrapper-2 {
+  position: absolute;
+  width: 117px;
+  top: 0;
+  left: 0;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: 32px;
+}
+
+.pagina-inicial .lista-escolar {
+  display: flex;
+  width: 351px;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.pagina-inicial .texto-3 {
+  width: 231px;
+  height: 84px;
+  position: relative;
+  margin-right: -4px;
+}
+
+.pagina-inicial .text-wrapper-3 {
+  position: absolute;
+  width: 192px;
+  top: 50px;
+  left: 0;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #b3b3b3;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 16px;
+}
+
+.pagina-inicial .text-wrapper-4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: 32px;
+  white-space: nowrap;
+}
+
+.pagina-inicial .pagamneto {
+  display: flex;
+  width: 318px;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.pagina-inicial .texto-4 {
+  width: 212px;
+  height: 38.29px;
+  position: relative;
+  margin-right: -4px;
+}
+
+.pagina-inicial .text-wrapper-5 {
+  position: absolute;
+  width: 208px;
+  top: 0;
+  left: 0;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: 32px;
+  white-space: nowrap;
+}
+
+.pagina-inicial .text-wrapper-6 {
+  position: absolute;
+  width: 192px;
+  top: 27px;
+  left: 4px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #b3b3b3;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.pagina-inicial .novidades {
+  display: flex;
+  flex-direction: column;
+  height: 474.18px;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+}
+
+.pagina-inicial .text-wrapper-7 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: 36px;
+  white-space: nowrap;
+}
+
+.pagina-inicial .produtos {
+  display: flex;
+  width: 1370px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1px 10px;
+  position: relative;
+  flex: 0 0 auto;
+  margin-left: -6px;
+  margin-right: -6px;
+}
+
+.pagina-inicial .produto {
+  position: relative;
+  width: 255.17px;
+  height: 355.37px;
+}
+
+.pagina-inicial .overlap-group {
+  position: absolute;
+  width: 251px;
+  height: 322px;
+  top: 0;
+  left: 0;
+  background-image: url(./img/image.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.pagina-inicial .text-wrapper-8 {
+  position: absolute;
+  width: 178px;
+  top: 276px;
+  left: 24px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: 36px;
+  white-space: nowrap;
+}
+
+.pagina-inicial .text-wrapper-9 {
+  position: absolute;
+  width: 153px;
+  top: 335px;
+  left: 24px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.pagina-inicial .overlap {
+  position: absolute;
+  width: 251px;
+  height: 322px;
+  top: 0;
+  left: 0;
+  background-image: url(./img/image-2.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.pagina-inicial .text-wrapper-10 {
+  width: 153px;
+  white-space: nowrap;
+  position: absolute;
+  top: 335px;
+  left: 38px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 20px;
+}
+
+.pagina-inicial .div-wrapper {
+  position: absolute;
+  width: 251px;
+  height: 322px;
+  top: 0;
+  left: 0;
+  background-image: url(./img/image-8.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.pagina-inicial .produto-2 {
+  position: relative;
+  width: 255.17px;
+  height: 361.8px;
+  margin-right: -4px;
+}
+
+.pagina-inicial .overlap-2 {
+  position: absolute;
+  width: 251px;
+  height: 322px;
+  top: 0;
+  left: 0;
+  background-image: url(./img/image-5.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.pagina-inicial .text-wrapper-11 {
+  position: absolute;
+  width: 203px;
+  top: 276px;
+  left: 24px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: 36px;
+  white-space: nowrap;
+}
+
+.pagina-inicial .text-wrapper-12 {
+  width: 177px;
+  position: absolute;
+  top: 335px;
+  left: 38px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 20px;
+}
+
+.pagina-inicial .pontos-2 {
+  position: relative;
+  width: 61.65px;
+  height: 14.18px;
+}
+
+.pagina-inicial .novidades-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.pagina-inicial .overlap-group-2 {
+  position: absolute;
+  width: 251px;
+  height: 322px;
+  top: 0;
+  left: 0;
+  background-image: url(./img/image-3.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.pagina-inicial .overlap-3 {
+  position: absolute;
+  width: 251px;
+  height: 322px;
+  top: 0;
+  left: 0;
+  background-image: url(./img/image-6.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.pagina-inicial .overlap-4 {
+  position: absolute;
+  width: 251px;
+  height: 322px;
+  top: 0;
+  left: 0;
+  background-image: url(./img/image-4.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.pagina-inicial .overlap-5 {
+  position: absolute;
+  width: 251px;
+  height: 322px;
+  top: 0;
+  left: 0;
+  background-image: url(./img/image-7.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.pagina-inicial .parte-de-baixo {
+  flex-wrap: wrap;
+  align-content: space-between;
+  height: 122px;
+  padding: 20px;
+  background-color: #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+}
+
+.pagina-inicial .text-wrapper-13 {
+  position: relative;
+  width: fit-content;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 35px;
+  letter-spacing: 0;
+  line-height: 35px;
+  white-space: nowrap;
+}
+
+.pagina-inicial .metodos-de-pagamento {
+  position: relative;
+  flex: 0 0 auto;
+}
