@@ -1,0 +1,108 @@
+.tela-de-login {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  gap: 20px;
+  padding: 20px 0px;
+  position: relative;
+  flex: 0 0 auto;
+  background-color: #d9d9d9;
+  border-radius: 5px;
+}
+
+.tela-de-login .introducao-login {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 29px;
+  padding: 0px 6px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.tela-de-login .texto-conta {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.tela-de-login .campos {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 0px 6px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.tela-de-login .campo {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4 8 4 8;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.tela-de-login .campo {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.tela-de-login .paraoutros {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0px 6px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.tela-de-login .paraoutros {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.tela-de-login .enviar {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6% 5%;
+  position: relative;
+  flex: 0 0 auto;
+  background-color: #009951;
+  border-radius: 40px;
+}
