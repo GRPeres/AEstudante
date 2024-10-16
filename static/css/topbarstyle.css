@@ -91,7 +91,7 @@ select {
 }
 
 .parte-de-cima .lupa {
-  background-image: url("../images/Lupa.svg");
+  background-image: url("../static/images/Lupa.svg");
   background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
@@ -114,7 +114,7 @@ select {
 /* tela de login */
 
 .parte-de-cima .conta {
-  background-image: url("../images/Conta.svg");
+  background-image: url("../static/images/Conta.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #ffffff;
@@ -247,7 +247,7 @@ select {
 /* tela de carrinho */
 
 .parte-de-cima .carrinho {
-  background-image: url("../images/Carrinho.svg");
+  background-image: url("../static/images/Carrinho.svg");
   background-repeat: no-repeat;
   background-color: #ffffff;
   background-size: cover;
