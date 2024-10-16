@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 1%;
-  position: fixed;
+  position: relative;
   background-color: #d9d9d9;
   bottom: 0;
 }
