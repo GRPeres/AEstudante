@@ -3,140 +3,245 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="globals.css" />
-  <link rel="stylesheet" href="styleguide.css" />
-  <link rel="stylesheet" href="style.css" />
+
+  <link rel="stylesheet" href="tela-busca.css" />
+  <link rel="stylesheet" href="../top bar/topbarstyle.css" />
+  <link rel="stylesheet" href="../bottombar/bottombar.css" />
+
+
 </head>
 
 <body>
+
+
   <div class="tela-de-busca">
     <div class="parte-de-cima">
-      <div class="div">
-        <div class="frame-logo"><img class="LOGO-a-ESTUDANTE" src="img/LOGO-a-ESTUDANTE-2.png" /></div>
-        <div class="barra-de-pesquisa">
-          <div class="texto">Buscar</div>
-          <img class="lupa" src="img/lupa.svg" />
+      <div class="organizacao">
+        <div class="frame-logo">
+          <img class="LOGO-A-ESTUDANTE" src="../images/Logo.png" />
         </div>
-        <div class="conta">
-          <img class="vector" src="img/image.svg" /> <img class="vector" src="img/vector.svg" />
+
+        <div class="conjunto-barra-de-pesquisa">
+          <input class="barra-de-pesquisa type=" placeholder="Pesquise aqui">
+          <img class="lupa" />
         </div>
-      </div>
-      <div class="navbar">
-        <div class="text-wrapper">Papelaria</div>
-        <div class="text-wrapper">Materiais De Escritorio</div>
-        <div class="text-wrapper">Coleções</div>
-        <div class="text-wrapper">Pedidos Personalizados</div>
-      </div>
-    </div>
-    <div class="group">
-      <div class="busca-por">Busca Por:</div>
-      <div class="text-wrapper-2">Xxxxxxxxxxxxxxxxxxxxxxxxxx</div>
-    </div>
-    <div class="group-2">
-      <div class="group-3">
-        <div class="overlap-group">
-          <div class="text-wrapper-3">R$ 999,99</div>
-        </div>
-        <div class="text-wrapper-4">Resumo do Item</div>
-      </div>
-      <div class="group-4">
-        <div class="overlap">
-          <div class="text-wrapper-3">R$ 999,99</div>
-        </div>
-        <div class="text-wrapper-4">Resumo do Item</div>
-      </div>
-      <div class="group-5">
-        <div class="div-wrapper">
-          <div class="text-wrapper-3">R$ 999,99</div>
-        </div>
-        <div class="text-wrapper-4">Resumo do Item</div>
-      </div>
-      <div class="group-6">
-        <div class="overlap-2">
-          <div class="text-wrapper-3">R$ 999,99</div>
-        </div>
-        <div class="text-wrapper-4">Resumo do Item</div>
-      </div>
-      <div class="group-7">
-        <div class="overlap-3">
-          <div class="text-wrapper-3">R$ 999,99</div>
-        </div>
-        <div class="text-wrapper-4">Resumo do Item</div>
-      </div>
-      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
-        <div class="group-8">
-          <div class="overlap-4">
-            <div class="text-wrapper-3">R$ 999,99</div>
+
+        <div class="botoes">
+          <div class="conta hover-target">
+            <div class="overlay">
+              <div class="tela-de-login">
+                <div class="texto-conta">Entrar</div>
+
+                <p class="paraoutros">
+                  <span>Não tem uma conta?</span>
+                  <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">Clique
+                    aqui!</a>
+                </p>
+
+                <div class="campos">
+                  <label class="texto-conta" for="Email">Email</label>
+                  <input class="campo" type="text" id="Email" name="Email" placeholder="Coloque aqui">
+                  <label class="texto-conta" for="Senha">Senha</label>
+                  <input class="campo" type="text" id="Senha" name="Senha" placeholder="Coloque aqui">
+                </div>
+
+                <div class="paraoutros">
+                  <span>Não tem uma conta?</span>
+                  <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">Clique
+                    aqui!</a>
+                </div>
+
+                <button class="enviar">
+                  <div class="texto-conta">ENVIAR</div>
+                </button>
+
+              </div>
+            </div>
           </div>
-          <div class="text-wrapper-4">Resumo do Item</div>
+
+          <div class="carrinho hover-target">
+            <div class="overlay">
+              <div class="carrinho-overlay">
+
+                <div class="entrada-carrinho">
+                  <div class="texto-carrinho-preto">Carrinho</div>
+                  <img class="icones" src="./images/x.svg" />
+                  <hr class="linha" />
+                </div>
+
+                <div class="produto">
+                  <img class="imagem-item" src="./images/Logo.png" />
+                  <div class="informacao-do-item">
+                    <div class="descricao-do-item">
+                      <div class="valor-pre-compra">R$ 999,99</div>
+                      <div class="nome-do-item">Nome do Item</div>
+                    </div>
+                    <div class="mudanca-item">
+                      <img class="icones" src="./images/retirar.svg" />
+                      <div class="quantidade-item">1</div>
+                      <img class="icones" src="./images/adicionar.svg" />
+                      <img class="icones" src="./images/deletar.svg" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="termino-carrinho">
+                  <div class="valor-subtotal">
+                    <div class="texto-carrinho-branco">Valor:</div>
+                    <div class="valor-produtos-branco">Xxxr$</div>
+                  </div>
+                  <div class="valor-subtotal">
+                    <div class="texto-carrinho-branco">Frete:</div>
+                    <div class="valor-produtos-branco">Xxxr$</div>
+                  </div>
+                  <div class="valor-total">
+                    <div class="texto-carrinho-preto">Total:</div>
+                    <div class="valor-produtos-preto">Xxxr$</div>
+                  </div>
+                  <button class="botao-continuar-compra">Continuar Comprando</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </a>
-      <div class="group-9">
-        <div class="overlap-5">
-          <div class="text-wrapper-3">R$ 999,99</div>
-        </div>
-        <div class="text-wrapper-4">Resumo do Item</div>
       </div>
-      <div class="group-10">
-        <div class="overlap-6">
-          <div class="text-wrapper-3">R$ 999,99</div>
+
+      <div class="navbar hover-target">
+        <text type="navbar-item">Papelaria</text>
+        <text type="navbar-item">Materiais De Escritorio</text>
+        <text type="navbar-item">Coleções</text>
+        <text type="navbar-item">Pedidos Personalizados</text>
+        <text type="navbar-item">Papelaria</text>
+        <div class="overlay">
+          <div class="barra-de-produtos">
+            <div class="navbar-item">Caderno</div>
+            <div class="navbar-item">Lapis</div>
+            <div class="navbar-item">Calculadora</div>
+            <div class="navbar-item">Lapis Colorido</div>
+            <div class="navbar-item">Caneta Azul</div>
+            <div class="navbar-item">Caneta Vermelha</div>
+            <div class="navbar-item">Porta Caneta</div>
+            <div class="navbar-item">Agenda</div>
+            <div class="navbar-item">Isopor</div>
+            <div class="navbar-item">Giz</div>
+          </div>
         </div>
-        <div class="text-wrapper-4">Resumo do Item</div>
-      </div>
-      <div class="group-11">
-        <div class="overlap-7">
-          <div class="text-wrapper-3">R$ 999,99</div>
-        </div>
-        <div class="text-wrapper-4">Resumo do Item</div>
-      </div>
-      <div class="group-12">
-        <div class="overlap-8">
-          <div class="text-wrapper-3">R$ 999,99</div>
-        </div>
-        <div class="text-wrapper-4">Resumo do Item</div>
-      </div>
-      <div class="group-13">
-        <div class="overlap-9">
-          <div class="text-wrapper-3">R$ 999,99</div>
-        </div>
-        <div class="text-wrapper-4">Resumo do Item</div>
-      </div>
-      <div class="group-14">
-        <div class="overlap-10">
-          <div class="text-wrapper-3">R$ 999,99</div>
-        </div>
-        <div class="text-wrapper-4">Resumo do Item</div>
-      </div>
-      <div class="group-15">
-        <div class="overlap-11">
-          <div class="text-wrapper-3">R$ 999,99</div>
-        </div>
-        <div class="text-wrapper-4">Resumo do Item</div>
-      </div>
-      <div class="group-16">
-        <div class="overlap-12">
-          <div class="text-wrapper-3">R$ 999,99</div>
-        </div>
-        <div class="text-wrapper-4">Resumo do Item</div>
-      </div>
-      <div class="group-17">
-        <div class="overlap-13">
-          <div class="text-wrapper-3">R$ 999,99</div>
-        </div>
-        <div class="text-wrapper-4">Resumo do Item</div>
       </div>
     </div>
-    <div class="parte-de-baixo">
-      <a href="https://www.youtube.com/watch?v=Sagg08DrO5U" target="_blank" rel="noopener noreferrer">
-        <div class="text-wrapper-5">Telefone</div>
+
+    <div class="grupo-pesquisa">
+      <div class="pesquisa-termos">Busca Por:</div>
+      <div class="pesquisa-termos termo-pesquisa">XXXXXXXXXXXXXXXXXXX</div>
+    </div>
+
+    <div class="conjunto-resultados">
+
+      <div class="produto">
+
+        <img class="promo-img-produto" src="../images/Conjunto lapis.jpeg" />
+
+        <div class="descricao-produto">
+          <div class="valor-produto">R$ 999,99</div>
+          <div class="nome-produto">Resumo do Item</div>
+        </div>
+
+      </div>
+
+      <div class="produto">
+
+        <img class="promo-img-produto" src="../images/Conjunto lapis.jpeg" />
+
+        <div class="descricao-produto">
+          <div class="valor-produto">R$ 999,99</div>
+          <div class="nome-produto">Resumo do Item</div>
+        </div>
+
+      </div>
+
+      <div class="produto">
+
+        <img class="promo-img-produto" src="../images/Conjunto lapis.jpeg" />
+
+        <div class="descricao-produto">
+          <div class="valor-produto">R$ 999,99</div>
+          <div class="nome-produto">Resumo do Item</div>
+        </div>
+
+      </div>
+
+      <div class="produto">
+
+        <img class="promo-img-produto" src="../images/Conjunto lapis.jpeg" />
+
+        <div class="descricao-produto">
+          <div class="valor-produto">R$ 999,99</div>
+          <div class="nome-produto">Resumo do Item</div>
+        </div>
+
+      </div>
+
+      <div class="produto">
+
+        <img class="promo-img-produto" src="../images/Conjunto lapis.jpeg" />
+
+        <div class="descricao-produto">
+          <div class="valor-produto">R$ 999,99</div>
+          <div class="nome-produto">Resumo do Item</div>
+        </div>
+
+      </div>
+
+      <div class="produto">
+
+        <img class="promo-img-produto" src="../images/Conjunto lapis.jpeg" />
+
+        <div class="descricao-produto">
+          <div class="valor-produto">R$ 999,99</div>
+          <div class="nome-produto">Resumo do Item</div>
+        </div>
+
+      </div>
+
+      <div class="produto">
+
+        <img class="promo-img-produto" src="../images/Conjunto lapis.jpeg" />
+
+        <div class="descricao-produto">
+          <div class="valor-produto">R$ 999,99</div>
+          <div class="nome-produto">Resumo do Item</div>
+        </div>
+
+      </div>
+
+      <div class="produto">
+
+        <img class="promo-img-produto" src="../images/Conjunto lapis.jpeg" />
+
+        <div class="descricao-produto">
+          <div class="valor-produto">R$ 999,99</div>
+          <div class="nome-produto">Resumo do Item</div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="bottombar">
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
+        <div class="parafora">Telefone</div>
       </a>
-      <a href="https://www.youtube.com/watch?v=KHlYG8UVxws" target="_blank" rel="noopener noreferrer">
-        <div class="text-wrapper-5">whatsapp</div>
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
+        <div class="parafora">whatsapp</div>
       </a>
-      <div class="text-wrapper-5">Tipos de Pagamentos:</div>
+      <div class="parafora">Tipos de Pagamentos:</div>
       <img class="metodos-de-pagamento" src="img/metodos-de-pagamento.svg" />
     </div>
+
   </div>
+
+
+
+  <script src="tela-busca.js"></script>
 </body>
 
 </html>
