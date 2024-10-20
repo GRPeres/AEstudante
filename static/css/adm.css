@@ -1,11 +1,11 @@
 @font-face {
   font-family: cooperBlack;
-  src: url('../fonts/cooper-black-bt.ttf') format('truetype');
+  src: url("../fonts/cooper-black-bt.ttf") format("truetype");
 }
 
 @font-face {
   font-family: sequelSans;
-  src: url('../fonts/sequel-sans-black-disp.ttf') format('truetype');
+  src: url("../fonts/sequel-sans-black-disp.ttf") format("truetype");
 }
 
 /* Configuração das camadas */

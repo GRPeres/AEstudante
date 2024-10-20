@@ -10,25 +10,27 @@
     <!-- Título da página -->
   </head>
   <body>
-  
     <div class="desktop">
-      
-      <div class="floating-box" id="modal" style="position: fixed;top: 30%;right: 42%;">
-          <h2>Login</h2>
-          <div class="floating-box">
-              <label for="username">Usuario:</label>
-              <input type="text" placeholder="Usuario" id="username">
-            </div>
-            <div class="floating-box">
-              <label for="password">Senha:</label>
-              <input type="password" placeholder="Senha" id="password">
-            </div>
-            <div class="floating-box">
-              <button id="doneButton">Done</button>
-          </div>
+      <div
+        class="floating-box"
+        id="modal"
+        style="position: fixed; top: 30%; right: 42%"
+      >
+        <h2>Login</h2>
+        <div class="floating-box">
+          <label for="username">Usuario:</label>
+          <input type="text" placeholder="Usuario" id="username" />
+        </div>
+        <div class="floating-box">
+          <label for="password">Senha:</label>
+          <input type="password" placeholder="Senha" id="password" />
+        </div>
+        <div class="floating-box">
+          <button id="doneButton">Done</button>
+        </div>
       </div>
-      
-      <div class="overlap" style="filter: blur(5px);">
+
+      <div class="overlap" style="filter: blur(5px)">
         <!-- Barra lateral -->
         <div class="overlap-group">
           <div class="rectangle">
@@ -74,7 +76,11 @@
         </button>
 
         <!-- Input para Filtro -->
-        <div class="floating-box" id="floatingBox" style="display: none; position: fixed;top: 20px;right: 20px;">
+        <div
+          class="floating-box"
+          id="floatingBox"
+          style="display: none; position: fixed; top: 20px; right: 20px"
+        >
           <select class="dropdown">
             <option value="option1">Nome</option>
             <!-- Opção para filtrar por nome -->
@@ -109,7 +115,7 @@
               />
               <input
                 class="divWrapper defaultBox"
-                style="width:50.4%"
+                style="width: 50.4%"
                 name="descricao_produtos"
                 value="{{ produto.descricao_produtos }}"
                 placeholder="Descrição"
@@ -117,7 +123,7 @@
               <input
                 class="divWrapper defaultBox"
                 style="width: 4%"
-                step='0.01'
+                step="0.01"
                 name="preco_produtos"
                 value="{{ produto.preco_produtos }}"
                 placeholder="Preço"
@@ -145,7 +151,6 @@
       </div>
     </div>
 
-    <script src="../static/js/adm.js">
-    </script>
+    <script src="../static/js/adm.js"></script>
   </body>
 </html>
