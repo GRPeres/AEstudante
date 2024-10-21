@@ -1,219 +1,288 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/display-produtostyle.css" />
+    <link rel="stylesheet" href="../static/css/bottombar.css" />
+    <link rel="stylesheet" href="../static/css/topbarstyle.css" />
+    <title>Página de Produtos</title>
+    <!-- Título da página -->
+  </head>
 
-<head>
-  <meta charset="utf-8" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../static/css/display-produtostyle.css" /> 
-  <link rel="stylesheet" href="../static/css/bottombar.css" />
-  <link rel="stylesheet" href="../static/css/topbarstyle.css" />
-</head>
-
-<body>
-
-  <div class="parte-de-cima">
-    <div class="organizacao">
-      <div class="frame-logo">
-        <img class="LOGO-A-ESTUDANTE" src="../static/images/Logo.png" />
-      </div>
-
-      <div class="conjunto-barra-de-pesquisa">
-        <input class="barra-de-pesquisa type=" placeholder="Pesquise aqui">
-        <img class="lupa" />
-      </div>
-
-      <div class="botoes">
-        <div class="conta hover-target">
-          <div class="overlay">
-            <div class="tela-de-login">
-              <div class="texto-conta">Entrar</div>
-
-              <p class="paraoutros">
-                <span>Não tem uma conta?</span>
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">Clique
-                  aqui!</a>
-              </p>
-
-              <div class="campos">
-                <label class="texto-conta" for="Email">Email</label>
-                <input class="campo" type="text" id="Email" name="Email" placeholder="Coloque aqui">
-                <label class="texto-conta" for="Senha">Senha</label>
-                <input class="campo" type="text" id="Senha" name="Senha" placeholder="Coloque aqui">
-              </div>
-
-              <div class="paraoutros">
-                <span>Não tem uma conta?</span>
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">Clique
-                  aqui!</a>
-              </div>
-
-              <button class="enviar">
-                <div class="texto-conta">ENVIAR</div>
-              </button>
-
-            </div>
-          </div>
+  <body>
+    <header class="parte-de-cima">
+      <div class="organizacao">
+        <div class="frame-logo">
+          <img
+            class="LOGO-A-ESTUDANTE"
+            src="../static/images/Logo.png"
+            alt="Logo da Empresa"
+          />
         </div>
 
-        <div class="carrinho hover-target">
-          <div class="overlay">
-            <div class="carrinho-overlay">
+        <div class="conjunto-barra-de-pesquisa">
+          <input
+            class="barra-de-pesquisa"
+            type="text"
+            placeholder="Pesquise aqui"
+          />
+          <img class="lupa" alt="Ícone de pesquisa" />
+        </div>
 
-              <div class="entrada-carrinho">
-                <div class="texto-carrinho-preto">Carrinho</div>
-                <img class="icones" src="../static/images/x.svg" />
-                <hr class="linha" />
+        <div class="botoes">
+          <!-- Botão de conta -->
+          <div class="conta hover-target">
+            <div class="overlay">
+              <div class="tela-de-login">
+                <div class="texto-conta">Entrar</div>
+
+                <p class="paraoutros">
+                  <span>Não tem uma conta?</span>
+                  <a
+                    href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Clique aqui!</a
+                  >
+                </p>
+
+                <div class="campos">
+                  <label class="texto-conta" for="Email">Email</label>
+                  <input
+                    class="campo"
+                    type="email"
+                    id="Email"
+                    name="Email"
+                    placeholder="Coloque aqui"
+                    required
+                  />
+                  <label class="texto-conta" for="Senha">Senha</label>
+                  <input
+                    class="campo"
+                    type="password"
+                    id="Senha"
+                    name="Senha"
+                    placeholder="Coloque aqui"
+                    required
+                  />
+                </div>
+
+                <button class="enviar">
+                  <div class="texto-conta">ENVIAR</div>
+                </button>
               </div>
+            </div>
+          </div>
 
-              <div class="produto">
-                <img class="imagem-item" src="../static/images/Logo.png" />
-                <div class="informacao-do-item">
-                  <div class="descricao-do-item">
-                    <div class="valor-pre-compra">R$ 999,99</div>
-                    <div class="nome-do-item">Nome do Item</div>
+          <!-- Botão de carrinho -->
+          <div class="carrinho hover-target">
+            <div class="overlay">
+              <div class="carrinho-overlay">
+                <div class="entrada-carrinho">
+                  <div class="texto-carrinho-preto">Carrinho</div>
+                  <img
+                    class="icones"
+                    src="../static/images/x.svg"
+                    alt="Fechar carrinho"
+                  />
+                  <hr class="linha" />
+                </div>
+
+                <div class="produto">
+                  <img
+                    class="imagem-item"
+                    src="../static/images/Logo.png"
+                    alt="Produto"
+                  />
+                  <div class="informacao-do-item">
+                    <div class="descricao-do-item">
+                      <div class="valor-pre-compra">R$ 999,99</div>
+                      <div class="nome-do-item">Nome do Item</div>
+                    </div>
+                    <div class="mudanca-item">
+                      <img
+                        class="icones"
+                        src="../static/images/retirar.svg"
+                        alt="Remover item"
+                      />
+                      <div class="quantidade-item">1</div>
+                      <img
+                        class="icones"
+                        src="../static/images/adicionar.svg"
+                        alt="Adicionar item"
+                      />
+                      <img
+                        class="icones"
+                        src="../static/images/deletar.svg"
+                        alt="Deletar item"
+                      />
+                    </div>
                   </div>
-                  <div class="mudanca-item">
-                    <img class="icones" src="../static/images/retirar.svg" />
-                    <div class="quantidade-item">1</div>
-                    <img class="icones" src="../static/images/adicionar.svg" />
-                    <img class="icones" src="../static/images/deletar.svg" />
+                </div>
+
+                <div class="termino-carrinho">
+                  <div class="valor-subtotal">
+                    <div class="texto-carrinho-branco">Valor:</div>
+                    <div class="valor-produtos-branco">Xxxr$</div>
                   </div>
+                  <div class="valor-subtotal">
+                    <div class="texto-carrinho-branco">Frete:</div>
+                    <div class="valor-produtos-branco">Xxxr$</div>
+                  </div>
+                  <div class="valor-total">
+                    <div class="texto-carrinho-preto">Total:</div>
+                    <div class="valor-produtos-preto">Xxxr$</div>
+                  </div>
+                  <button class="botao-continuar-compra">
+                    Continuar Comprando
+                  </button>
                 </div>
-              </div>
-
-              <div class="termino-carrinho">
-                <div class="valor-subtotal">
-                  <div class="texto-carrinho-branco">Valor:</div>
-                  <div class="valor-produtos-branco">Xxxr$</div>
-                </div>
-                <div class="valor-subtotal">
-                  <div class="texto-carrinho-branco">Frete:</div>
-                  <div class="valor-produtos-branco">Xxxr$</div>
-                </div>
-                <div class="valor-total">
-                  <div class="texto-carrinho-preto">Total:</div>
-                  <div class="valor-produtos-preto">Xxxr$</div>
-                </div>
-                <button class="botao-continuar-compra">Continuar Comprando</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="navbar hover-target">
-      <text type="navbar-item">Papelaria</text>
-      <text type="navbar-item">Materiais De Escritorio</text>
-      <text type="navbar-item">Coleções</text>
-      <text type="navbar-item">Pedidos Personalizados</text>
-      <text type="navbar-item">Papelaria</text>
-      <div class="overlay">
-        <div class="barra-de-produtos">
-          <div class="navbar-item">Caderno</div>
-          <div class="navbar-item">Lapis</div>
-          <div class="navbar-item">Calculadora</div>
-          <div class="navbar-item">Lapis Colorido</div>
-          <div class="navbar-item">Caneta Azul</div>
-          <div class="navbar-item">Caneta Vermelha</div>
-          <div class="navbar-item">Porta Caneta</div>
-          <div class="navbar-item">Agenda</div>
-          <div class="navbar-item">Isopor</div>
-          <div class="navbar-item">Giz</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="display-de-item">
-    <div class="item-coisas">
-
-      <div class="conjunto-imagens">
-        <div class="conjunto-imagem-secundaria">
-          <img class="imagem-secundaria" src="../static/images/conjunto lapis2.jpg" />
-          <img class="imagem-secundaria" src="../static/images/Conjunto lapis2.jpg" />
-          <img class="imagem-secundaria" src="../static/images/Conjunto lapis2.jpg" />
-        </div>
-        <img class="imagem-produto" src="../static/images/Conjunto lapis.jpeg" />
-      </div>
-
-      <div class="produto-detalhes">
-
-        <div class="item-inicio">
-          <div class="nome-prod">Nome do Item</div>
-          <div class="valor-prod">R$ 999,99</div>
-          <hr class="linha" />
-        </div>
-
-        <div class="sel-quant">
-
-          <div class="opcoes-item">Quantidade</div>
-
-          <div class="conjunto-quantidade-adicionar">
-
-            <div class="quant-item">
-              <button>
-                <img class="icone" src="../static/images/adicionar.svg" />
-              </button>
-
-              <div class="quantidade-item">1</div>
-
-              <button>
-                <img class="icone" src="../static/images/retirar.svg" />
-              </button>
-            </div>
-
-            <button class="botao-adicionar-carrinho">Adicionar ao carrinho</button>
-
+      <nav class="navbar hover-target">
+        <div class="navbar-item">Papelaria</div>
+        <div class="navbar-item">Materiais De Escritório</div>
+        <div class="navbar-item">Coleções</div>
+        <div class="navbar-item">Pedidos Personalizados</div>
+        <div class="overlay">
+          <div class="barra-de-produtos">
+            <div class="navbar-item">Caderno</div>
+            <div class="navbar-item">Lápis</div>
+            <div class="navbar-item">Calculadora</div>
+            <div class="navbar-item">Lápis Colorido</div>
+            <div class="navbar-item">Caneta Azul</div>
+            <div class="navbar-item">Caneta Vermelha</div>
+            <div class="navbar-item">Porta Caneta</div>
+            <div class="navbar-item">Agenda</div>
+            <div class="navbar-item">Isopor</div>
+            <div class="navbar-item">Giz</div>
           </div>
         </div>
+      </nav>
+    </header>
 
-      </div>
-    </div>
-
-    <div class="conjunto-informacoes-produto">
-
-      <div class="fundo">
-
-        <div class="rectangle">
-          <div class="informacoes-prod">INFORMAÇÕES DO PRODUTO</div>
+    <main class="display-de-item">
+      <div class="item-coisas">
+        <div class="conjunto-imagens">
+          <div class="conjunto-imagem-secundaria">
+            <img
+              class="imagem-secundaria"
+              src="../static/images/conjunto lapis2.jpg"
+              alt="Imagem secundária do produto"
+            />
+            <img
+              class="imagem-secundaria"
+              src="../static/images/conjunto lapis2.jpg"
+              alt="Imagem secundária do produto"
+            />
+            <img
+              class="imagem-secundaria"
+              src="../static/images/conjunto lapis2.jpg"
+              alt="Imagem secundária do produto"
+            />
+          </div>
+          <img
+            class="imagem-produto"
+            src="../static/images/Conjunto lapis.jpeg"
+            alt="Imagem do produto"
+          />
         </div>
 
-        <hr class="linha2" />
+        <div class="produto-detalhes">
+          <div class="item-inicio">
+            <div class="nome-prod">{{ produto.nome_produtos}}</div>
+            <div id="valor-prod" class="valor-prod">{{ produto.preco_produtos }}</div>
+            <hr class="linha" />
+          </div>
+
+          <div class="sel-quant">
+            <div class="opcoes-item">Quantidade</div>
+            <div class="conjunto-quantidade-adicionar">
+              <div class="quant-item">
+                <button>
+                  <img
+                    class="icone"
+                    src="../static/images/adicionar.svg"
+                    alt="Adicionar quantidade"
+                  />
+                </button>
+                <div class="quantidade-item">1</div>
+                <button>
+                  <img
+                    class="icone"
+                    src="../static/images/retirar.svg"
+                    alt="Reduzir quantidade"
+                  />
+                </button>
+              </div>
+              <button class="botao-adicionar-carrinho">
+                Adicionar ao carrinho
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
-    </div>
+      <div class="conjunto-informacoes-produto">
+        <div class="fundo">
+          <div class="rectangle">
+            <div class="informacoes-prod">INFORMAÇÕES DO PRODUTO</div>
+          </div>
+          <hr class="linha2" />
+        </div>
+      </div>
 
-    <div class="desc-prod">
-      <p class="texto-desc-prod">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptas voluptates asperiores nemo atque
-        ab eveniet dolorem blanditiis quisquam, modi sint reprehenderit, reiciendis sequi. Hic tenetur ex atque
-        laboriosam nulla?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptas voluptates asperiores nemo atque
-        ab eveniet dolorem blanditiis quisquam, modi sint reprehenderit, reiciendis sequi. Hic tenetur ex atque
-        laboriosam nulla?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptas voluptates asperiores nemo atque
-        ab eveniet dolorem blanditiis quisquam, modi sint reprehenderit, reiciendis sequi. Hic tenetur ex atque
-        laboriosam nulla?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptas voluptates asperiores nemo atque
-        ab eveniet dolorem blanditiis quisquam, modi sint reprehenderit, reiciendis sequi. Hic tenetur ex atque
-        laboriosam nulla?
-      </p>
-    </div>
-  </div>
+      <div class="desc-prod">
+        <p class="texto-desc-prod">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
+          voluptas voluptates asperiores nemo atque ab eveniet dolorem
+          blanditiis quisquam, modi sint reprehenderit, reiciendis sequi. Hic
+          tenetur ex atque laboriosam nulla? Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Molestias voluptas voluptates asperiores
+          nemo atque ab eveniet dolorem blanditiis quisquam, modi sint
+          reprehenderit, reiciendis sequi. Hic tenetur ex atque laboriosam
+          nulla? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Molestias voluptas voluptates asperiores nemo atque ab eveniet dolorem
+          blanditiis quisquam, modi sint reprehenderit, reiciendis sequi. Hic
+          tenetur ex atque laboriosam nulla? Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Molestias voluptas voluptates asperiores
+          nemo atque ab eveniet dolorem blanditiis quisquam, modi sint
+          reprehenderit, reiciendis sequi. Hic tenetur ex atque laboriosam
+          nulla?
+        </p>
+      </div>
+    </main>
 
-  <div class="bottombar">
-    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
-      <div class="parafora">Telefone</div>
-    </a>
-    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
-      <div class="parafora">whatsapp</div>
-    </a>
-    <div class="parafora">Tipos de Pagamentos:</div>
-    <img class="metodos-de-pagamento" src="../static/images/metodos-de-pagamento.svg" />
-  </div>
+    <footer class="bottombar">
+      <a
+        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div class="parafora">Telefone</div>
+      </a>
+      <a
+        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div class="parafora">WhatsApp</div>
+      </a>
+      <div class="parafora">Tipos de Pagamentos:</div>
+      <img
+        class="metodos-de-pagamento"
+        src="../static/images/metodos-de-pagamento.svg"
+        alt="Métodos de pagamento"
+      />
+    </footer>
 
-  <script src="topbarjs.js"></script>
-</body>
-
+    <script> var preco = document.getElementById("valor-prod").innerHTML; </script>
+    <script src="../static/js/topbarjs.js"></script>
+    <script src="../static/js/display-produto.js"> </script>
+  </body> 
 </html>

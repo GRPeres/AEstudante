@@ -134,5 +134,14 @@ def login():
     else:
         return jsonify({'error': 'Invalid credentials'}), 401  # Unauthorized
     
-# Inicia a aplicação Flask em modo de debug
+
+# Rota principal da página de controle de estoque
+@app.route('/items/<int:id>', methods=['GET'])
+def items(id): 
+    dao = DAO()
+    produto = dao.readById(id)
+    if produto:    
+        return render_template('display-produto.html', produto=produto)
+    else:
+        return render_template('display-produto.html', produto=dao.readById(1))
 app.run(debug=True)
