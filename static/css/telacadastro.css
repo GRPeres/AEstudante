@@ -1,0 +1,124 @@
+/* Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.overlay-cadastro {
+  display: inline-flex;
+  flex-direction: column;
+  width: fit-content;
+  height: auto;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  gap: 15px;
+  padding: 1%;
+  flex: 0 0 auto;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+}
+
+.overlay-cadastro .introducao-login {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20%;
+  padding: 0% 4%;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.overlay-cadastro .texto-introducao {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.overlay-cadastro .redidirecionar-conta {
+  position: relative;
+  width: fit-content;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.overlay-cadastro .texto-pergunta {
+  color: #000000;
+}
+
+.overlay-cadastro .redirecionador {
+  color: #4552c5;
+}
+
+.overlay-cadastro .campos {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 0px 6px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.overlay-cadastro .Tipo-Campo {
+  position: relative;
+  width: 323px;
+  height: 67px;
+  margin-right: -2px;
+}
+
+.overlay-cadastro .campo-label {
+  position: absolute;
+  height: 24px;
+  top: 0;
+  left: 0;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.overlay-cadastro .campo {
+  display: flex;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  position: absolute;
+  top: 39px;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 100px;
+}
+
+.overlay-cadastro .enviar {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6% 10%;
+  position: relative;
+  flex: 0 0 auto;
+  background-color: #009951;
+  border-radius: 100px;
+}
