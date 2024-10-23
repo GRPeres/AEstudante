@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Inter-Regular", Helvetica, sans-serif;
+}
+
+.esqueci-a-senha {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ff0000;
+}
+
+.recuperacao-senha-enviar,
+.recuperacao-senha-voltar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4vh;
+  padding: 3% 2%;
+  background-color: #d9d9d9;
+  border-radius: 40px;
+  text-align: center;
+}
+
+.Introducao {
+  font-size: 40px;
+  color: #000;
+}
+
+.conjunto-campo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: 2vh;
+}
+
+.coloque-campo {
+  font-size: 20px;
+  color: #000;
+}
+
+.campo {
+  width: 100%;
+  padding: 12px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.botao-enviar {
+  padding: 1em 2em;
+  background-color: #009951;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.botao-enviar:hover {
+  background-color: #007a3b;
+}
+
+.botao-enviar-texto {
+  font-size: 24px;
+  color: #fff;
+}
+
+.recup-titulo {
+  font-size: 48px;
+  color: #000000;
+}
+
+.conjunto-voltar {
+  width: 330px;
+}
+
+.botao-voltar {
+  width: 100%;
+  padding: 1.5em;
+  background-color: #006baa;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.botao-voltar:hover {
+  background-color: #004d82;
+}
+
+.botao-voltar-texto {
+  font-size: 32px;
+  color: #fff;
+  text-align: center;
+}
