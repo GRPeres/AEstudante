@@ -1,3 +1,5 @@
+
+
 // Função que configura listeners para update e delete
 function setupListeners(form) {
   const id = form.getAttribute("data-id"); // Obtém o ID do produto
