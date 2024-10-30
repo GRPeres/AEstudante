@@ -5,7 +5,7 @@ from sqlalchemy import insert
 
 class DAO:
     name = "root"
-    password = "root"
+    password = "quemleumecomeu"
     host = "localhost"
     database = "aestudante_db"
     
