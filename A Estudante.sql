@@ -16,7 +16,7 @@ CREATE TABLE tb_produtos(
 	nome_produtos VARCHAR(50) NOT NULL,
     preco_produtos DOUBLE NOT NULL,
 	descricao_produtos VARCHAR(250) NOT NULL,
-    categoria_produto VARCHAR(50) NOT NULL,
+    categoria_produtos VARCHAR(50) NOT NULL,
     quantidade_produtos INT NOT NULL,
-    imagem_produto VARCHAR(250) NOT NULL
+    imagem_produtos VARCHAR(250) NOT NULL
 );
