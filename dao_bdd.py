@@ -23,6 +23,8 @@ class DAO:
         self.des = "descricao_produtos"
         self.qtd = "quantidade_produtos"
         self.pre = "preco_produtos"
+        self.cat = "categoria_produtos"
+        self.img = "imagem_produtos"
 
         # Work with ORM sessions
         session_factory = sessionmaker(bind=engine)
