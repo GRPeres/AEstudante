@@ -108,16 +108,30 @@
             <form class="updateForm" data-id="{{ produto.id_produtos }}">
               <input
                 class="divWrapper defaultBox"
-                style="width: 20%"
+                style="width: 4%"
+                name="imagem_produtos"
+                value="{{ produto.imagem_produtos }}"
+                placeholder="Imagem"
+              />
+              <input
+                class="divWrapper defaultBox"
+                style="width: 10%"
                 name="nome_produtos"
                 value="{{ produto.nome_produtos }}"
                 placeholder="Nome"
               />
               <input
                 class="divWrapper defaultBox"
-                style="width: 50.4%"
+                style="width: 40.4%"
                 name="descricao_produtos"
                 value="{{ produto.descricao_produtos }}"
+                placeholder="Descrição"
+              />
+              <input
+                class="divWrapper defaultBox"
+                style="width: 10%"
+                name="categoria_produtos"
+                value="{{ produto.categoria_produtos }}"
                 placeholder="Descrição"
               />
               <input

@@ -54,14 +54,52 @@ document.getElementById("addRowBtn").addEventListener("click", function () {
   const newRow = document.createElement("div");
   newRow.classList.add("tableRow");
   newRow.innerHTML = `
-      <form class="updateForm" data-id="null">
-          <input class="divWrapper defaultBox" style="width: 20%;" name="nome_produtos" placeholder="Nome" />
-          <input class="divWrapper defaultBox" style="width: 50.4%;" name="descricao_produtos" placeholder="Descrição" />
-          <input class="divWrapper step='0.01' defaultBox" style="width: 4%;" name="preco_produtos" placeholder="Preço" />
-          <input class="divWrapper defaultBox" style="width: 2%;" name="quantidade_produtos" placeholder="Qtd" />
-          <button  type="button" class="trashBtn iconSize buttonBox" style="width: 48px; top: 18px;">
-              <img src="../static/images/eos-icons--content-deleted.svg" />
-          </button>
+      <form class="updateForm">
+              <input
+                class="divWrapper defaultBox"
+                style="width: 4%"
+                name="imagem_produtos"
+                placeholder="Imagem"
+              />
+              <input
+                class="divWrapper defaultBox"
+                style="width: 10%"
+                name="nome_produtos"
+                placeholder="Nome"
+              />
+              <input
+                class="divWrapper defaultBox"
+                style="width: 40.4%"
+                name="descricao_produtos"
+                placeholder="Descrição"
+              />
+              <input
+                class="divWrapper defaultBox"
+                style="width: 10%"
+                name="categoria_produtos"
+                placeholder="Descrição"
+              />
+              <input
+                class="divWrapper defaultBox"
+                style="width: 4%"
+                step="0.01"
+                name="preco_produtos"
+                placeholder="Preço"
+              />
+              <input
+                class="divWrapper defaultBox"
+                style="width: 2%"
+                name="quantidade_produtos"
+                placeholder="Qtd"
+              />
+              <button
+                type="button"
+                class="trashBtn iconSize buttonBox"
+                style="width: 48px; top: 18px"
+              >
+                <img src="../static/images/eos-icons--content-deleted.svg" />
+                <!-- Ícone para deletar -->
+              </button>
       </form>
     `;
 
@@ -144,14 +182,58 @@ document.getElementById("filterBtn").addEventListener("click", function () {
           const newRow = document.createElement("div");
           newRow.classList.add("tableRow");
           newRow.innerHTML = `
-        <form class="updateForm" data-id="${produto.id_produtos}">
-          <input class="divWrapper defaultBox" style="width: 20%;" name="nome_produtos" value="${produto.nome_produtos}" placeholder="Nome" />
-          <input class="divWrapper defaultBox" style="width: 50.4%;" name="descricao_produtos" value="${produto.descricao_produtos}" placeholder="Descrição" />
-          <input class="divWrapper defaultBox" step='0.01' style="width: 4%" name="preco_produtos" value="${produto.preco_produtos}" placeholder="Preço" />
-          <input class="divWrapper defaultBox" style="width: 2%;" name="quantidade_produtos" value="${produto.quantidade_produtos}" placeholder="Qtd" />
-          <button  type="button" class="trashBtn iconSize buttonBox"  style="width: 48px; top: 18px;">
-            <img src="../static/images/eos-icons--content-deleted.svg" />
-          </button>
+       <form class="updateForm" data-id="${ produto.id_produtos }">
+              <input
+                class="divWrapper defaultBox"
+                style="width: 4%"
+                name="imagem_produtos"
+                value="${ produto.imagem_produtos }"
+                placeholder="Imagem"
+              />
+              <input
+                class="divWrapper defaultBox"
+                style="width: 10%"
+                name="nome_produtos"
+                value="${ produto.nome_produtos }"
+                placeholder="Nome"
+              />
+              <input
+                class="divWrapper defaultBox"
+                style="width: 40.4%"
+                name="descricao_produtos"
+                value="${ produto.descricao_produtos }"
+                placeholder="Descrição"
+              />
+              <input
+                class="divWrapper defaultBox"
+                style="width: 10%"
+                name="categoria_produtos"
+                value="${ produto.categoria_produtos }"
+                placeholder="Descrição"
+              />
+              <input
+                class="divWrapper defaultBox"
+                style="width: 4%"
+                step="0.01"
+                name="preco_produtos"
+                value="${ produto.preco_produtos }"
+                placeholder="Preço"
+              />
+              <input
+                class="divWrapper defaultBox"
+                style="width: 2%"
+                name="quantidade_produtos"
+                value="${ produto.quantidade_produtos }"
+                placeholder="Qtd"
+              />
+              <button
+                type="button"
+                class="trashBtn iconSize buttonBox"
+                style="width: 48px; top: 18px"
+              >
+                <img src="../static/images/eos-icons--content-deleted.svg" />
+                <!-- Ícone para deletar -->
+              </button>
         </form>
       `;
           tableContainer.appendChild(newRow);

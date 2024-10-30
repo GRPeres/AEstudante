@@ -28,6 +28,8 @@ def update_produto(id):
     descricao_produtos = request.form['descricao_produtos']
     quantidade_produtos = request.form['quantidade_produtos']
     preco_produtos = request.form['preco_produtos']
+    imagem_produtos = request.form['imagem_produtos']
+    categoria_produtos = request.form['categoria_produtos']
     
     produto = dao.readById(id)  # Busca o produto pelo ID
     if produto:
@@ -36,6 +38,8 @@ def update_produto(id):
         produto.descricao_produtos = descricao_produtos
         produto.quantidade_produtos = quantidade_produtos
         produto.preco_produtos = preco_produtos
+        produto.imagem_produtos = imagem_produtos
+        produto.categoria_produtos = categoria_produtos
         
         dao.update(produto)  # Atualiza o produto no banco de dados
         return ('', 204)  # Retorna resposta 204 (No Content)
@@ -51,7 +55,9 @@ def add_product():
         nome_produtos='filler',
         descricao_produtos='filler',
         preco_produtos=Decimal(0),
-        quantidade_produtos='0'
+        quantidade_produtos='0',
+        imagem_produtos='Insira URL Aqui!',
+        categoria_produtos='filler'
     )
 
     try:
@@ -116,6 +122,8 @@ def filter_products():
                 'descricao_produtos': produto.descricao_produtos,
                 'quantidade_produtos': produto.quantidade_produtos,
                 'preco_produtos': produto.preco_produtos,
+                'imagem_produtos': produto.imagem_produtos,
+                'categoria_produtos': produto.categoria_produtos,
             }
             for produto in produtos
         ]
