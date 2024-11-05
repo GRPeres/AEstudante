@@ -4,22 +4,25 @@
 <head>
   <meta charset="utf-8" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../static/css/topbarstyle.css" />
+  <link rel="stylesheet" href="../static/css/topbar-overlay.css" />
 </head>
 
 <body>
-  <div class="parte-de-cima">
+  <div>
     <div class="organizacao">
       <div class="frame-logo">
         <img class="LOGO-A-ESTUDANTE" src="../static/images/Logo.png" />
       </div>
 
       <div class="conjunto-barra-de-pesquisa">
-        <input class="barra-de-pesquisa type=" placeholder="Pesquise aqui">
-        <img class="lupa" />
+        <input class="barra-de-pesquisa" placeholder="Pesquise aqui">
+        <img class="lupa" src="../static/images/Lupa.svg" />
       </div>
 
       <div class="botoes">
-        <div class="conta hover-target">
+
+        <div class="icone-conta hover-target">
+          <img class="icones" src="../static/images/Conta.svg" />
           <div class="overlay">
             <div class="tela-de-login">
               <div class="texto-conta">Entrar</div>
@@ -51,7 +54,8 @@
           </div>
         </div>
 
-        <div class="carrinho hover-target">
+        <div class="icone-carrrinho hover-target">
+          <img class="icones" src="../static/images/Carrinho.svg" />
           <div class="overlay">
             <div class="carrinho-overlay">
 
@@ -98,29 +102,32 @@
       </div>
     </div>
 
-    <div class="navbar hover-target">
-      <text type="navbar-item">Papelaria</text>
-      <text type="navbar-item">Materiais De Escritorio</text>
-      <text type="navbar-item">Coleções</text>
-      <text type="navbar-item">Pedidos Personalizados</text>
-      <text type="navbar-item">Papelaria</text>
+
+    <div class="barra-navegacao hover-target">
+
+      <span class="barra-navegacao-item">Papelaria</span>
+      <span class="barra-navegacao-item">Materiais De Escritorio</span>
+      <span class="barra-navegacao-item">Coleções</span>
+      <span class="barra-navegacao-item">Pedidos Personalizados</span>
+      <span class="barra-navegacao-item">Papelaria</span>
+
       <div class="overlay">
         <div class="barra-de-produtos">
-          <div class="navbar-item">Caderno</div>
-          <div class="navbar-item">Lapis</div>
-          <div class="navbar-item">Calculadora</div>
-          <div class="navbar-item">Lapis Colorido</div>
-          <div class="navbar-item">Caneta Azul</div>
-          <div class="navbar-item">Caneta Vermelha</div>
-          <div class="navbar-item">Porta Caneta</div>
-          <div class="navbar-item">Agenda</div>
-          <div class="navbar-item">Isopor</div>
-          <div class="navbar-item">Giz</div>
+          <div class="barra-de-produtos-item">Caderno</div>
+          <div class="barra-de-produtos-item">Lapis</div>
+          <div class="barra-de-produtos-item">Calculadora</div>
+          <div class="barra-de-produtos-item">Lapis Colorido</div>
+          <div class="barra-de-produtos-item">Caneta Azul</div>
+          <div class="barra-de-produtos-item">Caneta Vermelha</div>
+          <div class="barra-de-produtos-item">Porta Caneta</div>
+          <div class="barra-de-produtos-item">Agenda</div>
+          <div class="barra-de-produtos-item">Isopor</div>
+          <div class="barra-de-produtos-item">Giz</div>
         </div>
       </div>
     </div>
-  </div>
 
+  </div>
   <script src="../static/js/topbarjs.js"></script>
 </body>
 
