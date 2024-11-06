@@ -186,7 +186,7 @@ def ver_carrinho():
     for i in produto_ids:
         produto = dao.readById(i)
         lista_produtos.append(produto)
-    return render_template('cart.html', carrinho=carrinho, produto=lista_produtos)
+    return render_template('cart.html', carrinho=carrinho, produtos=lista_produtos)
 
 @app.route('/gerar_mensagem')
 def gerar_mensagem():
