@@ -89,10 +89,8 @@ html {
 .pagina-inicial .proposta-conjunto {
   display: flex;
   flex-direction: row;
-  width: 90%;
-  height: auto;
-  align-items: center;
-  justify-content: space-between;
+  width: auto;
+  height: 5%;
   padding: 0 5%;
   position: relative;
   align-self: stretch;
@@ -172,7 +170,7 @@ html {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: auto;
+  height: 20%;
   align-items: center;
   justify-content: space-between;
   padding: 5%;
@@ -198,22 +196,22 @@ html {
 .pagina-inicial .valor-produto,
 .pagina-inicial .nome-produto {
   position: relative;
+  display: block;
   font-family: "Inter-Regular", Helvetica;
   font-weight: 400;
   color: #000000;
   letter-spacing: 0;
-  line-height: 36px;
   white-space: nowrap;
+  width: auto;
+  padding: 0 20px;
 }
 
 .pagina-inicial .valor-produto {
   font-size: 36px;
-  line-height: 36px;
 }
 
 .pagina-inicial .nome-produto {
   font-size: 20px;
-  line-height: 20px;
 }
 
 .conjunto-produtos-link {
