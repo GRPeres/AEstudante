@@ -21,12 +21,12 @@
 }
 
 .overlay {
+  z-index: 10;
   display: none;
-  z-index: 20;
 }
 
 .overlay.show {
-  z-index: 20;
+  z-index: 10;
   display: flex;
 }
 
@@ -44,8 +44,8 @@
 
 .LOGO-A-ESTUDANTE {
   position: relative;
-  width: 4rem;
-  height: 8rem;
+  width: 6vw;
+  height: 16vh;
   object-fit: cover;
 }
 
@@ -55,14 +55,14 @@
   display: flex;
   align-items: center;
   position: relative;
-  width: 40rem;
-  height: 2.5rem;
+  width: 55vw;
+  height: 5.5vh;
 }
 
 .barra-de-pesquisa {
   width: 100%;
   height: 100%;
-  border-radius: 1rem;
+  border-radius: 5vw;
   padding: 1%;
   border: 0.15rem solid #7b961f;
   font-size: 1.5rem;
@@ -76,8 +76,8 @@
 .lupa {
   position: absolute;
   border: none;
-  width: 2rem;
-  height: 2rem;
+  width: 3vw;
+  height: 5vh;
   right: 1%;
 }
 
@@ -92,19 +92,17 @@
 }
 
 .icone-conta {
-  background-image: url("AEstudante/static/images/Conta.svg");
   background-size: cover;
   background-repeat: no-repeat;
-  width: 5rem;
-  height: 5rem;
+  width: 5em;
+  height: 5em;
 }
 
 .icone-carrrinho {
-  background-image: url("../static/images/carrinho.png");
   background-size: cover;
   background-repeat: no-repeat;
-  width: 5rem;
-  height: 5rem;
+  width: 5em;
+  height: 5em;
 }
 
 /* personalização do overlay */
@@ -116,7 +114,8 @@
 
 .icone-carrrinho .overlay {
   position: absolute;
-  top: 100%;
+  top: -18%;
+  right: -34%;
 }
 
 /* Barra de navegação */
