@@ -22,7 +22,7 @@
       <div class="botoes">
 
         <div class="icone-conta hover-target">
-          <img class="icones" src="../static/images/Conta.svg" />
+          <img class="icone-conta" src="../static/images/Conta.svg" />
           <div class="overlay">
             <div class="tela-de-login">
               <div class="texto-conta">Entrar</div>
@@ -33,7 +33,7 @@
                   aqui!</a>
               </p>
 
-              <div class="campos">
+              <div class="conjunto-campo">
                 <label class="texto-conta" for="Email">Email</label>
                 <input class="campo" type="text" id="Email" name="Email" placeholder="Coloque aqui">
                 <label class="texto-conta" for="Senha">Senha</label>
@@ -41,7 +41,7 @@
               </div>
 
               <div class="paraoutros">
-                <span>Não tem uma conta?</span>
+                <span>Esqueceu a Senha?</span>
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">Clique
                   aqui!</a>
               </div>
@@ -55,46 +55,77 @@
         </div>
 
         <div class="icone-carrrinho hover-target">
-          <img class="icones" src="../static/images/Carrinho.svg" />
+          <img class="icone-carrrinho" src="../static/images/Carrinho.svg" />
+
           <div class="overlay">
+
             <div class="carrinho-overlay">
 
               <div class="entrada-carrinho">
-                <div class="texto-carrinho-preto">Carrinho</div>
-                <img class="icones" src="../static/images/x.svg" />
+                <div class="entrada-carrinho-texto">Carrinho</div>
+
+                <button class="botao-sem-fundo">
+                  <img class="icones" src="../static/images/x.svg" />
+
+                </button>
                 <hr class="linha" />
               </div>
 
-              <div class="produto">
-                <img class="imagem-item" src="../static/images/Logo.png" />
-                <div class="informacao-do-item">
-                  <div class="descricao-do-item">
-                    <div class="valor-pre-compra">R$ 999,99</div>
-                    <div class="nome-do-item">Nome do Item</div>
-                  </div>
-                  <div class="mudanca-item">
-                    <img class="icones" src="../static/images/retirar.svg" />
-                    <div class="quantidade-item">1</div>
-                    <img class="icones" src="../static/images/adicionar.svg" />
-                    <img class="icones" src="../static/images/deletar.svg" />
+              <div class="conjunto-produto">
+
+                <div class="produto">
+                  <img class="imagem-item" src="../static/images/Conjunto lapis.jpeg" />
+
+                  <div class="informacoes-do-item">
+
+                    <div class="descricao-do-item">
+                      <div class="valor-pre-compra">R$ 999,99</div>
+                      <div class="nome-do-item">Nome do Item</div>
+                    </div>
+
+                    <div class="quantidade-item">
+
+                      <button class="botao-sem-fundo">
+                        <img class="icones-carrinho" src="../static/images/retirar.svg" />
+                      </button>
+
+                      <div class="numero-item">1</div>
+
+                      <button class="botao-sem-fundo">
+                        <img class="icones-carrinho" src="../static/images/adicionar.svg" />
+                      </button>
+
+                      <button class="botao-sem-fundo">
+                        <img class="icones-carrinho" src="../static/images/deletar.svg" />
+                      </button>
+
+                    </div>
                   </div>
                 </div>
+
               </div>
 
               <div class="termino-carrinho">
+
                 <div class="valor-subtotal">
                   <div class="texto-carrinho-branco">Valor:</div>
                   <div class="valor-produtos-branco">Xxxr$</div>
                 </div>
+
                 <div class="valor-subtotal">
                   <div class="texto-carrinho-branco">Frete:</div>
                   <div class="valor-produtos-branco">Xxxr$</div>
                 </div>
+
                 <div class="valor-total">
                   <div class="texto-carrinho-preto">Total:</div>
                   <div class="valor-produtos-preto">Xxxr$</div>
                 </div>
-                <button class="botao-continuar-compra">Continuar Comprando</button>
+
+                <button class="botao-sem-fundo">
+                  <div class="botao-continuar-compra">Continuar Comprando</div>
+                </button>
+
               </div>
             </div>
           </div>
@@ -103,7 +134,7 @@
     </div>
 
 
-    <div class="barra-navegacao hover-target">
+    <div class=" barra-navegacao hover-target">
 
       <span class="barra-navegacao-item">Papelaria</span>
       <span class="barra-navegacao-item">Materiais De Escritorio</span>
