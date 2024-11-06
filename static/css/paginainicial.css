@@ -214,3 +214,15 @@ html {
   font-size: 20px;
   line-height: 20px;
 }
+
+.conjunto-produtos-link {
+  height: 286.2px;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.conjunto-produtos-link:hover {
+  text-decoration: none;
+  color: inherit;
+}

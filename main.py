@@ -12,7 +12,9 @@ app.secret_key = 'test1'
 # Rota principal da página inicial
 @app.route('/', methods=['GET'])
 def index(): 
-    return render_template('index.html')
+    dao = DAO()
+    promocoes = dao.readAll()
+    return render_template('paginainicial.html',promocoes=promocoes, novidades=promocoes)
 
 # Rota principal da página de controle de estoque
 @app.route('/adm/', methods=['GET'])
@@ -203,4 +205,5 @@ def gerar_mensagem():
     url_whatsapp = f"https://wa.me/{numero_whatsapp}?text={mensagem_codificada}"
 
     return redirect(url_whatsapp)
+
 app.run(debug=True)
