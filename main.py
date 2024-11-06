@@ -166,10 +166,10 @@ def adicionar_carrinho(produto_id):
     if 'carrinho' not in session:
         session['carrinho'] = {}
 
-    if produto_id in session['carrinho']:
-        session['carrinho'][produto_id] += quantidade
+    if str(produto_id) in session['carrinho']:
+        session['carrinho'][str(produto_id)] += quantidade
     else:
-        session['carrinho'][produto_id] = quantidade
+        session['carrinho'][str(produto_id)] = quantidade
 
     session.modified = True
 
@@ -205,5 +205,16 @@ def gerar_mensagem():
     url_whatsapp = f"https://wa.me/{numero_whatsapp}?text={mensagem_codificada}"
 
     return redirect(url_whatsapp)
+
+@app.route('/remover_do_carrinho/<int:produto_id>', methods=['POST'])
+def remover_do_carrinho(produto_id):
+    carrinho = session.get('carrinho', {})
+    try:
+        del carrinho[str(produto_id)]
+        print(carrinho)
+        session.modified = True
+    except:
+        pass
+    return redirect(url_for('ver_carrinho'))
 
 app.run(debug=True)
