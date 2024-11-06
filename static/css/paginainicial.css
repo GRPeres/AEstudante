@@ -157,6 +157,7 @@ html {
 
 .pagina-inicial .conjunto-produtos {
   display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
   width: 100%;
   align-items: center;
   justify-content: space-between;
@@ -170,18 +171,18 @@ html {
 .pagina-inicial .produto {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 100%;
   height: auto;
   align-items: center;
   justify-content: space-between;
-  padding: 0 5%;
+  padding: 5%;
   position: relative;
   align-self: stretch;
 }
 
 .pagina-inicial .promo-img-produto {
-  width: 100%;
-  height: auto;
+  width: 80%;
+  aspect-ratio: 1;
   object-fit: contain;
 }
 
@@ -217,6 +218,7 @@ html {
 
 .conjunto-produtos-link {
   height: 286.2px;
+  width: 286.2px;
   text-decoration: none;
   color: inherit;
   display: block;

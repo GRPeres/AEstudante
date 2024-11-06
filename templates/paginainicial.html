@@ -53,7 +53,7 @@
           <div class="produto">
             <img class="promo-img-produto" src="{{ produto.imagem_produtos }}" alt="Imagem do produto" />
             <div class="prod-desc">
-              <div class="valor-produto">R$ {{ produto.preco_produtos }}</div>
+              <div class="valor-produto">{{ produto.preco_produtos }}</div>
               <div class="nome-produto">{{ produto.nome_produtos }}</div>
             </div>
           </div>
@@ -80,7 +80,7 @@
             <div class="produto">
               <img class="promo-img-produto" src="{{ produto.imagem_produtos }}" alt="Imagem do produto" />
               <div class="prod-desc">
-                <div class="valor-produto">R$ {{ produto.preco_produtos }}</div>
+                <div class="valor-produto">{{ produto.preco_produtos }}</div>
                 <div class="nome-produto">{{ produto.nome_produtos }}</div>
               </div>
             </div>
@@ -96,5 +96,9 @@
       </div>
     </div>
   </div>
+
+  <script src="../static/js/paginainicial.js"> </script>
+<script src="../static/js/formataPreco.js"></script>
 </body>
 </html>
+
