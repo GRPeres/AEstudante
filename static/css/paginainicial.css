@@ -19,7 +19,7 @@ html {
   align-items: center;
   justify-content: space-between;
   position: relative;
-  background-color: #df0707;
+  background-color: #ffffff;
 }
 
 .pagina-inicial .propraganda {
@@ -75,7 +75,7 @@ html {
 }
 
 .pagina-inicial .proposta {
-  background-color: forestgreen;
+  background-color: #ffeb3d;
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -124,7 +124,7 @@ html {
 .pagina-inicial .proposta-descricao {
   font-family: "Inter-Regular", Helvetica;
   font-weight: 400;
-  color: #b3b3b3;
+  color: #000000;
   font-size: 16px;
   letter-spacing: 0;
   line-height: 24px;
@@ -140,7 +140,7 @@ html {
   position: relative;
   align-self: stretch;
   width: 100%;
-  background-color: #b3b3b3;
+  background-color: #ffffff;
 }
 
 .pagina-inicial .promocoes-titulo {
