@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="../static/css/paginainicial.css" />
+  <title>Página Inicial</title>
+</head>
+<body>
+  <div class="pagina-inicial">
+    <!-- Propaganda Section 
+    <div class="propraganda">
+      <img class="ima-propaganda" src="../static/images/PROPAGANDA.webp" />
+      <div class="pontos">
+        <div class="ponto"></div>
+        <div class="ponto-2"></div>
+        <div class="ponto-3"></div>
+      </div>
+    </div>
+    -->
+
+    <!-- Proposta Section -->
+    <div class="proposta">
+      <div class="proposta-conjunto">
+        <img class="img-proposta" src="../static/images/Entrega.svg" />
+        <div class="proposta-texto">
+          <div class="proposta-titulo">Entrega</div>
+          <div class="proposta-descricao">Receba no conforto de sua casa</div>
+        </div>
+      </div>
+      <div class="proposta-conjunto">
+        <img class="img-proposta" src="../static/images/lista.svg" />
+        <div class="proposta-texto">
+          <div class="proposta-titulo">Lista Escolares</div>
+          <div class="proposta-descricao">Lista de materiais escolares</div>
+        </div>
+      </div>
+      <!--
+      <div class="proposta-conjunto">
+        <img class="img-proposta" src="../static/images/pagamento.svg" />
+        <div class="proposta-texto">
+          <div class="proposta-titulo">Parcelamento</div>
+          <div class="proposta-descricao">Em até x vezes</div>
+        </div>
+      </div>
+      -->
+    </div>
+
+    <!-- Novidades Section -->
+    <div class="promocoes">
+      <!-- 
+      <div class="promocoes-titulo">Novidades:</div>
+
+  
+      <div class="conjunto-produtos">
+        Loop through 'novidades' products
+        {% for produto in novidades %}
+        <a href="/items/{{produto.id_produtos}}" class="conjunto-produtos-link">
+          <div class="produto">
+            <img class="promo-img-produto" src="{{ produto.imagem_produtos }}" alt="Imagem do produto" />
+            <div class="prod-desc">
+              <div class="valor-produto">{{ produto.preco_produtos }}</div>
+              <div class="nome-produto">{{ produto.nome_produtos }}</div>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+  
+      <div class="pontos">
+        <div class="ponto"></div>
+        <div class="ponto-2"></div>
+        <div class="ponto-3"></div>
+      </div>
+    </div>
+  -->
+    <!-- Promoções Section -->
+    <div class="promocoes">
+      <div class="promocoes-titulo">Promoções:</div>
+
+      
+        <div class="conjunto-produtos">
+          <!-- Loop through 'promocoes' products -->
+          {% for produto in promocoes %}
+          <a href="/items/{{produto.id_produtos}}" class="conjunto-produtos-link">
+            <div class="produto">
+              <img class="promo-img-produto" src="{{ produto.imagem_produtos }}" alt="Imagem do produto" />
+              <div class="prod-desc">
+                <div class="valor-produto">{{ produto.preco_produtos }}</div>
+                <div class="nome-produto">{{ produto.nome_produtos }}</div>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      
+
+      <div class="pontos">
+        <div class="ponto"></div>
+        <div class="ponto-2"></div>
+        <div class="ponto-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../static/js/paginainicial.js"> </script>
+<script src="../static/js/formataPreco.js"></script>
+</body>
+</html>
+

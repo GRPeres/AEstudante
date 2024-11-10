@@ -1,0 +1,292 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.tela-de-compra {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.tela-de-compra .frame-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 8%;
+  padding: 0 2%;
+  position: relative;
+  left: 3%;
+}
+
+.tela-de-compra .LOGO-a-ESTUDANTE {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tela-de-compra .divisao {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+}
+
+.tela-de-compra .tabela-produtos {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0.5%;
+  gap: 1%;
+  border-color: #000000;
+  border-right-width: 5px;
+  border-right-style: solid;
+}
+
+.tela-de-compra .tabela-texto,
+.tela-de-compra .produto-texto,
+.tela-de-compra .botao-remover,
+.tela-de-compra .nome-produto,
+.tela-de-compra .produto-preco {
+  position: relative;
+  display: flex;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  white-space: nowrap;
+  line-height: 24px;
+  font-size: 24px;
+  letter-spacing: 0;
+  color: #000000;
+}
+
+.tela-de-compra .produto-texto {
+  font-size: 20px;
+  line-height: 40px;
+}
+
+.tela-de-compra .tabela-texto {
+  font-size: 50px;
+  line-height: 50px;
+}
+.tela-de-compra .produto-preco {
+  color: #5a5858;
+}
+.tela-de-compra .botao-remover {
+  font-size: 14px;
+  line-height: 14px;
+  text-decoration: underline;
+}
+
+.tela-de-compra .conjunto-nomeacoes {
+  position: relative;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  gap: 12%;
+  padding: 0 10%;
+}
+
+.tela-de-compra .lista-produto {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1%;
+  overflow: auto;
+  padding: 0 0.5%;
+}
+
+.tela-de-compra .produto {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 2% 1%;
+  gap: 6%;
+  align-items: center;
+  align-content: center;
+  border-radius: 7px;
+  background-color: #b5b5b5;
+}
+
+.tela-de-compra .image {
+  position: relative;
+  width: 10%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tela-de-compra .nome-produto {
+  font-size: 16px;
+  line-height: 16px;
+  width: 15%;
+  font-size: medium;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  white-space: normal;
+}
+
+.tela-de-compra .conjunto-quantidade {
+  display: inline-flex;
+  align-items: center;
+  gap: 17px;
+  position: relative;
+}
+
+.tela-de-compra .botao-hidden {
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+.tela-de-compra .icone {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  object-fit: cover;
+}
+
+.tela-de-compra .icone_maior {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+
+.tela-de-compra .quantidade-itens {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.tela-de-compra .conjunto-botoes {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.tela-de-compra .botao-continuar-compra {
+  position: relative;
+  display: flex;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  white-space: nowrap;
+  line-height: 24px;
+  font-size: 24px;
+  letter-spacing: 0;
+  color: #878a1e;
+  width: auto;
+  height: auto;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.tela-de-compra .botao-finalizar-compra {
+  position: relative;
+
+  padding: 2% 6%;
+  position: relative;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #41b811;
+}
+
+.tela-de-compra .tabela-preco {
+  position: relative;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0.5%;
+  gap: 1%;
+}
+
+.tela-de-compra .preco-formato {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6vh;
+  padding: 5% 0;
+}
+
+.tela-de-compra .conjunto-conjunto-preco {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  padding: 0 5%;
+}
+
+.tela-de-compra .conjunto-preco {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1vh;
+  padding: 0 -1%;
+}
+
+.tela-de-compra .preco-linha {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background-color: #b5b5b5;
+}
+
+.tela-de-compra .preco-texto {
+  position: relative;
+
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #484848;
+  font-size: 22px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.tela-de-compra .preco-valor {
+  position: relative;
+
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 30px;
+  letter-spacing: 0;
+  line-height: 36px;
+}

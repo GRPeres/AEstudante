@@ -23,6 +23,8 @@ class DAO:
         self.des = "descricao_produtos"
         self.qtd = "quantidade_produtos"
         self.pre = "preco_produtos"
+        self.cat = "categoria_produtos"
+        self.img = "imagem_produtos"
 
         # Work with ORM sessions
         session_factory = sessionmaker(bind=engine)
@@ -63,6 +65,12 @@ class DAO:
 
     def getSes(self):
         return self.ses
+    
+    def loginDB(self, user, password):
+        if self.name == user and self.password == password:
+            return True
+        else:
+            return False
 
     def __del__(self):
         self.ses.close()

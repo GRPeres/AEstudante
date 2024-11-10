@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/bottombar.css" />
+    <link rel="stylesheet" href="../static/css/topbarstyle.css" />
+    <title>Carrinho de Compras</title>
+  </head>
+  <body>
+    <header class="parte-de-cima">
+      <div class="organizacao">
+        <div class="frame-logo">
+          <img
+            class="LOGO-A-ESTUDANTE"
+            src="../static/images/Logo.png"
+            alt="Logo da Empresa"
+          />
+        </div>
+
+        <div class="conjunto-barra-de-pesquisa">
+          <input
+            class="barra-de-pesquisa"
+            type="text"
+            placeholder="Pesquise aqui"
+          />
+          <img class="lupa" alt="Ícone de pesquisa" />
+        </div>
+
+        <div class="botoes">
+          <!-- Botão de conta -->
+          <div class="conta hover-target">
+            <div class="overlay">
+              <div class="tela-de-login">
+                <div class="texto-conta">Entrar</div>
+
+                <p class="paraoutros">
+                  <span>Não tem uma conta?</span>
+                  <a
+                    href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Clique aqui!</a
+                  >
+                </p>
+
+                <div class="campos">
+                  <label class="texto-conta" for="Email">Email</label>
+                  <input
+                    class="campo"
+                    type="email"
+                    id="Email"
+                    name="Email"
+                    placeholder="Coloque aqui"
+                    required
+                  />
+                  <label class="texto-conta" for="Senha">Senha</label>
+                  <input
+                    class="campo"
+                    type="password"
+                    id="Senha"
+                    name="Senha"
+                    placeholder="Coloque aqui"
+                    required
+                  />
+                </div>
+
+                <button class="enviar">
+                  <div class="texto-conta">ENVIAR</div>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Botão de carrinho -->
+          <div class="carrinho hover-target">
+            <div class="carrinho">
+              <a href="{{ url_for('ver_carrinho') }}" class="botao-carrinho"
+                >Carrinho</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="navbar hover-target">
+        <div class="navbar-item">Papelaria</div>
+        <div class="navbar-item">Materiais De Escritório</div>
+        <div class="navbar-item">Coleções</div>
+        <div class="navbar-item">Pedidos Personalizados</div>
+        <div class="overlay">
+          <div class="barra-de-produtos">
+            <div class="navbar-item">Caderno</div>
+            <div class="navbar-item">Lápis</div>
+            <div class="navbar-item">Calculadora</div>
+            <div class="navbar-item">Lápis Colorido</div>
+            <div class="navbar-item">Caneta Azul</div>
+            <div class="navbar-item">Caneta Vermelha</div>
+            <div class="navbar-item">Porta Caneta</div>
+            <div class="navbar-item">Agenda</div>
+            <div class="navbar-item">Isopor</div>
+            <div class="navbar-item">Giz</div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <h1>Carrinho de Compras</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Preço</th>
+          <th>Quantidade</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for produto in produtos %}
+        <tr>
+          <td>{{ produto.nome_produtos }}</td>
+          <td>{{ produto.preco_produtos | round(2) }}</td>
+          {% set index = produto.id_produtos | string() %}
+          <td>{{ carrinho[index] }}</td>
+          <td>
+            <form
+              action="{{ url_for('remover_do_carrinho', produto_id=produto.id_produtos) }}"
+              method="post"
+            >
+              <button type="submit">Remover</button>
+            </form>
+          </td>
+        </tr>
+        {% else %}
+        <tr>
+          <td colspan="4">O carrinho está vazio.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <form action="{{ url_for('gerar_mensagem') }}" method="get">
+      <button type="submit">Enviar Pedido via WhatsApp</button>
+    </form>
+    <a href="/">Continuar comprando</a>
+
+    <footer class="bottombar">
+      <a
+        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div class="parafora">Telefone</div>
+      </a>
+      <a
+        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div class="parafora">WhatsApp</div>
+      </a>
+      <div class="parafora">Tipos de Pagamentos:</div>
+      <img
+        class="metodos-de-pagamento"
+        src="../static/images/metodos-de-pagamento.svg"
+        alt="Métodos de pagamento"
+      />
+    </footer>
+  </body>
+</html>

@@ -27,7 +27,9 @@ CREATE TABLE `tb_produtos` (
   `nome_produtos` varchar(50) NOT NULL,
   `preco_produtos` double NOT NULL,
   `descricao_produtos` varchar(250) NOT NULL,
+  `categoria_produtos` varchar(50) NOT NULL,
   `quantidade_produtos` int NOT NULL,
+  `imagem_produtos` varchar(250) NOT NULL,
   PRIMARY KEY (`id_produtos`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -38,7 +40,7 @@ CREATE TABLE `tb_produtos` (
 
 LOCK TABLES `tb_produtos` WRITE;
 /*!40000 ALTER TABLE `tb_produtos` DISABLE KEYS */;
-INSERT INTO `tb_produtos` VALUES (1,'Lápis Leo&Leo',1,'Lápis grefite para escrever e desenhar, cor preto',4),(2,'Lápis Faber-Castell',1.5,'Lápis grafite para escrever, cor azul',4),(3,'TekBond',10.9,'Super cola',4),(4,'Caneta CiS Azul',4.9,'Caneta esferográfica da cor azul',4),(5,'Caneta CiS Vermelha',4.9,'Caneta esferográfica da cor vermelha',4),(6,'Caneta Pink Vibes',19.9,'Caneta rosa com pompom, cor azul',4),(7,'Caneta BIC Preta',1,'Caneta esferográfica da cor preta',4),(8,'Caneta BIC Vermelha',1,'Caneta esferográfica da cor vermelha',4),(9,'Lapiseira CiS Joy 2,0',5.5,'Lapiseira azul de grafite 2,0',4),(10,'Lapiseira CiS Joy 2,0',5.5,'Lapiseira rosa de grafite 2,0',4),(11,'Lapiseira CiS Joy 2,0',5.5,'Lapiseira amarela de grafite 2,0',4),(12,'Caneta Compactor Preta',1,'Caneta esferográfica da cor preta',4),(13,'Caneta Compactor Vermelha',1,'Caneta esferográfica da cor vermelha',4),(14,'Caneta 4 cores Faber-Castell',9.9,'Caneta retrátil de 4 cores, sendo elas azul, vermelho, preto e verde',4),(15,'Marca texto Faber-Castell Amarelo',3.9,'Marca texto da cor amarelo',4),(16,'Marca texto Faber-Castell Verde',3.9,'Marca texto da cor verde',4),(17,'Marca texto Faber-Castell Rosa',3.9,'Marca texto da cor rosa',4);
+INSERT INTO `tb_produtos` VALUES (1,'Lápis Leo&Leo',1,'Lápis grefite para escrever e desenhar, cor preto','Lápis',4,'insira URL aqui!'),(2,'Lápis Faber-Castell',1.5,'Lápis grafite para escrever, cor azul','Lápis',4,'insira URL aqui!'),(3,'TekBond',10.9,'Super cola','Cola',4,'insira URL aqui!'),(4,'Caneta CiS Azul',4.9,'Caneta esferográfica da cor azul','Caneta',4,'insira URL aqui!'),(5,'Caneta CiS Vermelha',4.9,'Caneta esferográfica da cor vermelha','Caneta',4,'insira URL aqui!'),(6,'Caneta Pink Vibes',19.9,'Caneta rosa com pompom, cor azul','Caneta',4,'insira URL aqui!'),(7,'Caneta BIC Preta',1,'Caneta esferográfica da cor preta','Caneta',4,'insira URL aqui!'),(8,'Caneta BIC Vermelha',1,'Caneta esferográfica da cor vermelha','Caneta',4,'insira URL aqui!'),(9,'Lapiseira CiS Joy 2,0',5.5,'Lapiseira azul de grafite 2,0','Lapiseira',4,'insira URL aqui!'),(10,'Lapiseira CiS Joy 2,0',5.5,'Lapiseira rosa de grafite 2,0','Lapiseira',4,'insira URL aqui!'),(11,'Lapiseira CiS Joy 2,0',5.5,'Lapiseira amarela de grafite 2,0','Lapiseira',4,'insira URL aqui!'),(12,'Caneta Compactor Preta',1,'Caneta esferográfica da cor preta','Caneta',4,'insira URL aqui!'),(13,'Caneta Compactor Vermelha',1,'Caneta esferográfica da cor vermelha','Caneta',4,'insira URL aqui!'),(14,'Caneta 4 cores Faber-Castell',9.9,'Caneta retrátil de 4 cores, sendo elas azul, vermelho, preto e verde','Caneta',4,'insira URL aqui!'),(15,'Marca texto Faber-Castell Amarelo',3.9,'Marca texto da cor amarelo','Marca texto',4,'insira URL aqui!'),(16,'Marca texto Faber-Castell Verde',3.9,'Marca texto da cor verde','Marca texto',4,'insira URL aqui!'),(17,'Marca texto Faber-Castell Rosa',3.9,'Marca texto da cor rosa','Marca texto',4,'insira URL aqui!');
 /*!40000 ALTER TABLE `tb_produtos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-04 10:22:17
+-- Dump completed on 2024-10-30 15:35:18

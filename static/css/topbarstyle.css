@@ -1,0 +1,168 @@
+/* Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.organizacao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4%;
+  flex: 0 0 auto;
+  background-color: #b5de2e;
+}
+
+/* habilita o overlay */
+.hover-target {
+  display: flex;
+  cursor: pointer;
+}
+
+.overlay {
+  z-index: 10;
+  display: none;
+}
+
+.overlay.show {
+  z-index: 10;
+  display: flex;
+}
+
+/* Logo */
+
+.frame-logo {
+  display: flex;
+  width: 8%;
+  height: 100%;
+  align-items: center;
+  padding: 0 3%;
+  position: relative;
+  background-color: #fff300;
+}
+
+.LOGO-A-ESTUDANTE {
+  position: relative;
+  width: 6vw;
+  height: 16vh;
+  object-fit: cover;
+}
+
+/* Barra de pesquisa */
+
+.conjunto-barra-de-pesquisa {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 55vw;
+  height: 5.5vh;
+}
+
+.barra-de-pesquisa {
+  width: 100%;
+  height: 100%;
+  border-radius: 5vw;
+  padding: 1%;
+  border: 0.15rem solid #7b961f;
+  font-size: 1.5rem;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.lupa {
+  position: absolute;
+  border: none;
+  width: 3vw;
+  height: 5vh;
+  right: 1%;
+}
+
+/* botões para os overlay */
+
+.botoes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+  position: relative;
+}
+
+.icone-conta {
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 5em;
+  height: 5em;
+}
+
+.icone-carrrinho {
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 5em;
+  height: 5em;
+}
+
+/* personalização do overlay */
+.icone-conta .overlay {
+  position: absolute;
+  top: 100%;
+  left: -100%;
+}
+
+.icone-carrrinho .overlay {
+  position: absolute;
+  top: -18%;
+  right: -34%;
+}
+
+/* Barra de navegação */
+
+.barra-navegacao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1% 5%;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+  background-color: #7b961f;
+}
+
+.barra-navegacao-item {
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 1.5rem;
+  letter-spacing: 0;
+}
+
+.barra-navegacao .overlay {
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  right: 0%;
+}
+
+.barra-de-produtos {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+  gap: 2% 5%;
+  padding: 2%;
+  position: relative;
+  background-color: #b5de2e;
+}
+
+.barra-de-produtos-item {
+  width: fit-content;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 2rem;
+  letter-spacing: 0;
+}

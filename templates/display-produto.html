@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/display-produtostyle.css" />
+    <link rel="stylesheet" href="../static/css/bottombar.css" />
+    <link rel="stylesheet" href="../static/css/topbarstyle.css" />
+    <title>Página de Produtos</title>
+    <!-- Título da página -->
+  </head>
+
+  <body>
+    <header class="parte-de-cima">
+      <div class="organizacao">
+        <div class="frame-logo">
+          <img
+            class="LOGO-A-ESTUDANTE"
+            src="../static/images/Logo.png"
+            alt="Logo da Empresa"
+          />
+        </div>
+
+        <div class="conjunto-barra-de-pesquisa">
+          <input
+            class="barra-de-pesquisa"
+            type="text"
+            placeholder="Pesquise aqui"
+          />
+          <img class="lupa" alt="Ícone de pesquisa" />
+        </div>
+
+        <div class="botoes">
+          <!-- Botão de conta -->
+          <div class="conta hover-target">
+            <div class="overlay">
+              <div class="tela-de-login">
+                <div class="texto-conta">Entrar</div>
+
+                <p class="paraoutros">
+                  <span>Não tem uma conta?</span>
+                  <a
+                    href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Clique aqui!</a
+                  >
+                </p>
+
+                <div class="campos">
+                  <label class="texto-conta" for="Email">Email</label>
+                  <input
+                    class="campo"
+                    type="email"
+                    id="Email"
+                    name="Email"
+                    placeholder="Coloque aqui"
+                    required
+                  />
+                  <label class="texto-conta" for="Senha">Senha</label>
+                  <input
+                    class="campo"
+                    type="password"
+                    id="Senha"
+                    name="Senha"
+                    placeholder="Coloque aqui"
+                    required
+                  />
+                </div>
+
+                <button class="enviar">
+                  <div class="texto-conta">ENVIAR</div>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Botão de carrinho -->
+          <div class="carrinho hover-target">
+            <div class="carrinho">
+              <a href="{{ url_for('ver_carrinho') }}" class="botao-carrinho">Carrinho</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="navbar hover-target">
+        <div class="navbar-item">Papelaria</div>
+        <div class="navbar-item">Materiais De Escritório</div>
+        <div class="navbar-item">Coleções</div>
+        <div class="navbar-item">Pedidos Personalizados</div>
+        <div class="overlay">
+          <div class="barra-de-produtos">
+            <div class="navbar-item">Caderno</div>
+            <div class="navbar-item">Lápis</div>
+            <div class="navbar-item">Calculadora</div>
+            <div class="navbar-item">Lápis Colorido</div>
+            <div class="navbar-item">Caneta Azul</div>
+            <div class="navbar-item">Caneta Vermelha</div>
+            <div class="navbar-item">Porta Caneta</div>
+            <div class="navbar-item">Agenda</div>
+            <div class="navbar-item">Isopor</div>
+            <div class="navbar-item">Giz</div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="display-de-item">
+      <div class="item-coisas">
+        <div class="conjunto-imagens">
+          <img
+            class="imagem-produto"
+            src="{{produto.imagem_produtos}}"
+            alt="Imagem do produto"
+          />
+        </div>
+
+        <div class="produto-detalhes">
+          <div class="item-inicio">
+            <div class="nome-prod">{{ produto.nome_produtos}}</div>
+            <div id="valor-prod" class="valor-prod">{{ produto.preco_produtos }}</div>
+            <hr class="linha" />
+          </div>
+          <form action="{{ url_for('adicionar_carrinho', produto_id=produto.id_produtos) }}" method="post">
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" id="quantidade" name="quantidade" value="1" min="1">
+            <button type="submit" class="botao-adicionar-carrinho">Adicionar ao carrinho</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="conjunto-informacoes-produto">
+        <div class="fundo">
+          <div class="rectangle">
+            <div class="informacoes-prod">INFORMAÇÕES DO PRODUTO</div>
+          </div>
+          <hr class="linha2" />
+        </div>
+      </div>
+
+      <div class="desc-prod">
+        <p class="texto-desc-prod">
+          {{ produto.descricao_produtos }}
+        </p>
+      </div>
+    </main>
+
+    <footer class="bottombar">
+      <a
+        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div class="parafora">Telefone</div>
+      </a>
+      <a
+        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div class="parafora">WhatsApp</div>
+      </a>
+      <div class="parafora">Tipos de Pagamentos:</div>
+      <img
+        class="metodos-de-pagamento"
+        src="../static/images/metodos-de-pagamento.svg"
+        alt="Métodos de pagamento"
+      />
+    </footer>
+
+    <script> var preco = document.getElementById("valor-prod").innerHTML; </script>
+    <script src="../static/js/topbarjs.js"></script>
+    <script src="../static/js/formataPreco.js"></script>
+    <script src="../static/js/display-produto.js"> </script>
+  </body> 
+</html>

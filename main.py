@@ -1,7 +1,10 @@
-from flask import Flask, request, jsonify, render_template, url_for, redirect
+from flask import Flask, request, jsonify, render_template, url_for, redirect, session
 from flask_login import current_user, LoginManager, login_user, logout_user, login_required, UserMixin
 from dao_bdd import *
 from decimal import *
+import qrcode
+import os
+import urllib.parse
 
 app = Flask(__name__)
 app.secret_key = 'test1'
@@ -9,11 +12,13 @@ app.secret_key = 'test1'
 # Rota principal da página inicial
 @app.route('/', methods=['GET'])
 def index(): 
-    return render_template('index.html')
+    dao = DAO()
+    promocoes = dao.readAll()
+    return render_template('paginainicial.html',promocoes=promocoes, novidades=promocoes)
 
 # Rota principal da página de controle de estoque
 @app.route('/adm/', methods=['GET'])
-def adm(): 
+def adm():
     dao = DAO()
     produtos = dao.readAll()  # Lê todos os produtos do banco de dados
     return render_template('adm.html', produtos=produtos)
@@ -28,6 +33,8 @@ def update_produto(id):
     descricao_produtos = request.form['descricao_produtos']
     quantidade_produtos = request.form['quantidade_produtos']
     preco_produtos = request.form['preco_produtos']
+    imagem_produtos = request.form['imagem_produtos']
+    categoria_produtos = request.form['categoria_produtos']
     
     produto = dao.readById(id)  # Busca o produto pelo ID
     if produto:
@@ -36,6 +43,8 @@ def update_produto(id):
         produto.descricao_produtos = descricao_produtos
         produto.quantidade_produtos = quantidade_produtos
         produto.preco_produtos = preco_produtos
+        produto.imagem_produtos = imagem_produtos
+        produto.categoria_produtos = categoria_produtos
         
         dao.update(produto)  # Atualiza o produto no banco de dados
         return ('', 204)  # Retorna resposta 204 (No Content)
@@ -51,7 +60,9 @@ def add_product():
         nome_produtos='filler',
         descricao_produtos='filler',
         preco_produtos=Decimal(0),
-        quantidade_produtos='0'
+        quantidade_produtos='0',
+        imagem_produtos='Insira URL Aqui!',
+        categoria_produtos='filler'
     )
 
     try:
@@ -116,6 +127,8 @@ def filter_products():
                 'descricao_produtos': produto.descricao_produtos,
                 'quantidade_produtos': produto.quantidade_produtos,
                 'preco_produtos': produto.preco_produtos,
+                'imagem_produtos': produto.imagem_produtos,
+                'categoria_produtos': produto.categoria_produtos,
             }
             for produto in produtos
         ]
@@ -123,5 +136,85 @@ def filter_products():
 
     return jsonify(response_data)  # Retorna os produtos filtrados como JSON
 
-# Inicia a aplicação Flask em modo de debug
+@app.route('/login', methods=['POST'])
+def login():
+    dao = DAO()
+    username = request.form['username']
+    password = request.form['password']
+    
+    if dao.loginDB(username,password):
+        return redirect(url_for('adm'))  # Redirect to the admin page
+    else:
+        return jsonify({'error': 'Invalid credentials'}), 401  # Unauthorized
+    
+
+# Rota principal da página de controle de estoque
+@app.route('/items/<int:id>', methods=['GET'])
+def items(id): 
+    dao = DAO()
+    produto = dao.readById(id)
+    if produto:    
+        return render_template('display-produto.html', produto=produto)
+    else:
+        return render_template('display-produto.html', produto=dao.readById(1))
+
+@app.route('/adicionar_carrinho/<int:produto_id>', methods=['POST'])
+def adicionar_carrinho(produto_id):
+    quantidade = int(request.form.get('quantidade', 1))  # Recebe a quantidade do formulário ou usa 1 como padrão
+
+    # Inicializa o carrinho como um dicionário se ainda não existir
+    if 'carrinho' not in session:
+        session['carrinho'] = {}
+
+    if str(produto_id) in session['carrinho']:
+        session['carrinho'][str(produto_id)] += quantidade
+    else:
+        session['carrinho'][str(produto_id)] = quantidade
+
+    session.modified = True
+
+    return redirect(request.referrer)
+
+@app.route('/ver_carrinho')
+def ver_carrinho():
+    # Recupera os itens do carrinho da sessão e passa para o template
+    carrinho = session.get('carrinho', {})
+    produto_ids = list(carrinho.keys())
+
+    dao = DAO()
+    lista_produtos = []
+    for i in produto_ids:
+        produto = dao.readById(i)
+        lista_produtos.append(produto)
+    return render_template('cart.html', carrinho=carrinho, produtos=lista_produtos)
+
+@app.route('/gerar_mensagem')
+def gerar_mensagem():
+    carrinho = session.get('carrinho', {})
+    dao = DAO()
+
+    mensagem = "Olá! Gostaria de comprar os seguintes produtos:\n\n"
+    for produto_id, quantidade in carrinho.items():
+        produto = dao.readById(produto_id)
+        mensagem += f"- {produto.nome_produtos}: {quantidade} unidades\n"
+
+    numero_whatsapp = "5551999999999"
+    mensagem_codificada = urllib.parse.quote(mensagem)
+
+    # URL formatada para o WhatsApp
+    url_whatsapp = f"https://wa.me/{numero_whatsapp}?text={mensagem_codificada}"
+
+    return redirect(url_whatsapp)
+
+@app.route('/remover_do_carrinho/<int:produto_id>', methods=['POST'])
+def remover_do_carrinho(produto_id):
+    carrinho = session.get('carrinho', {})
+    try:
+        del carrinho[str(produto_id)]
+        print(carrinho)
+        session.modified = True
+    except:
+        pass
+    return redirect(url_for('ver_carrinho'))
+
 app.run(debug=True)
