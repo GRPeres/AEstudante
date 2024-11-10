@@ -97,7 +97,7 @@ document.getElementById("addRowBtn").addEventListener("click", function () {
                 class="trashBtn iconSize buttonBox"
                 style="width: 48px; top: 18px"
               >
-                <img src="../static/images/eos-icons--content-deleted.svg" />
+                <img src="../static/images/deletarLinha.svg" />
                 <!-- Ícone para deletar -->
               </button>
       </form>
@@ -231,7 +231,7 @@ document.getElementById("filterBtn").addEventListener("click", function () {
                 class="trashBtn iconSize buttonBox"
                 style="width: 48px; top: 18px"
               >
-                <img src="../static/images/eos-icons--content-deleted.svg" />
+                <img src="../static/images/deletarLinha.svg" />
                 <!-- Ícone para deletar -->
               </button>
         </form>
