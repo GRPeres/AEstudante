@@ -19,7 +19,7 @@ html {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #ff0000;
+  background-color: #ffffff;
 }
 
 .recuperacao-senha-enviar,
@@ -29,9 +29,13 @@ html {
   align-items: center;
   gap: 4vh;
   padding: 3% 2%;
-  background-color: #d9d9d9;
+  background-color: #a640e6;
   border-radius: 40px;
   text-align: center;
+}
+
+.recuperacao-senha-voltar {
+  background-color: #ffffff;
 }
 
 .Introducao {
@@ -55,22 +59,18 @@ html {
 .campo {
   width: 100%;
   padding: 12px;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #000000;
   font-size: 16px;
 }
 
 .botao-enviar {
   padding: 1em 2em;
-  background-color: #009951;
-  border-radius: 50px;
+  background-color: #102694;
+  border-radius: 3em;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-
-.botao-enviar:hover {
-  background-color: #007a3b;
 }
 
 .botao-enviar-texto {
@@ -90,14 +90,10 @@ html {
 .botao-voltar {
   width: 100%;
   padding: 1.5em;
-  background-color: #006baa;
+  background-color: #102694;
   border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-
-.botao-voltar:hover {
-  background-color: #004d82;
 }
 
 .botao-voltar-texto {
