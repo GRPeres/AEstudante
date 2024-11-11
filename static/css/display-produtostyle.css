@@ -20,7 +20,6 @@ html {
 .display-de-item .valor-prod,
 .display-de-item .quant-texto,
 .display-de-item .quantidade-item,
-.display-de-item .informacoes-prod,
 .display-de-item .desc-prod {
   position: relative;
   font-family: "Inter-Regular", Helvetica;
@@ -139,7 +138,7 @@ html {
   padding: 3%;
   width: 40%;
   height: 100%;
-  background-color: #d9d9d9;
+  background-color: #7cd996;
 }
 
 .display-de-item .icone {
@@ -159,7 +158,8 @@ html {
   width: auto;
   height: 100%;
   padding: 1%;
-  background-color: #d9d9d9;
+  background-color: #102694;
+  color: #ffffff;
   border-radius: 10px;
 }
 
@@ -167,6 +167,17 @@ html {
   position: relative;
   width: 100%;
   height: auto;
+}
+
+.display-de-item .informacoes-prod {
+  position: relative;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: auto;
+  letter-spacing: 0;
+  line-height: auto;
+  white-space: nowrap;
 }
 
 .display-de-item .fundo {
@@ -180,6 +191,7 @@ html {
   width: fit-content;
   padding: 1%;
   height: auto;
+  left: 2vw;
   background-color: #d9d9d9;
   border-radius: 13px 13px 0 0;
 }
@@ -198,6 +210,7 @@ html {
   flex-direction: column;
   overflow: hidden;
   max-width: 70%;
+  left: 2vw;
   word-wrap: break-word;
   white-space: normal;
 }
