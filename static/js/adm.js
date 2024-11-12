@@ -264,6 +264,7 @@ document.getElementById("doneButton").addEventListener("click", function () {
     if (response.ok) {
       console.log("Login successful");
       document.querySelector(".overlap").style.filter = "none";
+      document.querySelector(".blocking-box").style.pointerEvents = "none";
     } else {
       console.error("Error trying to login");
     }

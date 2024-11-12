@@ -11,25 +11,6 @@
   </head>
   <body>
     <div class="desktop">
-      <div
-        class="floating-box"
-        id="modal"
-        style="position: fixed; top: 30%; right: 42%"
-      >
-        <h2>Login</h2>
-        <div class="floating-box">
-          <label for="username">Usuario:</label>
-          <input type="text" placeholder="Usuario" id="username" />
-        </div>
-        <div class="floating-box">
-          <label for="password">Senha:</label>
-          <input type="password" placeholder="Senha" id="password" />
-        </div>
-        <div class="floating-box">
-          <button id="doneButton">Done</button>
-        </div>
-      </div>
-
       <div class="overlap" style="filter: blur(5px)">
         <!-- Barra lateral -->
         <div class="overlap-group">
@@ -162,6 +143,31 @@
         </div>
         <!-- Fim Definição de Linha -->
       </div>
+
+      <!-- Login -->
+      <div class="blocking-box">
+      </div>
+      <div
+      class="floating-box"
+      id="modal"
+      style="position: fixed; top: 30%; right: 42%"
+    >
+      <h2>Login</h2>
+      <div class="floating-box">
+        <label for="username">Usuario:</label>
+        <input type="text" placeholder="Usuario" id="username" />
+      </div>
+      <div class="floating-box">
+        <label for="password">Senha:</label>
+        <input type="password" placeholder="Senha" id="password" />
+      </div>
+      <div class="floating-box">
+        <button id="doneButton">Done</button>
+      </div>
+
+    </div>
+
+      
     </div>
 
     <script src="../static/js/adm.js"></script>

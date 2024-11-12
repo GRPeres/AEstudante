@@ -42,6 +42,17 @@
 }
 /* Fim da configuração das camadas */
 
+/* caixa do que bloqueia acesso a apagina durante login*/
+.blocking-box {
+  position: absolute;   /* Position absolute to overlay on top of other elements */
+  top: 0;               /* Start at the top of the screen */
+  left: 0;              /* Start at the left of the screen */
+  width: 100vw;         /* Full viewport width */
+  height: 100vh;        /* Full viewport height */
+  background-color: rgba(255, 255, 255, 0); /* Transparent background */
+}
+
+
 /* Estrutura da barra lateral */
 .rectangle {
   position: fixed;
