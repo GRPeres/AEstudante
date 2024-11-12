@@ -11,7 +11,7 @@
   align-items: center;
   padding: 0 4%;
   flex: 0 0 auto;
-  background-color: #b5de2e;
+  background-color: #ffeb3d;
 }
 
 /* habilita o overlay */
@@ -39,7 +39,7 @@
   align-items: center;
   padding: 0 3%;
   position: relative;
-  background-color: #fff300;
+  background-color: none;
 }
 
 .LOGO-A-ESTUDANTE {
@@ -62,9 +62,9 @@
 .barra-de-pesquisa {
   width: 100%;
   height: 100%;
-  border-radius: 5vw;
+  border-radius: 0.5vw;
   padding: 1%;
-  border: 0.15rem solid #7b961f;
+  border: 0.1rem solid #000000;
   font-size: 1.5rem;
   font-family: "Inter-Regular", Helvetica;
   font-weight: 400;
@@ -124,16 +124,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1% 5%;
+  padding: 0 5%;
   position: relative;
   align-self: stretch;
   width: 100%;
+  height: 6vh;
   flex: 0 0 auto;
-  background-color: #7b961f;
+  background-color: #ff2323;
 }
 
 .barra-navegacao-item {
   font-family: "Inter-Regular", Helvetica;
+  height: 100%;
+  align-items: center;
   font-weight: 400;
   color: #000000;
   font-size: 1.5rem;
@@ -155,7 +158,7 @@
   gap: 2% 5%;
   padding: 2%;
   position: relative;
-  background-color: #b5de2e;
+  background-color: #ffeb3d;
 }
 
 .barra-de-produtos-item {

@@ -122,7 +122,7 @@ html {
   align-items: center;
   align-content: center;
   border-radius: 7px;
-  background-color: #b5b5b5;
+  background-color: #de4e3e;
 }
 
 .tela-de-compra .image {
@@ -202,9 +202,7 @@ html {
   line-height: 24px;
   font-size: 24px;
   letter-spacing: 0;
-  color: #878a1e;
-  width: auto;
-  height: auto;
+  color: #de4e3e;
   border: none;
   cursor: pointer;
   background-color: transparent;
@@ -213,12 +211,12 @@ html {
 
 .tela-de-compra .botao-finalizar-compra {
   position: relative;
-
   padding: 2% 6%;
   position: relative;
   border-radius: 10px;
   cursor: pointer;
-  background-color: #41b811;
+  background-color: #102694;
+  color: #ffffff;
 }
 
 .tela-de-compra .tabela-preco {
