@@ -8,6 +8,101 @@
   <title>Página Inicial</title>
 </head>
 <body>
+  <header class="parte-de-cima">
+    <div class="organizacao">
+      <div class="frame-logo">
+        <img
+          class="LOGO-A-ESTUDANTE"
+          src="../static/images/Logo.png"
+          alt="Logo da Empresa"
+        />
+      </div>
+
+      <div class="conjunto-barra-de-pesquisa">
+        <input
+          class="barra-de-pesquisa"
+          type="text"
+          placeholder="Pesquise aqui"
+        />
+        <img class="lupa" alt="Ícone de pesquisa" />
+      </div>
+
+      <div class="botoes">
+        <!-- Botão de conta -->
+        <div class="conta hover-target">
+          <div class="overlay">
+            <div class="tela-de-login">
+              <div class="texto-conta">Entrar</div>
+
+              <p class="paraoutros">
+                <span>Não tem uma conta?</span>
+                <a
+                  href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Clique aqui!</a
+                >
+              </p>
+
+              <div class="campos">
+                <label class="texto-conta" for="Email">Email</label>
+                <input
+                  class="campo"
+                  type="email"
+                  id="Email"
+                  name="Email"
+                  placeholder="Coloque aqui"
+                  required
+                />
+                <label class="texto-conta" for="Senha">Senha</label>
+                <input
+                  class="campo"
+                  type="password"
+                  id="Senha"
+                  name="Senha"
+                  placeholder="Coloque aqui"
+                  required
+                />
+              </div>
+
+              <button class="enviar">
+                <div class="texto-conta">ENVIAR</div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botão de carrinho -->
+        <div class="carrinho hover-target">
+          <div class="carrinho">
+            <a href="{{ url_for('ver_carrinho') }}" class="botao-carrinho">Carrinho</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar hover-target">
+      <div class="navbar-item">Papelaria</div>
+      <div class="navbar-item">Materiais De Escritório</div>
+      <div class="navbar-item">Coleções</div>
+      <div class="navbar-item">Pedidos Personalizados</div>
+      <div class="overlay">
+        <div class="barra-de-produtos">
+          <div class="navbar-item">Caderno</div>
+          <div class="navbar-item">Lápis</div>
+          <div class="navbar-item">Calculadora</div>
+          <div class="navbar-item">Lápis Colorido</div>
+          <div class="navbar-item">Caneta Azul</div>
+          <div class="navbar-item">Caneta Vermelha</div>
+          <div class="navbar-item">Porta Caneta</div>
+          <div class="navbar-item">Agenda</div>
+          <div class="navbar-item">Isopor</div>
+          <div class="navbar-item">Giz</div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
   <div class="pagina-inicial">
     <!-- Propaganda Section 
     <div class="propraganda">
@@ -19,100 +114,7 @@
       </div>
     </div>
     -->
-    <header class="parte-de-cima">
-      <div class="organizacao">
-        <div class="frame-logo">
-          <img
-            class="LOGO-A-ESTUDANTE"
-            src="../static/images/Logo.png"
-            alt="Logo da Empresa"
-          />
-        </div>
-
-        <div class="conjunto-barra-de-pesquisa">
-          <input
-            class="barra-de-pesquisa"
-            type="text"
-            placeholder="Pesquise aqui"
-          />
-          <img class="lupa" alt="Ícone de pesquisa" />
-        </div>
-
-        <div class="botoes">
-          <!-- Botão de conta -->
-          <div class="conta hover-target">
-            <div class="overlay">
-              <div class="tela-de-login">
-                <div class="texto-conta">Entrar</div>
-
-                <p class="paraoutros">
-                  <span>Não tem uma conta?</span>
-                  <a
-                    href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Clique aqui!</a
-                  >
-                </p>
-
-                <div class="campos">
-                  <label class="texto-conta" for="Email">Email</label>
-                  <input
-                    class="campo"
-                    type="email"
-                    id="Email"
-                    name="Email"
-                    placeholder="Coloque aqui"
-                    required
-                  />
-                  <label class="texto-conta" for="Senha">Senha</label>
-                  <input
-                    class="campo"
-                    type="password"
-                    id="Senha"
-                    name="Senha"
-                    placeholder="Coloque aqui"
-                    required
-                  />
-                </div>
-
-                <button class="enviar">
-                  <div class="texto-conta">ENVIAR</div>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Botão de carrinho -->
-          <div class="carrinho hover-target">
-            <div class="carrinho">
-              <a href="{{ url_for('ver_carrinho') }}" class="botao-carrinho">Carrinho</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <nav class="navbar hover-target">
-        <div class="navbar-item">Papelaria</div>
-        <div class="navbar-item">Materiais De Escritório</div>
-        <div class="navbar-item">Coleções</div>
-        <div class="navbar-item">Pedidos Personalizados</div>
-        <div class="overlay">
-          <div class="barra-de-produtos">
-            <div class="navbar-item">Caderno</div>
-            <div class="navbar-item">Lápis</div>
-            <div class="navbar-item">Calculadora</div>
-            <div class="navbar-item">Lápis Colorido</div>
-            <div class="navbar-item">Caneta Azul</div>
-            <div class="navbar-item">Caneta Vermelha</div>
-            <div class="navbar-item">Porta Caneta</div>
-            <div class="navbar-item">Agenda</div>
-            <div class="navbar-item">Isopor</div>
-            <div class="navbar-item">Giz</div>
-          </div>
-        </div>
-      </nav>
-    </header>
+   
     <!-- Proposta Section -->
     <div class="proposta">
       <div class="proposta-conjunto">
