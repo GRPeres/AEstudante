@@ -199,12 +199,17 @@ def gerar_mensagem():
         mensagem += f"- {produto.nome_produtos}: {quantidade} unidades\n"
 
     numero_whatsapp = "5551999999999"
-    mensagem_codificada = urllib.parse.quote(mensagem)
+    mensagem_codificada = mensagem.replace(" ", "%20")
 
-    # URL formatada para o WhatsApp
     url_whatsapp = f"https://wa.me/{numero_whatsapp}?text={mensagem_codificada}"
+    qr = qrcode.make(url_whatsapp)
 
-    return redirect(url_whatsapp)
+    # Definir o caminho da pasta 'imagens' dentro de 'static' e salvar a imagem
+    caminho_pasta_imagens = os.path.join('static', 'images')
+    caminho_qr = os.path.join(caminho_pasta_imagens, 'qrcode_whatsapp.png')
+    qr.save(caminho_qr)
+
+    return render_template('whatsapp.html')
 
 @app.route('/remover_do_carrinho/<int:produto_id>', methods=['POST'])
 def remover_do_carrinho(produto_id):
