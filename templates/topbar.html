@@ -19,11 +19,13 @@
         <div class="subtitulo">Office Shop</div>
       </div>
       
-      <div class="conjunto-barra-de-pesquisa">
-        <input class="barra-de-pesquisa" placeholder="Pesquise aqui">
-        <img class="lupa" src="../static/images/Lupa.svg" />
-      </div>
-
+      <form id="search-form" action="{{ url_for('search') }}" method="GET" class="conjunto-barra-de-pesquisa">
+        <input type="text" name="search_term" class="barra-de-pesquisa" placeholder="Pesquise aqui" />
+        <button type="submit" class="lupa">
+            <img src="../static/images/Lupa.svg" alt="Search" />
+        </button>
+    </form>
+    
       <div class="botoes">
 
         <div class="icone-conta hover-target">

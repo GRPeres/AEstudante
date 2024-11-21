@@ -222,4 +222,22 @@ def remover_do_carrinho(produto_id):
         pass
     return redirect(url_for('ver_carrinho'))
 
+@app.route('/search', methods=['GET'])
+def search():
+    search_term = request.args.get('search_term', '')  # Get the search term from the query string
+    dao = DAO()
+
+    # Assuming your DAO methods can search by name or description
+    produtos = []
+
+    if search_term:
+        # Filter products based on search term (this can be adjusted based on your database schema)
+        produtos = dao.readByNome('nome_produtos')  # Filter by name
+        if not produtos:
+            produtos = dao.readBy('descricao_produtos', 'ilike', search_term)  # Try filtering by description
+    else:
+        produtos = dao.readAll()  # If no search term, return all products
+
+    return render_template('paginainicial.html', promocoes=produtos, novidades=produtos)  # Render the page with the filtered products
+
 app.run(debug=True)

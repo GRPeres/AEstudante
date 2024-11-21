@@ -18,14 +18,12 @@
         />
       </div>
 
-      <div class="conjunto-barra-de-pesquisa">
-        <input
-          class="barra-de-pesquisa"
-          type="text"
-          placeholder="Pesquise aqui"
-        />
-        <img class="lupa" alt="Ícone de pesquisa" />
-      </div>
+      <form id="search-form" action="{{ url_for('search') }}" method="GET" class="conjunto-barra-de-pesquisa">
+        <input type="text" name="search_term" class="barra-de-pesquisa" placeholder="Pesquise aqui" />
+        <button type="submit" class="lupa">
+            <img src="../static/images/Lupa.svg" alt="Search" />
+        </button>
+    </form>
 
       <div class="botoes">
         <!-- Botão de conta -->
