@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/css/display-produtostyle.css" />
-    <link rel="stylesheet" href="../static/css/bottombar.css" />
-    <link rel="stylesheet" href="../static/css/topbarstyle.css" />
-    <title>Página de Produtos</title>
-    <!-- Título da página -->
-  </head>
 
-  <body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../static/css/display-produtostyle.css" />
+  <link rel="stylesheet" href="../static/css/bottombar.css" />
+  <link rel="stylesheet" href="../static/css/topbarstyle.css" />
+  <title>Página de Produtos</title>
+  <!-- Título da página -->
+</head>
+
+<body>
   <header class="conjunto-topbar">
     <div class="organizacao">
 
@@ -154,46 +155,45 @@
 
   </header>
 
-    <main class="display-de-item">
-      <div class="item-coisas">
-        <div class="conjunto-imagens">
-          <img
-            class="imagem-produto"
-            src="{{produto.imagem_produtos}}"
-            alt="Imagem do produto"
-          />
-        </div>
-
-        <div class="produto-detalhes">
-          <div class="item-inicio">
-            <div class="nome-prod">{{ produto.nome_produtos}}</div>
-            <div id="valor-prod" class="valor-prod">{{ produto.preco_produtos }}</div>
-            <hr class="linha" />
-          </div>
-          <form action="{{ url_for('adicionar_carrinho', produto_id=produto.id_produtos) }}" method="post">
-            <label for="quantidade">Quantidade:</label>
-            <input type="number" id="quantidade" name="quantidade" value="1" min="1">
-            <button type="submit" class="botao-adicionar-carrinho">Adicionar ao carrinho</button>
-          </form>
-        </div>
+  <main class="display-de-item">
+    <div class="item-coisas">
+      <div class="conjunto-imagens">
+        <img class="imagem-produto" src="{{produto.imagem_produtos}}" alt="Imagem do produto" />
       </div>
 
-      <div class="conjunto-informacoes-produto">
-        <div class="fundo">
-          <div class="rectangle">
-            <div class="informacoes-prod">INFORMAÇÕES DO PRODUTO</div>
-          </div>
-          <hr class="linha2" />
+      <div class="produto-detalhes">
+        <div class="item-inicio">
+          <div class="nome-prod">{{ produto.nome_produtos}}</div>
+          <div id="valor-prod" class="valor-prod">{{ produto.preco_produtos }}</div>
+          <hr class="linha" />
         </div>
+        <form action="{{ url_for('adicionar_carrinho', produto_id=produto.id_produtos) }}" method="post">
+          <label for="quantidade">Quantidade:</label>
+          <input type="number" id="quantidade" name="quantidade" value="1" min="1">
+          <button type="submit" class="botao-adicionar-carrinho">Adicionar ao carrinho</button>
+        </form>
       </div>
+    </div>
 
-      <div class="desc-prod">
-        <p class="texto-desc-prod">
-          {{ produto.descricao_produtos }}
-        </p>
+    <div class="conjunto-informacoes-produto">
+      <div class="fundo">
+        <div class="rectangle">
+          <div class="informacoes-prod">INFORMAÇÕES DO PRODUTO</div>
+        </div>
+        <hr class="linha2" />
       </div>
-    </main>
-    
+    </div>
+
+    <div class="desc-prod">
+      <p class="texto-desc-prod">
+        {{ produto.descricao_produtos }}
+      </p>
+    </div>
+
+  </main>
+
+  <div class="ajuste_bottombar"></div>
+
   <footer class="bottombar">
     <b>
       <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
@@ -207,9 +207,10 @@
     </b>
   </footer>
 
-    <script> var preco = document.getElementById("valor-prod").innerHTML; </script>
-    <script src="../static/js/topbarjs.js"></script>
-    <script src="../static/js/formataPreco.js"></script>
-    <script src="../static/js/display-produto.js"> </script>
-  </body> 
+  <script> var preco = document.getElementById("valor-prod").innerHTML; </script>
+  <script src="../static/js/topbarjs.js"></script>
+  <script src="../static/js/formataPreco.js"></script>
+  <script src="../static/js/display-produto.js"> </script>
+</body>
+
 </html>
