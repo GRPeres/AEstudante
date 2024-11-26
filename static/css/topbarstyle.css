@@ -114,6 +114,7 @@
 }
 
 .lupa {
+  background-color: transparent;
   position: absolute;
   border: none;
   width: 3vw;

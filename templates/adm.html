@@ -142,8 +142,25 @@
           {% endfor %}
         </div>
         <!-- Fim Definição de Linha -->
+          <!-- Pagination Controls -->
+      
       </div>
 
+      <div class="pagination-controls">
+ <!-- Previous Button -->
+ {% if current_page > 1 %}
+ <a href="{{ url_for('adm', page=current_page - 1) }}" class="pagination-button">Anterior</a>
+ {% endif %}
+ 
+ <!-- Page Numbers -->
+ <span class="page-info">Página {{ current_page }} de {{ total_pages }}</span>
+
+ <!-- Next Button -->
+ {% if current_page < total_pages %}
+ <a href="{{ url_for('adm', page=current_page + 1) }}" class="pagination-button">Próxima</a>
+ {% endif %}
+      </div>
+      
       <!-- Login -->
       <div class="blocking-box">
       </div>

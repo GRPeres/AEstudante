@@ -5,6 +5,15 @@ from decimal import *
 import qrcode
 import os
 import urllib.parse
+from marshmallow import Schema, fields
+
+class ProdutoSchema(Schema):
+    id_produtos = fields.Int()
+    nome_produtos = fields.Str()
+    descricao_produtos = fields.Str()
+    categoria_produtos = fields.Str()
+    preco_produtos = fields.Float()
+    quantidade_produtos = fields.Int()
 
 app = Flask(__name__)
 app.secret_key = 'test1'
@@ -12,16 +21,58 @@ app.secret_key = 'test1'
 # Rota principal da página inicial
 @app.route('/', methods=['GET'])
 def index(): 
-    dao = DAO()
-    promocoes = dao.readAll()
-    return render_template('paginainicial.html',promocoes=promocoes, novidades=promocoes)
 
-# Rota principal da página de controle de estoque
+    # Constante para controlar o número de itens por página
+    ITEMS_PER_PAGE = 10  # Exemplo: 10 itens por página
+
+    dao = DAO()
+    promocoes = dao.readAll()  # Busca todos os produtos no banco de dados
+    
+    # Obtém o número da página da URL (parâmetro 'page'), se não fornecido, assume a página 1
+    page = int(request.args.get('page', 1))
+    
+    # Calcula os índices de início e fim com base no número da página
+    start = (page - 1) * ITEMS_PER_PAGE
+    end = start + ITEMS_PER_PAGE
+    promocoes_paginadas = promocoes[start:end]
+    
+    # Calcula o número total de páginas
+    total_pages = (len(promocoes) + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE  # Arredonda para cima
+    
+    # Passa os dados para o template
+    return render_template('paginainicial.html', 
+                           promocoes=promocoes_paginadas, 
+                           novidades=promocoes_paginadas,
+                           current_page=page, 
+                           total_pages=total_pages)
+
 @app.route('/adm/', methods=['GET'])
 def adm():
+   
+    # Constante para controlar o número de itens por página
+    ITEMS_PER_PAGE = 10  # Exemplo: 10 itens por página
+
     dao = DAO()
-    produtos = dao.readAll()  # Lê todos os produtos do banco de dados
-    return render_template('adm.html', produtos=produtos)
+    promocoes = dao.readAll()  # Busca todos os produtos no banco de dados
+    
+    # Obtém o número da página da URL (parâmetro 'page'), se não fornecido, assume a página 1
+    page = int(request.args.get('page', 1))
+    
+    # Calcula os índices de início e fim com base no número da página
+    start = (page - 1) * ITEMS_PER_PAGE
+    end = start + ITEMS_PER_PAGE
+    promocoes_paginadas = promocoes[start:end]
+    
+    # Calcula o número total de páginas
+    total_pages = (len(promocoes) + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE  # Arredonda para cima
+    
+    # Passa os dados para o template
+    return render_template('adm.html', 
+                           produtos=promocoes_paginadas, 
+                           current_page=page, 
+                           total_pages=total_pages)
+
+
 
 # Rota auxiliar que atualiza dados na tabela produto
 @app.route('/<int:id>/update', methods=['POST'])

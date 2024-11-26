@@ -1,5 +1,3 @@
-
-
 // Função que configura listeners para update e delete
 function setupListeners(form) {
   const id = form.getAttribute("data-id"); // Obtém o ID do produto
@@ -182,33 +180,33 @@ document.getElementById("filterBtn").addEventListener("click", function () {
           const newRow = document.createElement("div");
           newRow.classList.add("tableRow");
           newRow.innerHTML = `
-       <form class="updateForm" data-id="${ produto.id_produtos }">
+       <form class="updateForm" data-id="${produto.id_produtos}">
               <input
                 class="divWrapper defaultBox"
                 style="width: 4%"
                 name="imagem_produtos"
-                value="${ produto.imagem_produtos }"
+                value="${produto.imagem_produtos}"
                 placeholder="Imagem"
               />
               <input
                 class="divWrapper defaultBox"
                 style="width: 10%"
                 name="nome_produtos"
-                value="${ produto.nome_produtos }"
+                value="${produto.nome_produtos}"
                 placeholder="Nome"
               />
               <input
                 class="divWrapper defaultBox"
                 style="width: 40.4%"
                 name="descricao_produtos"
-                value="${ produto.descricao_produtos }"
+                value="${produto.descricao_produtos}"
                 placeholder="Descrição"
               />
               <input
                 class="divWrapper defaultBox"
                 style="width: 10%"
                 name="categoria_produtos"
-                value="${ produto.categoria_produtos }"
+                value="${produto.categoria_produtos}"
                 placeholder="Descrição"
               />
               <input
@@ -216,14 +214,14 @@ document.getElementById("filterBtn").addEventListener("click", function () {
                 style="width: 4%"
                 step="0.01"
                 name="preco_produtos"
-                value="${ produto.preco_produtos }"
+                value="${produto.preco_produtos}"
                 placeholder="Preço"
               />
               <input
                 class="divWrapper defaultBox"
                 style="width: 2%"
                 name="quantidade_produtos"
-                value="${ produto.quantidade_produtos }"
+                value="${produto.quantidade_produtos}"
                 placeholder="Qtd"
               />
               <button
@@ -271,3 +269,61 @@ document.getElementById("doneButton").addEventListener("click", function () {
   });
   document.getElementById("modal").style.display = "none";
 });
+
+
+  // Function to fetch the paginated data from Flask
+  function fetchPageData(pageNumber) {
+    // Make an AJAX request to get the paginated data from Flask
+    fetch(`/adm/?page=${pageNumber}`)
+      .then(response => response.json())  // Parse JSON response
+      .then(data => {
+        // Update the table with the new products
+        const tableContainer = document.getElementById("tableContainer");
+        tableContainer.innerHTML = "";  // Clear the existing table rows
+
+        // Loop through the products and add them to the table
+        data.produtos.forEach(produto => {
+          const row = document.createElement("div");
+          row.classList.add("tableRow");
+          row.innerHTML = `
+            <form class="updateForm" data-id="${produto.id_produtos}">
+              <input name="imagem_produtos" value="${produto.imagem_produtos}" placeholder="Imagem" />
+              <input name="nome_produtos" value="${produto.nome_produtos}" placeholder="Nome" />
+              <input name="descricao_produtos" value="${produto.descricao_produtos}" placeholder="Descrição" />
+              <input name="categoria_produtos" value="${produto.categoria_produtos}" placeholder="Categoria" />
+              <input name="preco_produtos" value="${produto.preco_produtos}" placeholder="Preço" />
+              <input name="quantidade_produtos" value="${produto.quantidade_produtos}" placeholder="Quantidade" />
+              <button type="button" class="trashBtn">Deletar</button>
+            </form>
+          `;
+          tableContainer.appendChild(row);
+        });
+
+        // Update pagination controls based on current page and total pages
+        updatePaginationControls(data.current_page, data.total_pages);
+      })
+      .catch(error => {
+        console.error("Error fetching page data:", error);
+      });
+  }
+
+  // Function to update pagination controls (Previous / Next buttons)
+  function updatePaginationControls(currentPage, totalPages) {
+    const prevButton = document.getElementById("prevBtn");
+    const nextButton = document.getElementById("nextBtn");
+
+    // Disable previous button if we're on the first page
+    prevButton.disabled = currentPage === 1;
+
+    // Disable next button if we're on the last page
+    nextButton.disabled = currentPage === totalPages;
+
+    // Set the onclick handlers for the pagination buttons
+    prevButton.onclick = () => fetchPageData(currentPage - 1);
+    nextButton.onclick = () => fetchPageData(currentPage + 1);
+  }
+
+  // Initialize the page by fetching data for the first page
+  document.addEventListener("DOMContentLoaded", () => {
+    fetchPageData(1);  // Fetch the first page by default
+  });

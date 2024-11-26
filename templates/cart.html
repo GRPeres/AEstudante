@@ -8,101 +8,148 @@
     <title>Carrinho de Compras</title>
   </head>
   <body>
-    <header class="parte-de-cima">
+    <header class="conjunto-topbar">
       <div class="organizacao">
+  
         <div class="frame-logo">
-          <img
-            class="LOGO-A-ESTUDANTE"
-            src="../static/images/Logo.png"
-            alt="Logo da Empresa"
-          />
+          <img class="LOGO-A-ESTUDANTE" src="../static/images/Logo.png" />
         </div>
-
-        <div class="conjunto-barra-de-pesquisa">
-          <input
-            class="barra-de-pesquisa"
-            type="text"
-            placeholder="Pesquise aqui"
-          />
-          <img class="lupa" alt="Ícone de pesquisa" />
+        <div class="nome-estabelecimento">
+          <div class="nome-principal">A Estudante</div>
+          <div class="subtitulo">Office Shop</div>
         </div>
-
+  
+        <form id="search-form" action="{{ url_for('search') }}" method="GET" class="conjunto-barra-de-pesquisa">
+          <input type="text" name="search_term" class="barra-de-pesquisa" placeholder="Pesquise aqui" />
+          <button type="submit" class="lupa">
+              <img src="../static/images/Lupa.svg" alt="Search" />
+          </button>
+      </form>
+  
         <div class="botoes">
-          <!-- Botão de conta -->
-          <div class="conta hover-target">
+          <div class="icone-conta hover-target">
+            <img class="icone-conta" src="../static/images/Conta.svg" />
             <div class="overlay">
               <div class="tela-de-login">
                 <div class="texto-conta">Entrar</div>
-
                 <p class="paraoutros">
                   <span>Não tem uma conta?</span>
-                  <a
-                    href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Clique aqui!</a
-                  >
+                  <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">Clique
+                    aqui!</a>
                 </p>
-
-                <div class="campos">
+                <div class="conjunto-campos-conta">
                   <label class="texto-conta" for="Email">Email</label>
-                  <input
-                    class="campo"
-                    type="email"
-                    id="Email"
-                    name="Email"
-                    placeholder="Coloque aqui"
-                    required
-                  />
+                  <input class="campo-conta" type="text" id="Email" name="Email" placeholder="Coloque aqui">
+  
                   <label class="texto-conta" for="Senha">Senha</label>
-                  <input
-                    class="campo"
-                    type="password"
-                    id="Senha"
-                    name="Senha"
-                    placeholder="Coloque aqui"
-                    required
-                  />
+                  <input class="campo-conta" type="text" id="Senha" name="Senha" placeholder="Coloque aqui">
                 </div>
-
+                <div class="paraoutros">
+                  <span>Esqueceu a Senha?</span>
+                  <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">Clique
+                    aqui!</a>
+                </div>
                 <button class="enviar">
                   <div class="texto-conta">ENVIAR</div>
                 </button>
               </div>
             </div>
           </div>
-
-          <!-- Botão de carrinho -->
-          <div class="carrinho hover-target">
-            <div class="carrinho">
-              <a href="{{ url_for('ver_carrinho') }}" class="botao-carrinho"
-                >Carrinho</a
-              >
+  
+          <div class="icone-carrrinho hover-target">
+            <img class="icone-carrrinho" src="../static/images/Carrinho.svg" />
+  
+            <div class="overlay">
+              <div class="carrinho-overlay">
+                <div class="entrada-carrinho">
+                  <div class="entrada-carrinho-texto">Carrinho</div>
+                  <button class="botao-sem-fundo">
+                    <img class="icones" src="../static/images/x.svg" />
+                  </button>
+                  <hr class="linha" />
+                </div>
+  
+                <div class="conjunto-produto">
+                  <div class="produto">
+                    <img class="imagem-item" src="../static/images/Conjunto lapis.jpeg" />
+                    <div class="informacoes-do-item">
+                      <div class="descricao-do-item">
+                        <div class="valor-pre-compra">R$ 999,99</div>
+                        <div class="nome-do-item">Nome do Item</div>
+                      </div>
+                      <div class="quantidade-item">
+                        <button class="botao-sem-fundo">
+                          <img class="icones-carrinho" src="../static/images/retirar.svg" />
+                        </button>
+                        <div class="numero-item">1</div>
+                        <button class="botao-sem-fundo">
+                          <img class="icones-carrinho" src="../static/images/adicionar.svg" />
+                        </button>
+                        <button class="botao-sem-fundo">
+                          <img class="icones-carrinho" src="../static/images/deletar.svg" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="termino-carrinho">
+                  <div class="valor-subtotal">
+                    <div class="texto-carrinho-branco">Valor:</div>
+                    <div class="valor-produtos-branco">Xxxr$</div>
+                  </div>
+                  <div class="valor-subtotal">
+                    <div class="texto-carrinho-branco">Frete:</div>
+                    <div class="valor-produtos-branco">Xxxr$</div>
+                  </div>
+                  <div class="valor-total">
+                    <div class="texto-carrinho-preto">Total:</div>
+                    <div class="valor-produtos-preto">Xxxr$</div>
+                  </div>
+                  <button class="botao-sem-fundo">
+                    <div class="botao-continuar-compra">Continuar Comprando</div>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <nav class="navbar hover-target">
-        <div class="navbar-item">Papelaria</div>
-        <div class="navbar-item">Materiais De Escritório</div>
-        <div class="navbar-item">Coleções</div>
-        <div class="navbar-item">Pedidos Personalizados</div>
-        <div class="overlay">
-          <div class="barra-de-produtos">
-            <div class="navbar-item">Caderno</div>
-            <div class="navbar-item">Lápis</div>
-            <div class="navbar-item">Calculadora</div>
-            <div class="navbar-item">Lápis Colorido</div>
-            <div class="navbar-item">Caneta Azul</div>
-            <div class="navbar-item">Caneta Vermelha</div>
-            <div class="navbar-item">Porta Caneta</div>
-            <div class="navbar-item">Agenda</div>
-            <div class="navbar-item">Isopor</div>
-            <div class="navbar-item">Giz</div>
+  
+  
+      <div class="barra-navegacao">
+        <div class="barra-navegacao-item hover-target">Papelaria
+          <div class="overlay">
+            <div class="barra-de-produtos">
+              <div class="barra-de-produtos-item">Lapis Colorido</div>
+              <div class="barra-de-produtos-item">Caneta Azul</div>
+              <div class="barra-de-produtos-item">Caneta Vermelha</div>
+              <div class="barra-de-produtos-item">Porta Caneta</div>
+            </div>
           </div>
         </div>
-      </nav>
+        <div class="barra-navegacao-item hover-target">Materiais De Escritorio
+          <div class="overlay">
+            <div class="barra-de-produtos">
+              <div class="barra-de-produtos-item">Caneta Vermelha</div>
+              <div class="barra-de-produtos-item">Porta Caneta</div>
+              <div class="barra-de-produtos-item">Agenda</div>
+              <div class="barra-de-produtos-item">Isopor</div>
+              <div class="barra-de-produtos-item">Giz</div>
+            </div>
+          </div>
+        </div>
+        <div class="barra-navegacao-item hover-target">Coleções
+          <div class="overlay">
+            <div class="barra-de-produtos">
+              <div class="barra-de-produtos-item">Caderno</div>
+              <div class="barra-de-produtos-item">Lapis</div>
+              <div class="barra-de-produtos-item">Calculadora</div>
+              <div class="barra-de-produtos-item">Lapis Colorido</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
     <h1>Carrinho de Compras</h1>
 
@@ -143,27 +190,18 @@
     </form>
     <a href="/">Continuar comprando</a>
 
+    <div class="ajuste_bottombar"></div>
     <footer class="bottombar">
-      <a
-        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <div class="parafora">Telefone</div>
-      </a>
-      <a
-        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <div class="parafora">WhatsApp</div>
-      </a>
-      <div class="parafora">Tipos de Pagamentos:</div>
-      <img
-        class="metodos-de-pagamento"
-        src="../static/images/metodos-de-pagamento.svg"
-        alt="Métodos de pagamento"
-      />
+      <b>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
+          <div class="parafora">Telefone</div>
+        </a>
+      </b>
+      <b>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
+          <div class="parafora">whatsapp</div>
+        </a>
+      </b>
     </footer>
   </body>
 </html>

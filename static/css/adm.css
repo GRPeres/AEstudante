@@ -191,4 +191,15 @@
   cursor: pointer;
 }
 
+.pagination-controls {
+  position: fixed; /* Keeps the element in a fixed position */
+  left: 50%; /* Position from the left */
+  bottom: 20px; /* Distance from the bottom of the screen */
+  transform: translateX(-50%); /* Centers the element horizontally */
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Optional: space between buttons */
+  z-index: 1000; /* Optional: ensures it appears above other content */
+}
+
 /* Caixa flutuante do filtro */
