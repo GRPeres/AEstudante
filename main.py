@@ -13,7 +13,7 @@ app.secret_key = 'test1'
 def index(): 
 
     # Constante para controlar o número de itens por página
-    ITEMS_PER_PAGE = 10  # Exemplo: 10 itens por página
+    ITEMS_PER_PAGE = 50  # Exemplo: 10 itens por página
 
     dao = DAO()
     promocoes = dao.readAll()  # Busca todos os produtos no banco de dados
@@ -40,7 +40,7 @@ def index():
 def adm():
    
     # Constante para controlar o número de itens por página
-    ITEMS_PER_PAGE = 10  # Exemplo: 10 itens por página
+    ITEMS_PER_PAGE = 11  # Exemplo: 10 itens por página
 
     dao = DAO()
     promocoes = dao.readAll()  # Busca todos os produtos no banco de dados
@@ -269,16 +269,35 @@ def search():
     dao = DAO()
 
     # Assuming your DAO methods can search by name or description
-    produtos = []
+    add_product = []
 
     if search_term:
         # Filter products based on search term (this can be adjusted based on your database schema)
-        produtos = dao.readByNome('nome_produtos')  # Filter by name
-        if not produtos:
-            produtos = dao.readBy('descricao_produtos', 'ilike', search_term)  # Try filtering by description
+        promocoes = dao.readByNome('nome_produtos')  # Filter by name
+        if not promocoes:
+            promocoes = dao.readBy('descricao_produtos', 'ilike', search_term)  # Try filtering by description
     else:
-        produtos = dao.readAll()  # If no search term, return all products
+        promocoes = dao.readAll()  # If no search term, return all products
 
-    return render_template('paginainicial.html', promocoes=produtos, novidades=produtos)  # Render the page with the filtered products
+    # Constante para controlar o número de itens por página
+    ITEMS_PER_PAGE = 50  # Exemplo: 10 itens por página
+
+    # Obtém o número da página da URL (parâmetro 'page'), se não fornecido, assume a página 1
+    page = int(request.args.get('page', 1))
+    
+    # Calcula os índices de início e fim com base no número da página
+    start = (page - 1) * ITEMS_PER_PAGE
+    end = start + ITEMS_PER_PAGE
+    promocoes_paginadas = promocoes[start:end]
+    
+    # Calcula o número total de páginas
+    total_pages = (len(promocoes) + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE  # Arredonda para cima
+    
+    # Passa os dados para o template
+    return render_template('paginainicial.html', 
+                           promocoes=promocoes_paginadas, 
+                           novidades=promocoes_paginadas,
+                           current_page=page, 
+                           total_pages=total_pages)
 
 app.run(debug=True)
