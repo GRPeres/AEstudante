@@ -4,16 +4,6 @@ from dao_bdd import *
 from decimal import *
 import qrcode
 import os
-import urllib.parse
-from marshmallow import Schema, fields
-
-class ProdutoSchema(Schema):
-    id_produtos = fields.Int()
-    nome_produtos = fields.Str()
-    descricao_produtos = fields.Str()
-    categoria_produtos = fields.Str()
-    preco_produtos = fields.Float()
-    quantidade_produtos = fields.Int()
 
 app = Flask(__name__)
 app.secret_key = 'test1'
