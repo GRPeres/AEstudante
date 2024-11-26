@@ -13,7 +13,7 @@ app.secret_key = 'test1'
 def index(): 
 
     # Constante para controlar o número de itens por página
-    ITEMS_PER_PAGE = 50  # Exemplo: 10 itens por página
+    ITEMS_PER_PAGE = 20  # Exemplo: 10 itens por página
 
     dao = DAO()
     promocoes = dao.readAll()  # Busca todos os produtos no banco de dados

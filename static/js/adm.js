@@ -245,10 +245,35 @@ document.getElementById("filterBtn").addEventListener("click", function () {
   });
 });
 
-// Listener para o botão de home
-document.getElementById("homeBtn").addEventListener("click", function () {
-  console.error("you pressed the button", error); // Log de erro ao pressionar o botão
+//Login Functionality
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Check if a valid session token exists in localStorage
+  const sessionExpiration = localStorage.getItem('sessionExpiration');
+  
+  // Check if session token is valid (i.e., not expired)
+  if (sessionExpiration && new Date().getTime() < sessionExpiration) {
+    // Automatically login since session is valid
+    autoLogin();
+  } else {
+    console.log("No valid session found or session has expired");
+    // Optionally show login modal or redirect to login page
+    document.getElementById("modal").style.display = "block";
+  }
 });
+
+function autoLogin() {
+  console.log("Login successful");
+      
+  // Set session expiration time (1 hour from now)
+  const sessionExpiration = new Date().getTime() + 60 * 60 * 1000; // 1 hour from now
+  localStorage.setItem('sessionExpiration', sessionExpiration);
+
+  document.querySelector(".overlap").style.filter = "none";
+  document.querySelector(".blocking-box").style.pointerEvents = "none";
+
+  document.getElementById("modal").style.display = "none";
+}
 
 document.getElementById("doneButton").addEventListener("click", function () {
   const loginData = new FormData();
@@ -261,6 +286,11 @@ document.getElementById("doneButton").addEventListener("click", function () {
   }).then((response) => {
     if (response.ok) {
       console.log("Login successful");
+      
+      // Set session expiration time (1 hour from now)
+      const sessionExpiration = new Date().getTime() + 60 * 60 * 1000; // 1 hour from now
+      localStorage.setItem('sessionExpiration', sessionExpiration);
+
       document.querySelector(".overlap").style.filter = "none";
       document.querySelector(".blocking-box").style.pointerEvents = "none";
     } else {
@@ -269,6 +299,7 @@ document.getElementById("doneButton").addEventListener("click", function () {
   });
   document.getElementById("modal").style.display = "none";
 });
+
 
 
   // Function to fetch the paginated data from Flask
