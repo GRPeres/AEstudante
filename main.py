@@ -8,12 +8,14 @@ import os
 app = Flask(__name__)
 app.secret_key = 'test1'
 
+
+# Constante para controlar o número de itens por página
+ITEMS_PER_PAGE = 20# Exemplo: 10 itens por página
+
+
 # Rota principal da página inicial
 @app.route('/', methods=['GET'])
 def index(): 
-
-    # Constante para controlar o número de itens por página
-    ITEMS_PER_PAGE = 20  # Exemplo: 10 itens por página
 
     dao = DAO()
     promocoes = dao.readAll()  # Busca todos os produtos no banco de dados
@@ -40,7 +42,7 @@ def index():
 def adm():
    
     # Constante para controlar o número de itens por página
-    ITEMS_PER_PAGE = 11  # Exemplo: 10 itens por página
+    ITEMS_PER_PAGE_ADM = 11  # Exemplo: 10 itens por página
 
     dao = DAO()
     promocoes = dao.readAll()  # Busca todos os produtos no banco de dados
@@ -49,12 +51,12 @@ def adm():
     page = int(request.args.get('page', 1))
     
     # Calcula os índices de início e fim com base no número da página
-    start = (page - 1) * ITEMS_PER_PAGE
-    end = start + ITEMS_PER_PAGE
+    start = (page - 1) * ITEMS_PER_PAGE_ADM
+    end = start + ITEMS_PER_PAGE_ADM
     promocoes_paginadas = promocoes[start:end]
     
     # Calcula o número total de páginas
-    total_pages = (len(promocoes) + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE  # Arredonda para cima
+    total_pages = (len(promocoes) + ITEMS_PER_PAGE_ADM - 1) // ITEMS_PER_PAGE_ADM  # Arredonda para cima
     
     # Passa os dados para o template
     return render_template('adm.html', 
@@ -278,9 +280,6 @@ def search():
             promocoes = dao.readBy('descricao_produtos', 'ilike', search_term)  # Try filtering by description
     else:
         promocoes = dao.readAll()  # If no search term, return all products
-
-    # Constante para controlar o número de itens por página
-    ITEMS_PER_PAGE = 50  # Exemplo: 10 itens por página
 
     # Obtém o número da página da URL (parâmetro 'page'), se não fornecido, assume a página 1
     page = int(request.args.get('page', 1))
