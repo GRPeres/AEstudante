@@ -78,37 +78,50 @@
     <h1>Carrinho de Compras</h1>
 
     <table>
-      <thead>
-        <tr>
-          <th>Produto</th>
-          <th>Preço</th>
-          <th>Quantidade</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for produto in produtos %}
-        <tr>
-          <td>{{ produto.nome_produtos }}</td>
-          <td>{{ produto.preco_produtos | round(2) }}</td>
-          {% set index = produto.id_produtos | string() %}
-          <td>{{ carrinho[index] }}</td>
-          <td>
-            <form
-              action="{{ url_for('remover_do_carrinho', produto_id=produto.id_produtos) }}"
-              method="post"
-            >
-              <button type="submit">Remover</button>
-            </form>
-          </td>
-        </tr>
-        {% else %}
-        <tr>
-          <td colspan="4">O carrinho está vazio.</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+  <thead>
+    <tr>
+      <th>Produto</th>
+      <th>Preço</th>
+      <th>Quantidade</th>
+      <th>Preço total do Item</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% set total_geral = 0 %}
+    {% for produto in produtos %}
+    <tr>
+      <td>{{ produto.nome_produtos }}</td>
+      <td>{{ produto.preco_produtos | round(2) }}</td>
+      {% set index = produto.id_produtos | string() %}
+      <td>{{ carrinho[index] }}</td>
+      {% set total = carrinho[index] * produto.preco_produtos | float %}
+      <td>{{ total | round(2) }} R$</td>
+      <td>
+        <form
+          action="{{ url_for('remover_do_carrinho', produto_id=produto.id_produtos) }}"
+          method="post"
+        >
+          <button type="submit">Remover</button>
+        </form>
+      </td>
+    </tr>
+    {% set total_geral = total_geral + total %}
+    {% else %}
+    <tr>
+      <td colspan="4">O carrinho está vazio.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  {% if produtos %}
+  <tfoot>
+    <tr>
+      <td colspan="3"><strong>Total Geral:</strong></td>
+      <td colspan="2"><strong>{{ total_geral | round(2) }} R$</strong></td>
+    </tr>
+  </tfoot>
+  {% endif %}
+</table>
+
     <form action="{{ url_for('gerar_mensagem') }}" method="get">
       <button type="submit">Enviar Pedido via WhatsApp</button>
     </form>
