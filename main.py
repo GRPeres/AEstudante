@@ -298,6 +298,25 @@ def search():
                            novidades=promocoes_paginadas,
                            current_page=page, 
                            total_pages=total_pages)
+'''
+@app.route('/remover_itens_banco')
+def remover_itens_banco():
+    carrinho = session.get('carrinho', {})
+    dao = DAO()
+    lista_produtos = []
+    # Busca cada produto por id e remove do banco de dados a quantidade vendida ate 0, alem de remover do carrihno
+    for produto_id, quantidade in carrinho.items():
+        produto = dao.readById(produto_id)
+        lista_produtos.append(produto)
+        if produto.quantidade_produtos > quantidade:
+            produto.quantidade_produtos -= quantidade
+        else:
+            produto.quantidade_produtos = 0
+        dao.update(produto)
+    carrinho.clear()
+    session.modified = True
 
-#app.run(debug=True)
-app.run('0.0.0.0') #so assim para ver imagens
+    return redirect(url_for('ver_carrinho'))
+'''
+app.run(debug=True)
+#app.run('0.0.0.0') #so assim para ver imagens
