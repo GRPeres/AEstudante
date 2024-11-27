@@ -8,6 +8,7 @@
     <title>Carrinho de Compras</title>
   </head>
   <body>
+    <div id="wrap">
     <header class="conjunto-topbar">
       <div class="organizacao">
   
@@ -112,9 +113,8 @@
     <form action="{{ url_for('gerar_mensagem') }}" method="get">
       <button type="submit">Enviar Pedido via WhatsApp</button>
     </form>
-    <a href="/">Continuar comprando</a>
-
-    <div class="ajuste_bottombar"></div>
+    <a href="/">Continuar comprando</a>  
+  </div>  
     <footer class="bottombar">
       <b>
         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">

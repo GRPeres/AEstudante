@@ -299,5 +299,5 @@ def search():
                            current_page=page, 
                            total_pages=total_pages)
 
-app.run(debug=True)
-#app.run('0.0.0.0') #so assim para ver imagens
+#app.run(debug=True)
+app.run('0.0.0.0') #so assim para ver imagens

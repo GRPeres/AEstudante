@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 1%;
-  position: fixed;
+  position: relative;
   background-color: #b3b3b3;
   bottom: 0;
 }
@@ -39,3 +39,19 @@
   bottom: 0;
 }
 
+html, body {height: 100%;}
+#wrap {min-height: 100%;}
+#main {overflow:auto;
+	padding-bottom: 10vh;}  /* must be same height as the footer */
+#footer {position: relative;
+	margin-top: -10vh; /* negative value of footer height */
+	height: 150px;
+	clear:both;} 
+/*Opera Fix*/
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;/
+}
