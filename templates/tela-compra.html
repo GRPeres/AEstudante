@@ -7,92 +7,128 @@
 </head>
 
 <body>
-  <div class="tela-de-compra">
-    <div class="frame-logo"><img class="LOGO-a-ESTUDANTE" src="../static/images/Logo.png" /></div>
-    <div class="divisao">
+  <header class="frame-logo">
+    <img class="LOGO-A-ESTUDANTE" src="../static/images/Logo.png" />
+    <div class="nome-estabelecimento">
+      <p class="nome-principal">A Estudante</p>
+      <p class="subtitulo">Office Shop</p>
+    </div>
+  </header>
 
-      <div class="tabela-produtos">
-        <div class="tabela-texto">Checkout</div>
-        <div class="conjunto-nomeacoes">
-          <div class="produto-texto">Produto</div>
-          <div class="produto-texto">Preço Unitário</div>
-          <div class="produto-texto">Quantidade</div>
-          <div class="produto-texto">Preço</div>
-        </div>
-        <div class="lista-produto">
+  <main class="tela-de-compra">
+    <!--div class="tabela-produtos">
+      <div class="tabela-texto">Checkout</div>
+      <div class="conjunto-nomeacoes">
+        <div class="produto-texto">Produto</div>
+        <div class="produto-texto">Preço Unitário</div>
+        <div class="produto-texto">Quantidade</div>
+        <div class="produto-texto">Preço</div>
+      </div>
 
-          <div class="produto">
-            <img class="image" src="../static/images/Conjunto lapis.jpeg" />
-            <p class="nome-produto">Nome do Item com grande descrição, muito grande</p>
-            <div class="produto-preco">R$ 150,00</div>
-            <div class="conjunto-quantidade">
-              <button class="botao-hidden">
-                <img class="icone" src="../static/images/retirar.svg" />
-              </button>
-              <div class="quantidade-itens">2</div>
-              <button class="botao-hidden">
-                <img class="icone" src="../static/images/adicionar.svg" />
-              </button>
-            </div>
+      <div class="lista-produto">
 
-            <div class="produto-preco">R$ 300,00</div>
-
+        <div class="produto">
+          <img class="image" src="../static/images/Conjunto lapis.jpeg" />
+          <p class="nome-produto">Nome do Item com grande descrição, muito grande</p>
+          <div class="produto-preco">R$ 150,00</div>
+          <div class="conjunto-quantidade">
             <button class="botao-hidden">
-              <img class="icone_maior" src="../static/images/deletar.svg" />
+              <img class="icone" src="../static/images/retirar.svg" />
+            </button>
+            <div class="quantidade-itens">2</div>
+            <button class="botao-hidden">
+              <img class="icone" src="../static/images/adicionar.svg" />
             </button>
           </div>
 
+          <div class="produto-preco">R$ 300,00</div>
+
+          <button class="botao-hidden">
+            <img class="icone_maior" src="../static/images/deletar.svg" />
+          </button>
         </div>
-
-        <div class="conjunto-botoes">
-          <button class="botao-continuar-compra">CONTINUAR COMPRANDO</button>
-          <button class="botao-finalizar-compra ">FINALIZAR PEDIDO</button>
-        </div>
-
-
       </div>
 
-      <div class="tabela-preco">
+    </div-->
 
-        <div class="tabela-texto">Resumo Do Pedido</div>
+    <div class="tabela-produtos">
 
-        <div class="preco-formato">
+      <p class="tabela-texto">Checkout</p>
 
-          <div class="conjunto-conjunto-preco">
+      <table>
 
-            <div class="conjunto-preco">
-              <div class="preco-texto">Subtotal</div>
-              <div class="preco-valor">Xxxx,xx R$</div>
-            </div>
+        <thead>
+          <th></th>
+          <th>
+            <p class="produto-texto">Produto</p>
+          </th>
+          <th>
+            <p class="produto-texto">Preço Unitário</p>
+          </th>
+          <th>
+            <p class="produto-texto">Quantidade</p>
+          </th>
+          <th>
+            <p class="produto-texto">Preço</p>
+          </th>
+          <th></th>
+        </thead>
 
-            <div class="conjunto-preco">
-              <div class="preco-texto">Entrega</div>
-              <div class="preco-valor">Xxxx,xx R$</div>
-            </div>
+        <tbody>
 
-            <div class="conjunto-preco">
-              <div class="preco-texto">Cupom De Desconto</div>
-              <div class="preco-valor">Xxxx,xx R$</div>
-            </div>
+          <tr>
+            <td>
+              <img class="image" src="../static/images/Conjunto lapis.jpeg" />
+            </td>
+            <td>
+              <p class="produto-nome">Nome do Item com grande descrição, muito grande</p>
+            </td>
+            <td>
+              <p class="produto-preco">R$ 150,00</p>
+            </td>
+            <td>
+              <div class="conjunto-quantidade">
+                <button class="botao-hidden">
+                  <img class="icone" src="../static/images/retirar.svg" />
+                </button>
+                <p class="quantidade-itens">2</p>
+                <button class="botao-hidden">
+                  <img class="icone" src="../static/images/adicionar.svg" />
+                </button>
+              </div>
+            </td>
+            <td>
+              <p class="produto-preco">R$ 300,00</p>
+            </td>
+            <td>
+              <button class="botao-hidden">
+                <img class="icone_maior" src="../static/images/deletar.svg" />
+              </button>
+            </td>
+          </tr>
 
-          </div>
+        </tbody>
 
-          <hr class="linha" />
+        <tfoot>
+          <tr>
+            <td colspan="3">
+              <strong>Total Geral:</strong>
+            </td>
+            <td colspan="2">
+              <strong>R$ 600,00</strong>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
 
-          <div class="conjunto-conjunto-preco">
-
-            <div class="conjunto-preco">
-              <div class="preco-texto">Total</div>
-              <div class="preco-valor">Xxxx,xx R$</div>
-            </div>
-
-          </div>
-
-        </div>
-
+      <div class="conjunto-botoes">
+        <button class="botao-continuar-compra">CONTINUAR COMPRANDO</button>
+        <button class="botao-finalizar-compra">FINALIZAR PEDIDO</button>
       </div>
     </div>
-  </div>
+
+  </main>
+
 </body>
 
 </html>
