@@ -37,10 +37,6 @@ class ProdutoVenda(Base):
     # Composite primary key
     tb_produtos_id_produtos = Column(Integer, ForeignKey('tb_produtos.id_produtos', ondelete='CASCADE'), primary_key=True)
     tb_vendas_id_vendas = Column(Integer, ForeignKey('tb_vendas.id_vendas', ondelete='CASCADE'), primary_key=True)
-    
-    # These two are part of the composite foreign key
-    tb_vendas_tb_produtos_has_tb_produtos_tb_produtos_id_produtos = Column(Integer, primary_key=True)
-    tb_vendas_tb_produtos_has_tb_produtos_tb_produtos_id_produtos1 = Column(Integer, primary_key=True)
 
     # Relationships for both sides
     produto = relationship(Produto, back_populates="vendas")
@@ -130,13 +126,11 @@ class DAO:
         venda = self.ses.query(self.venda).get(venda_id)
 
         if produto and venda:
-            produto_venda = ProdutoVenda(
+            produtoVenda = self.produto_venda(
                 tb_produtos_id_produtos=produto.id_produtos,
                 tb_vendas_id_vendas=venda.id_vendas,
-                tb_vendas_tb_produtos_has_tb_produtos_tb_produtos_id_produtos=produto.id_produtos,
-                tb_vendas_tb_produtos_has_tb_produtos_tb_produtos_id_produtos1=produto.id_produtos
             )
-            self.ses.add(produto_venda)
+            self.ses.add(produtoVenda)
             self.ses.commit()
 
     # Get all products for a sale
@@ -152,3 +146,9 @@ class DAO:
         if produto:
             return [pv.venda for pv in produto.vendas]
         return []
+
+    def createSale(self, obj):
+        self.ses.add(obj)
+        self.ses.commit()
+        self.ses.refresh(obj)
+        return obj.id_vendas

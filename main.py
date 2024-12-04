@@ -288,8 +288,13 @@ def ver_carrinho():
 @app.route('/gerar_mensagem')
 def gerar_mensagem():
     carrinho = session.get('carrinho', {})
+    produto_ids = list(carrinho.keys())
     dao = DAO()
-
+    nova_venda = dao.venda(
+        homologar_vendas=0
+    )
+    id_venda = dao.createSale(nova_venda)
+    print(id_venda)
     mensagem = "Olá! Gostaria de comprar os seguintes produtos:\n\n"
     for produto_id, quantidade in carrinho.items():
         produto = dao.readById(produto_id)
@@ -306,6 +311,9 @@ def gerar_mensagem():
     caminho_qr = os.path.join(caminho_pasta_imagens, 'qrcode_whatsapp.png')
     qr.save(caminho_qr)
 
+    for id_produto in produto_ids:
+        print(id_produto)
+        dao.addProductToSale(id_produto, id_venda)
     return render_template('whatsapp.html')
 
 @app.route('/remover_do_carrinho/<int:produto_id>', methods=['POST'])
