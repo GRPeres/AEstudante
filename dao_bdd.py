@@ -76,9 +76,15 @@ class DAO:
 
     def readAll(self):
         return self.ses.query(self.produto).all()
+    
+    def readAllVendas(self):
+        return self.ses.query(self.venda).all()
 
     def readById(self, id):
         return self.ses.query(self.produto).filter(self.produto.id_produtos == id).first()
+
+    def readByIdVenda(self, id):
+        return self.ses.query(self.venda).filter(self.venda.id_vendas == id).first()
 
     def readByNome(self, nome):
         return self.ses.query(self.produto).filter(self.produto.nome_produtos.ilike(f'%{nome}%')).all()

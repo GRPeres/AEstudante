@@ -65,6 +65,32 @@ def adm():
                            total_pages=total_pages)
 
 
+@app.route('/adm/vendas', methods=['GET'])
+def vendas():
+   
+    # Constante para controlar o número de itens por página
+    ITEMS_PER_PAGE_ADM = 11  # Exemplo: 10 itens por página
+
+    dao = DAO()
+    promocoes = dao.readAllVendas()  # Busca todos os produtos no banco de dados
+    
+    # Obtém o número da página da URL (parâmetro 'page'), se não fornecido, assume a página 1
+    page = int(request.args.get('page', 1))
+    
+    # Calcula os índices de início e fim com base no número da página
+    start = (page - 1) * ITEMS_PER_PAGE_ADM
+    end = start + ITEMS_PER_PAGE_ADM
+    promocoes_paginadas = promocoes[start:end]
+    
+    # Calcula o número total de páginas
+    total_pages = (len(promocoes) + ITEMS_PER_PAGE_ADM - 1) // ITEMS_PER_PAGE_ADM  # Arredonda para cima
+    
+    # Passa os dados para o template
+    return render_template('homologa-vendas.html', 
+                           produtos=promocoes_paginadas, 
+                           current_page=page, 
+                           total_pages=total_pages)
+
 
 # Rota auxiliar que atualiza dados na tabela produto
 @app.route('/<int:id>/update', methods=['POST'])
@@ -90,6 +116,23 @@ def update_produto(id):
         produto.categoria_produtos = categoria_produtos
         
         dao.update(produto)  # Atualiza o produto no banco de dados
+        return ('', 204)  # Retorna resposta 204 (No Content)
+    return ('Product not found', 404)  # Retorna erro 404 se o produto não for encontrado
+
+# Rota auxiliar que atualiza dados na tabela produto
+@app.route('/<int:id>/vendas/update', methods=['POST'])
+def update_venda(id):
+    dao = DAO()
+    
+    # Captura os dados do produto a partir do formulário
+    homologar_vendas = request.form['homologar_vendas']
+    
+    venda = dao.readByIdVenda(id)  # Busca o produto pelo ID
+    if venda:
+        # Atualiza os atributos do produto
+        venda.homologar_vendas = homologar_vendas
+      
+        dao.update(venda)  # Atualiza o produto no banco de dados
         return ('', 204)  # Retorna resposta 204 (No Content)
     return ('Product not found', 404)  # Retorna erro 404 se o produto não for encontrado
 
@@ -127,6 +170,17 @@ def delete_produto(id):
         dao.delete(produto)  # Deleta o produto do banco de dados
         return ('', 204)  # Retorna resposta 204 (No Content)
     return ('Product not found', 404)  # Retorna erro 404 se o produto não for encontrado
+
+# Rota auxiliar que deleta um produto da tabela
+@app.route('/<int:id>/vendas/delete', methods=['POST'])
+def delete_venda(id):
+    dao = DAO()
+    venda = dao.readByIdVenda(id)  # Busca o produto pelo ID
+    if venda:
+        dao.delete(venda)  # Deleta o produto do banco de dados
+        return ('', 204)  # Retorna resposta 204 (No Content)
+    return ('Product not found', 404)  # Retorna erro 404 se o produto não for encontrado
+
 
 # Rota para filtrar produtos com base nos critérios fornecidos
 @app.route('/filter', methods=['POST'])

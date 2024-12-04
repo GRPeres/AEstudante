@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../static/css/styleguide.css" />
+    <!-- Estilo do guia de estilo -->
+    <link rel="stylesheet" href="../static/css/adm.css" />
+    <!-- Estilo principal da aplicação -->
+    <title>Office Shop</title>
+    <!-- Título da página -->
+  </head>
+  <body>
+    <div class="desktop">
+      <div class="overlap" style="filter: blur(5px)">
+        <!-- Barra lateral -->
+        <div class="overlap-group">
+          <div class="rectangle">
+            <!-- Botões da barra lateral -->
+            <button id="homeBtn" class="iconSize buttonBox">
+              <img
+                class="logo"
+              />
+            </button>
+            <a id="homeBtn" class="iconSize buttonBox" href="/">
+              <img src="../static/images/redirecionarTelaPrincipal.svg" />
+            </a>
+            <a id="vendasBtn" class="iconSize buttonBox" href="/adm/">
+              <img src="../static/images/redirecionarTelaVendas.svg" />
+            </a>
+          </div>
+          <img class="logo" src="../static/images/Logo.png" />
+        </div>
+        <!-- Fim Barra lateral -->
+
+        <!-- Nome da Corporação -->
+        <p>
+          <span class="text-wrapper">A Estudante<br /></span>
+          <span class="span">Office shop</span>
+        </p>
+        <!-- Fim Nome da Corporação -->
+
+        <!-- Definição de linha na tabela -->
+        <div id="tableContainer">
+          {% for produto in produtos %}
+          <div class="tableRow">
+            <form class="updateForm" data-id="{{ produto.id_vendas }}">
+              <input
+                class="divWrapper defaultBox"
+                style="width: 80%"
+                name="homologar_vendas"
+                value="{{ produto.homologar_vendas }}"
+                placeholder="homologar_vendas"
+              />
+              <button
+                type="button"
+                class="trashBtn iconSize buttonBox"
+                style="width: 48px; top: 18px"
+              >
+                <img src="../static/images/deletarLinha.svg" />
+                <!-- Ícone para deletar -->
+              </button>
+            </form>
+          </div>
+          {% endfor %}
+        </div>
+        <!-- Fim Definição de Linha -->
+          <!-- Pagination Controls -->
+      
+      </div>
+
+      <div class="pagination-controls">
+ <!-- Previous Button -->
+ {% if current_page > 1 %}
+ <a href="{{ url_for('vendas', page=current_page - 1) }}" class="pagination-button"><</a>
+ {% endif %}
+ 
+ <!-- Page Numbers -->
+ <span class="page-info">Página {{ current_page }} de {{ total_pages }}</span>
+
+ <!-- Next Button -->
+ {% if current_page < total_pages %}
+ <a href="{{ url_for('vendas', page=current_page + 1) }}" class="pagination-button">></a>
+ {% endif %}
+      </div>
+      
+      <!-- Login -->
+      <div class="blocking-box">
+      </div>
+      <div
+      class="floating-box"
+      id="modal"
+      style="position: fixed; top: 30%; right: 42%"
+    >
+      <h2>Login</h2>
+      <div class="floating-box">
+        <label for="username">Usuario:</label>
+        <input type="text" placeholder="Usuario" id="username" />
+      </div>
+      <div class="floating-box">
+        <label for="password">Senha:</label>
+        <input type="password" placeholder="Senha" id="password" />
+      </div>
+      <div class="floating-box">
+        <button id="doneButton">Done</button>
+      </div>
+
+    </div>
+
+      
+    </div>
+
+    <script src="../static/js/homologa-vendas.js"></script>
+  </body>
+</html>
