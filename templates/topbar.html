@@ -18,15 +18,22 @@
         <div class="nome-principal">A Estudante</div>
         <div class="subtitulo">Office Shop</div>
       </div>
-      
+
       <form id="search-form" action="{{ url_for('search') }}" method="GET" class="conjunto-barra-de-pesquisa">
         <input type="text" name="search_term" class="barra-de-pesquisa" placeholder="Pesquise aqui" />
         <button type="submit" class="lupa">
-            <img src="../static/images/Lupa.svg" alt="Search" />
+          <img src="../static/images/Lupa.svg" alt="Search" />
         </button>
-    </form>
-    
+      </form>
+
       <div class="botoes">
+        <div class="icone-carrrinho hover-target">
+          <a id="icone-carrrinho" class="" href="/ver_carrinho">
+            <img class="icone-carrrinho" src="../static/images/Carrinho.svg" />
+          </a>
+        </div>
+      </div>
+      <!--div class="botoes">
         <div class="icone-conta hover-target">
           <img class="icone-conta" src="../static/images/Conta.svg" />
           <div class="overlay">
@@ -113,11 +120,11 @@
             </div>
           </div>
         </div>
-      </div>
+      </div-->
     </div>
 
 
-    <div class="barra-navegacao">
+    <!--div class="barra-navegacao">
       <div class="barra-navegacao-item hover-target">Papelaria
         <div class="overlay">
           <div class="barra-de-produtos">
@@ -128,31 +135,10 @@
           </div>
         </div>
       </div>
-      <div class="barra-navegacao-item hover-target">Materiais De Escritorio
-        <div class="overlay">
-          <div class="barra-de-produtos">
-            <div class="barra-de-produtos-item">Caneta Vermelha</div>
-            <div class="barra-de-produtos-item">Porta Caneta</div>
-            <div class="barra-de-produtos-item">Agenda</div>
-            <div class="barra-de-produtos-item">Isopor</div>
-            <div class="barra-de-produtos-item">Giz</div>
-          </div>
-        </div>
-      </div>
-      <div class="barra-navegacao-item hover-target">Coleções
-        <div class="overlay">
-          <div class="barra-de-produtos">
-            <div class="barra-de-produtos-item">Caderno</div>
-            <div class="barra-de-produtos-item">Lapis</div>
-            <div class="barra-de-produtos-item">Calculadora</div>
-            <div class="barra-de-produtos-item">Lapis Colorido</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
+    </div-->
 
   </header>
+
   <script src="../static/js/topbarjs.js"></script>
 </body>
 
