@@ -1,164 +1,99 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code WhatsApp</title>
-    <link rel="stylesheet" href="../static/css/bottombar.css" />
-    <link rel="stylesheet" href="../static/css/topbarstyle.css" />
-    <style>
-        h1 {
-            color: #4CAF50;
-        }
-        .qr-container {
-            text-align: center;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        img {
-            margin: 20px 0;
-            width: 200px;
-            height: 200px;
-        }
-        p {
-            color: #333;
-            font-size: 1rem;
-        }
-        .highlight {
-            color: #4CAF50;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code WhatsApp</title>
+  <link rel="stylesheet" href="../static/css/bottombar.css" />
+  <link rel="stylesheet" href="../static/css/topbarstyle.css" />
+  <style>
+    .qr-container {
+      text-align: center;
+      width: 100%;
+      min-height: 80%;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .texto-zap-zap-1 {
+      color: #4CAF50;
+    }
+
+    .img-zap-zap {
+      margin: 20px 0;
+      width: 200px;
+      height: 200px;
+    }
+
+    .texto-zap-zap-2 {
+      color: #333;
+      font-size: 1rem;
+    }
+
+    .highlight {
+      color: #4CAF50;
+      font-weight: bold;
+    }
+  </style>
 </head>
+
 <body>
-<header class="parte-de-cima">
+  <div id="wrap">
+
+    <header class="conjunto-topbar">
       <div class="organizacao">
+
         <div class="frame-logo">
-          <img
-            class="LOGO-A-ESTUDANTE"
-            src="../static/images/Logo.png"
-            alt="Logo da Empresa"
-          />
+          <img class="LOGO-A-ESTUDANTE" src="../static/images/Logo.png" />
+        </div>
+        <div class="nome-estabelecimento">
+          <div class="nome-principal">A Estudante</div>
+          <div class="subtitulo">Office Shop</div>
         </div>
 
-        <div class="conjunto-barra-de-pesquisa">
-          <input
-            class="barra-de-pesquisa"
-            type="text"
-            placeholder="Pesquise aqui"
-          />
-          <img class="lupa" alt="Ícone de pesquisa" />
-        </div>
+        <form id="search-form" action="{{ url_for('search') }}" method="GET" class="conjunto-barra-de-pesquisa">
+          <input type="text" name="search_term" class="barra-de-pesquisa" placeholder="Pesquise aqui" />
+          <button type="submit" class="lupa">
+            <img src="../static/images/Lupa.svg" alt="Search" />
+          </button>
+        </form>
 
         <div class="botoes">
-          <!-- Botão de conta -->
-          <div class="conta hover-target">
-            <div class="overlay">
-              <div class="tela-de-login">
-                <div class="texto-conta">Entrar</div>
-
-                <p class="paraoutros">
-                  <span>Não tem uma conta?</span>
-                  <a
-                    href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Clique aqui!</a
-                  >
-                </p>
-
-                <div class="campos">
-                  <label class="texto-conta" for="Email">Email</label>
-                  <input
-                    class="campo"
-                    type="email"
-                    id="Email"
-                    name="Email"
-                    placeholder="Coloque aqui"
-                    required
-                  />
-                  <label class="texto-conta" for="Senha">Senha</label>
-                  <input
-                    class="campo"
-                    type="password"
-                    id="Senha"
-                    name="Senha"
-                    placeholder="Coloque aqui"
-                    required
-                  />
-                </div>
-
-                <button class="enviar">
-                  <div class="texto-conta">ENVIAR</div>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Botão de carrinho -->
-          <div class="carrinho hover-target">
-            <div class="carrinho">
-              <a href="{{ url_for('ver_carrinho') }}" class="botao-carrinho"
-                >Carrinho</a
-              >
-            </div>
+          <div class="icone-carrrinho hover-target">
+            <a id="icone-carrrinho" class="" href="/ver_carrinho">
+              <img class="icone-carrrinho" src="../static/images/Carrinho.svg" />
+            </a>
           </div>
         </div>
       </div>
-
-      <nav class="navbar hover-target">
-        <div class="navbar-item">Papelaria</div>
-        <div class="navbar-item">Materiais De Escritório</div>
-        <div class="navbar-item">Coleções</div>
-        <div class="navbar-item">Pedidos Personalizados</div>
-        <div class="overlay">
-          <div class="barra-de-produtos">
-            <div class="navbar-item">Caderno</div>
-            <div class="navbar-item">Lápis</div>
-            <div class="navbar-item">Calculadora</div>
-            <div class="navbar-item">Lápis Colorido</div>
-            <div class="navbar-item">Caneta Azul</div>
-            <div class="navbar-item">Caneta Vermelha</div>
-            <div class="navbar-item">Porta Caneta</div>
-            <div class="navbar-item">Agenda</div>
-            <div class="navbar-item">Isopor</div>
-            <div class="navbar-item">Giz</div>
-          </div>
-        </div>
-      </nav>
     </header>
 
     <div class="qr-container">
-        <h1>Envie uma mensagem pelo WhatsApp!</h1>
-        <p>Escaneie o QR code abaixo com seu <span class="highlight">WhatsApp</span>.</p>
-        <p>Uma mensagem será gerada automaticamente para envio.</p>
-        <img src="{{ url_for('static', filename='images/qrcode_whatsapp.png') }}" alt="QR Code WhatsApp">
-        <p>Aponte a câmera do seu celular e toque no link do WhatsApp.</p>
+      <h1 class="texto-zap-zap-1">Envie uma mensagem pelo WhatsApp!</h1>
+      <p class="texto-zap-zap-2">Escaneie o QR code abaixo com seu <span class="highlight">WhatsApp</span>.</p>
+      <p class="texto-zap-zap-2">Uma mensagem será gerada automaticamente para envio.</p>
+      <img class="img-zap-zap" src="{{ url_for('static', filename='images/qrcode_whatsapp.png') }}"
+        alt="QR Code WhatsApp">
+      <p class="texto-zap-zap-2">Aponte a câmera do seu celular e toque no link do WhatsApp.</p>
     </div>
 
-    <footer class="bottombar">
-      <a
-        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+  </div>
+
+  <footer class="bottombar">
+    <b>
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
         <div class="parafora">Telefone</div>
       </a>
-      <a
-        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <div class="parafora">WhatsApp</div>
+    </b>
+    <b>
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
+        <div class="parafora">whatsapp</div>
       </a>
-      <div class="parafora">Tipos de Pagamentos:</div>
-      <img
-        class="metodos-de-pagamento"
-        src="../static/images/metodos-de-pagamento.svg"
-        alt="Métodos de pagamento"
-      />
-    </footer>
+    </b>
+  </footer>
 </body>
+
 </html>

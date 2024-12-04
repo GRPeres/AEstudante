@@ -18,12 +18,29 @@ USE `aestudante_db`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Dumping events for database 'aestudante_db'
+-- Table structure for table `tb_vendas`
 --
 
+DROP TABLE IF EXISTS `tb_vendas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tb_vendas` (
+  `tb_produtos_has_tb_produtos_tb_produtos_id_produtos` int NOT NULL,
+  `tb_produtos_has_tb_produtos_tb_produtos_id_produtos1` int NOT NULL,
+  `id_vendas` int NOT NULL AUTO_INCREMENT,
+  `homologar_vendas` tinyint NOT NULL,
+  PRIMARY KEY (`id_vendas`,`tb_produtos_has_tb_produtos_tb_produtos_id_produtos`,`tb_produtos_has_tb_produtos_tb_produtos_id_produtos1`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 --
--- Dumping routines for database 'aestudante_db'
+-- Dumping data for table `tb_vendas`
 --
+
+LOCK TABLES `tb_vendas` WRITE;
+/*!40000 ALTER TABLE `tb_vendas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_vendas` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

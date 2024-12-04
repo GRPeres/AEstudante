@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="../static/css/paginainicial.css" />
@@ -7,47 +8,40 @@
   <link rel="stylesheet" href="../static/css/topbarstyle.css" />
   <title>Página Inicial</title>
 </head>
+
 <body>
   <div id="wrap">
-  <header class="conjunto-topbar">
-    <div class="organizacao">
+    <header class="conjunto-topbar">
+      <div class="organizacao">
 
-      <a href="/"> 
         <div class="frame-logo">
           <img class="LOGO-A-ESTUDANTE" src="../static/images/Logo.png" />
         </div>
-      </a>
-      <a href="/"> 
         <div class="nome-estabelecimento">
-          <div class="nome-principal">A Estudante</div> 
+          <div class="nome-principal">A Estudante</div>
           <div class="subtitulo">Office Shop</div>
         </div>
-      </a>
-      
-      <form id="search-form" action="{{ url_for('search') }}" method="GET" class="conjunto-barra-de-pesquisa">
-        <input type="text" name="search_term" class="barra-de-pesquisa" placeholder="Pesquise aqui" />
-        <button type="submit" class="lupa">
-            <img src="../static/images/Lupa.svg" alt="Search"/>
-        </button>
-    </form>
 
-      <div class="botoes">
-        <div class="icone-carrrinho hover-target">
-          <a id="icone-carrrinho" class="" href="/ver_carrinho">
-          <img class="icone-carrrinho" src="../static/images/Carrinho.svg" />
-          </a>
+        <form id="search-form" action="{{ url_for('search') }}" method="GET" class="conjunto-barra-de-pesquisa">
+          <input type="text" name="search_term" class="barra-de-pesquisa" placeholder="Pesquise aqui" />
+          <button type="submit" class="lupa">
+            <img src="../static/images/Lupa.svg" alt="Search" />
+          </button>
+        </form>
+
+        <div class="botoes">
+          <div class="icone-carrrinho hover-target">
+            <a id="icone-carrrinho" class="" href="/ver_carrinho">
+              <img class="icone-carrrinho" src="../static/images/Carrinho.svg" />
+            </a>
+          </div>
         </div>
       </div>
-    </div>
 
+    </header>
 
-    <div class="barra-navegacao">
-
-    </div>
-  </header>
-  
-  <div class="pagina-inicial">
-    <!-- Propaganda Section 
+    <div class="pagina-inicial">
+      <!-- Propaganda Section 
     <div class="propraganda">
       <img class="ima-propaganda" src="../static/images/PROPAGANDA.webp" />
       <div class="pontos">
@@ -57,9 +51,9 @@
       </div>
     </div>
     -->
-   
-    <!-- Proposta Section -->
-    <!--
+
+      <!-- Proposta Section -->
+      <!--
     <div class="proposta">
       <div class="proposta-conjunto">
         <img class="img-proposta" src="../static/images/Entrega.svg" />
@@ -85,9 +79,9 @@
       </div>
     </div>
      -->
-    <!-- Novidades Section -->
-    <div class="promocoes">
-      <!-- 
+      <!-- Novidades Section -->
+      <div class="promocoes">
+        <!-- 
       <div class="promocoes-titulo">Novidades:</div>
 
   
@@ -113,48 +107,50 @@
       </div>
     </div>
   -->
-    <!-- Promoções Section -->
-    <div class="promocoes">
-      <!-- <div class="promocoes-titulo">Promoções:</div> -->
+        <!-- Promoções Section -->
+        <div class="promocoes">
+          <!-- <div class="promocoes-titulo">Promoções:</div> -->
 
-      
-        <div class="conjunto-produtos">
-          <!-- Loop through 'promocoes' products -->
-          {% for produto in promocoes %}
-          <a href="/items/{{produto.id_produtos}}" class="conjunto-produtos-link">
-            <div class="produto">
-              <img class="promo-img-produto" src="{{ produto.imagem_produtos }}" alt="Imagem do produto" />
-              <div class="prod-desc">
-                <div class="valor-produto">{{ produto.preco_produtos }}</div>
-                <div class="nome-produto">{{ produto.nome_produtos }}</div>
+
+          <div class="conjunto-produtos">
+            <!-- Loop through 'promocoes' products -->
+            {% for produto in promocoes %}
+            <a href="/items/{{produto.id_produtos}}" class="conjunto-produtos-link">
+              <div class="produto">
+                <img class="promo-img-produto" src="{{ produto.imagem_produtos }}" alt="Imagem do produto" />
+                <div class="prod-desc">
+                  <div class="valor-produto">{{ produto.preco_produtos }}</div>
+                  <div class="nome-produto">{{ produto.nome_produtos }}</div>
+                </div>
               </div>
-            </div>
-          </a>
-          {% endfor %}
+            </a>
+            {% endfor %}
+          </div>
+
+          <div class="pagination-controls">
+            <!-- Previous Button -->
+            {% if current_page > 1 %}
+            <a href="{{ url_for('index', page=current_page - 1) }}" class="pagination-button">
+              << /a>
+                {% endif %}
+
+                <!-- Page Numbers -->
+                <span class="page-info">Página {{ current_page }} de {{ total_pages }}</span>
+
+                <!-- Next Button -->
+                {% if current_page < total_pages %} <a href="{{ url_for('index', page=current_page + 1) }}"
+                  class="pagination-button">>
+            </a>
+            {% endif %}
+          </div>
         </div>
-      
-        <div class="pagination-controls">
-  <!-- Previous Button -->
-  {% if current_page > 1 %}
-  <a href="{{ url_for('index', page=current_page - 1) }}" class="pagination-button"><</a>
-  {% endif %}
-  
-  <!-- Page Numbers -->
-  <span class="page-info">Página {{ current_page }} de {{ total_pages }}</span>
- 
-  <!-- Next Button -->
-  {% if current_page < total_pages %}
-  <a href="{{ url_for('index', page=current_page + 1) }}" class="pagination-button">></a>
-  {% endif %}
-</div>
-</div>
 
       </div>
-    <!-- </div> -->
+      <!-- </div> -->
 
+    </div>
   </div>
-  </div>
-  </div>
+
   <footer class="bottombar">
     <b>
       <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
@@ -169,7 +165,7 @@
   </footer>
   <script src="../static/js/topbarjs.js"></script>
   <script src="../static/js/paginainicial.js"> </script>
-<script src="../static/js/formataPreco.js"></script>
+  <script src="../static/js/formataPreco.js"></script>
 </body>
-</html>
 
+</html>

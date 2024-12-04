@@ -1,144 +1,141 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/css/bottombar.css" />
-    <link rel="stylesheet" href="../static/css/topbarstyle.css" />
-    <title>Carrinho de Compras</title>
-  </head>
-  <body>
-    <div id="wrap">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../static/css/tela-compra.css" />
+  <link rel="stylesheet" href="../static/css/bottombar.css" />
+  <link rel="stylesheet" href="../static/css/topbarstyle.css" />
+  <title>Tela de Compra</title>
+</head>
+
+<body>
+  <div id="wrap">
+
     <header class="conjunto-topbar">
       <div class="organizacao">
-  
-        <a href="/"> 
-          <div class="frame-logo">
-            <img class="LOGO-A-ESTUDANTE" src="../static/images/Logo.png" />
-          </div>
-        </a>
-        <a href="/"> 
-          <div class="nome-estabelecimento">
-            <div class="nome-principal">A Estudante</div> 
-            <div class="subtitulo">Office Shop</div>
-          </div>
-        </a>
-        
+
+        <div class="frame-logo">
+          <img class="LOGO-A-ESTUDANTE" src="../static/images/Logo.png" />
+        </div>
+        <div class="nome-estabelecimento">
+          <div class="nome-principal">A Estudante</div>
+          <div class="subtitulo">Office Shop</div>
+        </div>
+
         <form id="search-form" action="{{ url_for('search') }}" method="GET" class="conjunto-barra-de-pesquisa">
           <input type="text" name="search_term" class="barra-de-pesquisa" placeholder="Pesquise aqui" />
           <button type="submit" class="lupa">
-              <img src="../static/images/Lupa.svg" alt="Search"/>
+            <img src="../static/images/Lupa.svg" alt="Search" />
           </button>
-      </form>
-  
+        </form>
+
         <div class="botoes">
           <div class="icone-carrrinho hover-target">
             <a id="icone-carrrinho" class="" href="/ver_carrinho">
-            <img class="icone-carrrinho" src="../static/images/Carrinho.svg" />
+              <img class="icone-carrrinho" src="../static/images/Carrinho.svg" />
             </a>
           </div>
         </div>
       </div>
-  
-  
-      <div class="barra-navegacao">
-        <div class="barra-navegacao-item hover-target">Papelaria
-          <div class="overlay">
-            <div class="barra-de-produtos">
-              <div class="barra-de-produtos-item">Lapis Colorido</div>
-              <div class="barra-de-produtos-item">Caneta Azul</div>
-              <div class="barra-de-produtos-item">Caneta Vermelha</div>
-              <div class="barra-de-produtos-item">Porta Caneta</div>
-            </div>
-          </div>
-        </div>
-        <div class="barra-navegacao-item hover-target">Materiais De Escritorio
-          <div class="overlay">
-            <div class="barra-de-produtos">
-              <div class="barra-de-produtos-item">Caneta Vermelha</div>
-              <div class="barra-de-produtos-item">Porta Caneta</div>
-              <div class="barra-de-produtos-item">Agenda</div>
-              <div class="barra-de-produtos-item">Isopor</div>
-              <div class="barra-de-produtos-item">Giz</div>
-            </div>
-          </div>
-        </div>
-        <div class="barra-navegacao-item hover-target">Coleções
-          <div class="overlay">
-            <div class="barra-de-produtos">
-              <div class="barra-de-produtos-item">Caderno</div>
-              <div class="barra-de-produtos-item">Lapis</div>
-              <div class="barra-de-produtos-item">Calculadora</div>
-              <div class="barra-de-produtos-item">Lapis Colorido</div>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </header>
-    
-    <h1>Carrinho de Compras</h1>
 
     <table>
-  <thead>
-    <tr>
-      <th>Produto</th>
-      <th>Preço</th>
-      <th>Quantidade</th>
-      <th>Preço total do Item</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% set total_geral = 0 %}
-    {% for produto in produtos %}
-    <tr>
-      <td>{{ produto.nome_produtos }}</td>
-      <td>{{ produto.preco_produtos | round(2) }}</td>
-      {% set index = produto.id_produtos | string() %}
-      <td>{{ carrinho[index] }}</td>
-      {% set total = carrinho[index] * produto.preco_produtos | float %}
-      <td>{{ total | round(2) }} R$</td>
-      <td>
-        <form
-          action="{{ url_for('remover_do_carrinho', produto_id=produto.id_produtos) }}"
-          method="post"
-        >
-          <button type="submit">Remover</button>
-        </form>
-      </td>
-    </tr>
-    {% set total_geral = total_geral + total %}
-    {% else %}
-    <tr>
-      <td colspan="4">O carrinho está vazio.</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-  {% if produtos %}
-  <tfoot>
-    <tr>
-      <td colspan="3"><strong>Total Geral:</strong></td>
-      <td colspan="2"><strong>{{ total_geral | round(2) }} R$</strong></td>
-    </tr>
-  </tfoot>
-  {% endif %}
-</table>
+      <thead>
+        <th></th>
+        <th>
+          <p class="produto-texto">Produto</p>
+        </th>
+        <th>
+          <p class="produto-texto">Preço Unitário</p>
+        </th>
+        <th>
+          <p class="produto-texto">Quantidade</p>
+        </th>
+        <th>
+          <p class="produto-texto">Preço</p>
+        </th>
+        <th></th>
+      </thead>
 
-    <form action="{{ url_for('gerar_mensagem') }}" method="get">
-      <button type="submit">Enviar Pedido via WhatsApp</button>
-    </form>
-    <a href="/">Continuar comprando</a>  
-  </div>  
-    <footer class="bottombar">
-      <b>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
-          <div class="parafora">Telefone</div>
-        </a>
-      </b>
-      <b>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
-          <div class="parafora">whatsapp</div>
-        </a>
-      </b>
-    </footer>
-  </body>
+      <tbody>
+        {% set total_geral = 0 %}
+        {% for produto in produtos %}
+        <tr>
+          <td>
+            <img class="image" src="{{ produto.imagem_produtos }}" alt="Imagem do produto" />
+          </td>
+          <td>
+            <p class="produto-nome">{{ produto.nome_produtos }}</p>
+          </td>
+          <td>
+            <p class="produto-preco">{{ produto.preco_produtos | round(2) }}</p>
+          </td>
+          {% set index = produto.id_produtos | string() %}
+          <td>
+            <button class="botao-hidden">
+              <img class="icone" src="../static/images/retirar.svg" />
+            </button>
+            <p class="quantidade-itens">{{ carrinho[index] }}</p>
+            <button class="botao-hidden">
+              <img class="icone" src="../static/images/adicionar.svg" />
+            </button>
+          </td>
+          {% set total = carrinho[index] * produto.preco_produtos | float %}
+          <td>
+            <p class="produto-preco">{{ total | round(2) }} R$</p>
+          </td>
+          <td>
+            <form action="{{ url_for('remover_do_carrinho', produto_id=produto.id_produtos) }}" method="post">
+              <button type="submit" class="botao-hidden">
+                <img class="icone_maior" src="../static/images/deletar.svg" />
+              </button>
+            </form>
+          </td>
+        </tr>
+        {% set total_geral = total_geral + total %}
+        {% else %}
+        <tr>
+          <td colspan="4">O carrinho está vazio.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+
+      {% if produtos %}
+
+      <tfoot>
+        <tr>
+          <td colspan="3"><strong>Total Geral:</strong></td>
+          <td colspan="2"><strong>{{ total_geral | round(2) }} R$</strong></td>
+        </tr>
+      </tfoot>
+      {% endif %}
+    </table>
+
+    <div class="conjunto-botoes">
+      <a href="/" class="botao-continuar-compra">CONTINUAR COMPRANDO</a>
+      <form action="{{ url_for('gerar_mensagem') }}" method="get">
+        <button type="submit" class="botao-finalizar-compra">FINALIZAR PEDIDO</button>
+      </form>
+    </div>
+
+  </div>
+
+  <footer class="bottombar">
+    <b>
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
+        <div class="parafora">Telefone</div>
+      </a>
+    </b>
+    <b>
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
+        <div class="parafora">whatsapp</div>
+      </a>
+    </b>
+  </footer>
+
+</body>
+
 </html>
