@@ -12,64 +12,6 @@ html {
   height: 100%;
 }
 
-/* Logo */
-
-.frame-logo {
-  display: flex;
-  width: 22vw;
-  height: 15vh;
-  align-items: center;
-  padding: 0 3%;
-  position: relative;
-  background-color: none;
-  gap: 1%;
-}
-
-.LOGO-A-ESTUDANTE {
-  position: relative;
-  width: 6vw;
-  height: 16vh;
-  object-fit: cover;
-}
-
-/* Nome do estabelecimento */
-
-@font-face {
-  font-family: cooperBlack;
-  src: url("../fonts/cooper-black-bt.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: sequelSans;
-  src: url("../fonts/sequel-sans-black-disp.ttf") format("truetype");
-}
-
-.nome-estabelecimento {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  letter-spacing: 0;
-  position: relative;
-  background-color: none;
-}
-
-.nome-estabelecimento .nome-principal {
-  font-family: "cooperBlack", Helvetica;
-  font-size: 1.5rem;
-  width: 12vw;
-  font-weight: 500;
-  color: #ff2323;
-}
-
-.nome-estabelecimento .subtitulo {
-  font-family: "sequelSans", Helvetica;
-  font-size: 1rem;
-  font-weight: 400;
-  color: #0000ff;
-}
-
-/* conteudo */
-
 .tela-de-compra {
   position: relative;
   min-height: 80vh;
@@ -100,7 +42,6 @@ html {
   white-space: nowrap;
   line-height: 24px;
   font-size: 24px;
-  letter-spacing: 0;
   color: #000000;
 }
 
@@ -128,6 +69,14 @@ html {
 }
 
 /* Tabela */
+.ajuste-table {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1vh;
+}
 
 thead {
   background-color: none;
@@ -166,7 +115,7 @@ td {
 }
 
 tbody tr {
-  border-bottom: 2px solid #000000;
+  border-bottom: 0.5rem solid #ffffff;
 }
 
 tbody tr:last-child {
