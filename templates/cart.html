@@ -64,47 +64,48 @@
         </thead>
 
         <tbody>
-          {% set total_geral = 0 %}
-          {% for produto in produtos %}
-          <tr>
-            <td>
-              <img class="image" src="{{ produto.imagem_produtos }}" alt="Imagem do produto" />
-            </td>
-            <td>
-              <p class="produto-nome">{{ produto.nome_produtos }}</p>
-            </td>
-            <td>
-              <p class="produto-preco">{{ produto.preco_produtos | round(2) }}</p>
-            </td>
-            {% set index = produto.id_produtos | string() %}
-            <td>
-              <button class="botao-hidden">
-                <img class="icone" src="../static/images/retirar.svg" />
+        {% set totais = [] %}
+        {% for produto in produtos %}
+        <tr>
+          <td>
+            <img class="image" src="{{ produto.imagem_produtos }}" alt="Imagem do produto" />
+          </td>
+          <td>
+            <p class="produto-nome">{{ produto.nome_produtos }}</p>
+          </td>
+          <td>
+            <p class="produto-preco">{{ produto.preco_produtos | round(2) }}</p>
+          </td>
+          {% set index = produto.id_produtos | string() %}
+          <td>
+            <button class="botao-hidden">
+              <img class="icone" src="../static/images/retirar.svg" />
+            </button>
+            <p class="quantidade-itens">{{ carrinho[index] }}</p>
+            <button class="botao-hidden">
+              <img class="icone" src="../static/images/adicionar.svg" />
+            </button>
+          </td>
+          {% set total = carrinho[index] * produto.preco_produtos | float %}
+          <td>
+            <p class="produto-preco">{{ total | round(2) }} R$</p>
+          </td>
+          <td>
+            <form action="{{ url_for('remover_do_carrinho', produto_id=produto.id_produtos) }}" method="post">
+              <button type="submit" class="botao-hidden">
+                <img class="icone_maior" src="../static/images/deletar.svg" />
               </button>
-              <p class="quantidade-itens">{{ carrinho[index] }}</p>
-              <button class="botao-hidden">
-                <img class="icone" src="../static/images/adicionar.svg" />
-              </button>
-            </td>
-            {% set total = carrinho[index] * produto.preco_produtos | float %}
-            <td>
-              <p class="produto-preco">{{ total | round(2) }} R$</p>
-            </td>
-            <td>
-              <form action="{{ url_for('remover_do_carrinho', produto_id=produto.id_produtos) }}" method="post">
-                <button type="submit" class="botao-hidden">
-                  <img class="icone_maior" src="../static/images/deletar.svg" />
-                </button>
-              </form>
-            </td>
-          </tr>
-          {% set total_geral = total_geral + total %}
-          {% else %}
-          <tr>
-            <td colspan="4">O carrinho está vazio.</td>
-          </tr>
-          {% endfor %}
-        </tbody>
+            </form>
+          </td>
+        </tr>
+        {% set _ = totais.append(total) %}
+        {% else %}
+        <tr>
+          <td colspan="4">O carrinho está vazio.</td>
+        </tr>
+        {% endfor %}
+      {% set total_geral = totais | sum %}
+      </tbody>
 
         {% if produtos %}
 

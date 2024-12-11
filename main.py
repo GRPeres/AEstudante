@@ -302,8 +302,9 @@ def gerar_mensagem():
     for produto_id, quantidade in carrinho.items():
         produto = dao.readById(produto_id)
         mensagem += f"- {produto.nome_produtos}: {quantidade} unidades\n"
+    mensagem += f"ID da compra: {id_venda}"
 
-    numero_whatsapp = "5551999999999"
+    numero_whatsapp = "5561998189354"
     mensagem_codificada = mensagem.replace(" ", "%20")
 
     url_whatsapp = f"https://wa.me/{numero_whatsapp}?text={mensagem_codificada}"
