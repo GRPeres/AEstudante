@@ -45,7 +45,7 @@ class ProdutoVenda(Base):
 # DAO class to handle CRUD operations and many-to-many relationship
 class DAO:
     name = "root"
-    password = "quemleumecomeu"
+    password = "root"
     host = "localhost"
     database = "aestudante_db"
     
