@@ -119,22 +119,23 @@ def update_produto(id):
         return ('', 204)  # Retorna resposta 204 (No Content)
     return ('Product not found', 404)  # Retorna erro 404 se o produto não for encontrado
 
-# Rota auxiliar que atualiza dados na tabela produto
 @app.route('/<int:id>/vendas/update', methods=['POST'])
 def update_venda(id):
     dao = DAO()
-    
-    # Captura os dados do produto a partir do formulário
+
+    # Captura os dados do formulário
     homologar_vendas = request.form['homologar_vendas']
     
-    venda = dao.readByIdVenda(id)  # Busca o produto pelo ID
+    venda = dao.readByIdVenda(id)  # Busca a venda pelo ID
     if venda:
-        # Atualiza os atributos do produto
+        # Atualiza os atributos da venda
         venda.homologar_vendas = homologar_vendas
-      
-        dao.update(venda)  # Atualiza o produto no banco de dados
-        return ('', 204)  # Retorna resposta 204 (No Content)
-    return ('Product not found', 404)  # Retorna erro 404 se o produto não for encontrado
+        dao.update(venda)  # Atualiza a venda no banco de dados
+        
+        # Retorna uma resposta JSON vazia (ou você pode enviar um status de sucesso)
+        return jsonify({"message": "Venda updated successfully"}), 200
+    
+    return jsonify({"error": "Venda not found"}), 404  # Retorna erro 404 se a venda não for encontrada
 
 # Rota auxiliar que cria um novo produto na tabela
 @app.route('/add',  methods=['POST'])
@@ -283,6 +284,8 @@ def ver_carrinho():
     for i in produto_ids:
         produto = dao.readById(i)
         lista_produtos.append(produto)
+        print(produto)
+        print(".")
     return render_template('cart.html', carrinho=carrinho, produtos=lista_produtos)
 
 @app.route('/gerar_mensagem')
@@ -380,5 +383,6 @@ def remover_itens_banco():
 
     return redirect(url_for('ver_carrinho'))
 '''
+
 app.run(debug=True)
 #app.run('0.0.0.0') #so assim para ver imagens

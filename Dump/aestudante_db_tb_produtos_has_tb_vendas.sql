@@ -27,13 +27,9 @@ DROP TABLE IF EXISTS `tb_produtos_has_tb_vendas`;
 CREATE TABLE `tb_produtos_has_tb_vendas` (
   `tb_produtos_id_produtos` int NOT NULL,
   `tb_vendas_id_vendas` int NOT NULL,
-  `tb_vendas_tb_produtos_has_tb_produtos_tb_produtos_id_produtos` int NOT NULL,
-  `tb_vendas_tb_produtos_has_tb_produtos_tb_produtos_id_produtos1` int NOT NULL,
-  PRIMARY KEY (`tb_produtos_id_produtos`,`tb_vendas_id_vendas`,`tb_vendas_tb_produtos_has_tb_produtos_tb_produtos_id_produtos`,`tb_vendas_tb_produtos_has_tb_produtos_tb_produtos_id_produtos1`),
-  KEY `fk_tb_produtos_has_tb_vendas_tb_vendas1_idx` (`tb_vendas_id_vendas`,`tb_vendas_tb_produtos_has_tb_produtos_tb_produtos_id_produtos`,`tb_vendas_tb_produtos_has_tb_produtos_tb_produtos_id_produtos1`),
-  KEY `fk_tb_produtos_has_tb_vendas_tb_produtos_idx` (`tb_produtos_id_produtos`),
-  CONSTRAINT `fk_tb_produtos_has_tb_vendas_tb_produtos` FOREIGN KEY (`tb_produtos_id_produtos`) REFERENCES `tb_produtos` (`id_produtos`),
-  CONSTRAINT `fk_tb_produtos_has_tb_vendas_tb_vendas1` FOREIGN KEY (`tb_vendas_id_vendas`, `tb_vendas_tb_produtos_has_tb_produtos_tb_produtos_id_produtos`, `tb_vendas_tb_produtos_has_tb_produtos_tb_produtos_id_produtos1`) REFERENCES `tb_vendas` (`id_vendas`, `tb_produtos_has_tb_produtos_tb_produtos_id_produtos`, `tb_produtos_has_tb_produtos_tb_produtos_id_produtos1`)
+  PRIMARY KEY (`tb_produtos_id_produtos`,`tb_vendas_id_vendas`),
+  FOREIGN KEY (`tb_produtos_id_produtos`) REFERENCES `tb_produtos` (`id_produtos`),
+  FOREIGN KEY (`tb_vendas_id_vendas`) REFERENCES `tb_vendas` (`id_vendas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

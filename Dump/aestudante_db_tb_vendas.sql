@@ -25,11 +25,9 @@ DROP TABLE IF EXISTS `tb_vendas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tb_vendas` (
-  `tb_produtos_has_tb_produtos_tb_produtos_id_produtos` int NOT NULL,
-  `tb_produtos_has_tb_produtos_tb_produtos_id_produtos1` int NOT NULL,
   `id_vendas` int NOT NULL AUTO_INCREMENT,
   `homologar_vendas` tinyint NOT NULL,
-  PRIMARY KEY (`id_vendas`,`tb_produtos_has_tb_produtos_tb_produtos_id_produtos`,`tb_produtos_has_tb_produtos_tb_produtos_id_produtos1`)
+  PRIMARY KEY (`id_vendas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

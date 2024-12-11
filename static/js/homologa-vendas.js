@@ -119,14 +119,24 @@ document.getElementById("doneButton").addEventListener("click", function () {
           const row = document.createElement("div");
           row.classList.add("tableRow");
           row.innerHTML = `
-            <form class="updateForm" data-id="${produto.id_produtos}">
-              <input name="imagem_produtos" value="${produto.imagem_produtos}" placeholder="Imagem" />
-              <input name="nome_produtos" value="${produto.nome_produtos}" placeholder="Nome" />
-              <input name="descricao_produtos" value="${produto.descricao_produtos}" placeholder="Descrição" />
-              <input name="categoria_produtos" value="${produto.categoria_produtos}" placeholder="Categoria" />
-              <input name="preco_produtos" value="${produto.preco_produtos}" placeholder="Preço" />
-              <input name="quantidade_produtos" value="${produto.quantidade_produtos}" placeholder="Quantidade" />
-              <button type="button" class="trashBtn">Deletar</button>
+            <form class="updateForm" data-id="${produto.id_vendas}">
+                 <strong>Sale ID:</strong> ${ produto.id_vendas }
+
+              <button
+                type="button"
+                class="homologarBtn buttonBox"
+                style=" background-color: {{ 'green' if ${produto.homologar_vendas} == 1 else 'grey' }};">
+                {{ 'Homologado' if ${produto.homologar_vendas} == 1 else 'Não Homologado' }}
+              </button>
+          
+              <!-- Delete button -->
+              <button
+                type="button"
+                class="trashBtn iconSize buttonBox"
+                style="width: 48px; top: 18px">
+                <img src="../static/images/deletarLinha.svg" />
+                <!-- Ícone para deletar -->
+              </button>
             </form>
           `;
           tableContainer.appendChild(row);
@@ -160,3 +170,51 @@ document.getElementById("doneButton").addEventListener("click", function () {
   document.addEventListener("DOMContentLoaded", () => {
     fetchPageData(1);  // Fetch the first page by default
   });
+  document.addEventListener("DOMContentLoaded", function() {
+    // Get all homologar buttons
+    const homologarButtons = document.querySelectorAll('.homologarBtn');
+  
+    // Add click event listener for each button
+    homologarButtons.forEach(function(button) {
+      button.addEventListener('click', function() {
+        const form = button.closest('form');
+        const vendaId = form.getAttribute('data-id'); // Sale ID
+        const homologarValue = button.textContent === 'Homologado' ? 1 : 0; // Determine current value (1 or 0)
+  
+        // Toggle the value of homologar_vendas
+        const newHomologarValue = homologarValue === 1 ? 0 : 1;
+        
+        // Update the button's text and background color based on the new value
+        if (newHomologarValue === 1) {
+          button.textContent = 'Homologado';
+          button.style.backgroundColor = 'green';
+        } else {
+          button.textContent = 'Não Homologado';
+          button.style.backgroundColor = 'grey';
+        }
+  
+        const formData = new FormData(form);
+        formData.append('homologar_vendas', newHomologarValue); // Add homologar_vendas field to form data
+
+        // Send the updated data to the Flask server
+        fetch(`/${vendaId}/vendas/update`, {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            return Promise.reject('Failed to update');
+          }
+        })
+        .then(data => {
+          console.log('Venda updated successfully:', data);
+        })
+        .catch(error => {
+          console.error('Error updating venda:', error);
+        });
+      });
+    });
+  });
+  

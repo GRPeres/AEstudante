@@ -39,25 +39,25 @@
         </p>
         <!-- Fim Nome da Corporação -->
 
+        <p>
+          <br>
+          <br>
+          <br>
+        </p>
         <!-- Definição de linha na tabela -->
         <div id="tableContainer">
           {% for produto in produtos %}
           <div class="tableRow">
             <form class="updateForm" data-id="{{ produto.id_vendas }}">
-              <input
-                class="divWrapper defaultBox"
-                style="width: 80%"
-                name="homologar_vendas"
-                value="{{ produto.homologar_vendas }}"
-                placeholder="homologar_vendas"
-              />
+              <!-- Homologar vendas button with dynamic color -->
+              
+              <strong class="divWrapper defaultBox" >Sale ID: {{ produto.id_vendas }}</strong> 
+
               <button
                 type="button"
-                class="trashBtn iconSize buttonBox"
-                style="width: 48px; top: 18px"
-              >
-                <img src="../static/images/deletarLinha.svg" />
-                <!-- Ícone para deletar -->
+                class="homologarBtn buttonBox"
+                style=" background-color: {{ 'green' if produto.homologar_vendas == 1 else 'grey' }};">
+                {{ 'Homologado' if produto.homologar_vendas == 1 else 'Não Homologado' }}
               </button>
             </form>
           </div>
