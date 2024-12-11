@@ -16,13 +16,17 @@
     <header class="conjunto-topbar">
       <div class="organizacao">
 
-        <div class="frame-logo">
-          <img class="LOGO-A-ESTUDANTE" src="../static/images/Logo.png" />
-        </div>
-        <div class="nome-estabelecimento">
-          <div class="nome-principal">A Estudante</div>
-          <div class="subtitulo">Office Shop</div>
-        </div>
+        <a href="/">
+          <div class="frame-logo">
+            <img class="LOGO-A-ESTUDANTE" src="../static/images/Logo.png" />
+          </div>
+        </a>
+        <a href="/">
+          <div class="nome-estabelecimento">
+            <div class="nome-principal">A Estudante</div>
+            <div class="subtitulo">Office Shop</div>
+          </div>
+        </a>
 
         <form id="search-form" action="{{ url_for('search') }}" method="GET" class="conjunto-barra-de-pesquisa">
           <input type="text" name="search_term" class="barra-de-pesquisa" placeholder="Pesquise aqui" />
@@ -32,87 +36,87 @@
         </form>
 
         <div class="botoes">
-          <div class="icone-carrrinho hover-target">
-            <a id="icone-carrrinho" class="" href="/ver_carrinho">
-              <img class="icone-carrrinho" src="../static/images/Carrinho.svg" />
-            </a>
-          </div>
+          <a id="icone-carrrinho" class="icone-carrrinho" href="/ver_carrinho">
+            <img class="icone-carrrinho" src="../static/images/Carrinho.svg" />
+          </a>
         </div>
       </div>
 
     </header>
 
-    <table>
-      <thead>
-        <th></th>
-        <th>
-          <p class="produto-texto">Produto</p>
-        </th>
-        <th>
-          <p class="produto-texto">Preço Unitário</p>
-        </th>
-        <th>
-          <p class="produto-texto">Quantidade</p>
-        </th>
-        <th>
-          <p class="produto-texto">Preço</p>
-        </th>
-        <th></th>
-      </thead>
+    <div class="ajuste-table">
+      <table>
+        <thead>
+          <th></th>
+          <th>
+            <p class="produto-texto">Produto</p>
+          </th>
+          <th>
+            <p class="produto-texto">Preço Unitário</p>
+          </th>
+          <th>
+            <p class="produto-texto">Quantidade</p>
+          </th>
+          <th>
+            <p class="produto-texto">Preço</p>
+          </th>
+          <th></th>
+        </thead>
 
-      <tbody>
-        {% set total_geral = 0 %}
-        {% for produto in produtos %}
-        <tr>
-          <td>
-            <img class="image" src="{{ produto.imagem_produtos }}" alt="Imagem do produto" />
-          </td>
-          <td>
-            <p class="produto-nome">{{ produto.nome_produtos }}</p>
-          </td>
-          <td>
-            <p class="produto-preco">{{ produto.preco_produtos | round(2) }}</p>
-          </td>
-          {% set index = produto.id_produtos | string() %}
-          <td>
-            <button class="botao-hidden">
-              <img class="icone" src="../static/images/retirar.svg" />
-            </button>
-            <p class="quantidade-itens">{{ carrinho[index] }}</p>
-            <button class="botao-hidden">
-              <img class="icone" src="../static/images/adicionar.svg" />
-            </button>
-          </td>
-          {% set total = carrinho[index] * produto.preco_produtos | float %}
-          <td>
-            <p class="produto-preco">{{ total | round(2) }} R$</p>
-          </td>
-          <td>
-            <form action="{{ url_for('remover_do_carrinho', produto_id=produto.id_produtos) }}" method="post">
-              <button type="submit" class="botao-hidden">
-                <img class="icone_maior" src="../static/images/deletar.svg" />
+        <tbody>
+          {% set total_geral = 0 %}
+          {% for produto in produtos %}
+          <tr>
+            <td>
+              <img class="image" src="{{ produto.imagem_produtos }}" alt="Imagem do produto" />
+            </td>
+            <td>
+              <p class="produto-nome">{{ produto.nome_produtos }}</p>
+            </td>
+            <td>
+              <p class="produto-preco">{{ produto.preco_produtos | round(2) }}</p>
+            </td>
+            {% set index = produto.id_produtos | string() %}
+            <td>
+              <button class="botao-hidden">
+                <img class="icone" src="../static/images/retirar.svg" />
               </button>
-            </form>
-          </td>
-        </tr>
-        {% set total_geral = total_geral + total %}
-        {% else %}
-        <tr>
-          <td colspan="4">O carrinho está vazio.</td>
-        </tr>
-        {% endfor %}
-      </tbody>
+              <p class="quantidade-itens">{{ carrinho[index] }}</p>
+              <button class="botao-hidden">
+                <img class="icone" src="../static/images/adicionar.svg" />
+              </button>
+            </td>
+            {% set total = carrinho[index] * produto.preco_produtos | float %}
+            <td>
+              <p class="produto-preco">{{ total | round(2) }} R$</p>
+            </td>
+            <td>
+              <form action="{{ url_for('remover_do_carrinho', produto_id=produto.id_produtos) }}" method="post">
+                <button type="submit" class="botao-hidden">
+                  <img class="icone_maior" src="../static/images/deletar.svg" />
+                </button>
+              </form>
+            </td>
+          </tr>
+          {% set total_geral = total_geral + total %}
+          {% else %}
+          <tr>
+            <td colspan="4">O carrinho está vazio.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
 
-      {% if produtos %}
+        {% if produtos %}
 
-      <tfoot>
-        <tr>
-          <td colspan="3"><strong>Total Geral:</strong></td>
-          <td colspan="2"><strong>{{ total_geral | round(2) }} R$</strong></td>
-        </tr>
-      </tfoot>
-      {% endif %}
-    </table>
+        <tfoot>
+          <tr>
+            <td colspan="3"><strong>Total Geral:</strong></td>
+            <td colspan="2"><strong>{{ total_geral | round(2) }} R$</strong></td>
+          </tr>
+        </tfoot>
+        {% endif %}
+      </table>
+    </div>
 
     <div class="conjunto-botoes">
       <a href="/" class="botao-continuar-compra">CONTINUAR COMPRANDO</a>
@@ -135,6 +139,11 @@
       </a>
     </b>
   </footer>
+
+</body>
+
+</html>
+
 <!--
 #####▄▄▄##▄██▄###
 #####▐▀█▀▌####▀█▄###
@@ -142,15 +151,11 @@
 ######▀▄▀###▄▄▄▄▄▀▀##
 ####▄▄▄██▀▀▀▀#######
 ###█▀▄▄▄█#▀▀##
-###▌#▄▄▄▐▌▀▀▀## THIS IS BOB
+###▌#▄▄▄▐▌▀▀▀## THIS IS JOÃO CARLOS
 ▄#▐###▄▄#█#▀▀ ##
-▀█▌###▄#▀█▀#▀ ## HE IS HIDING FROM 
+▀█▌###▄#▀█▀#▀ ## HE WAS FOUND BY THE
 #######▄▄▐▌▄▄### CODORNAS
 #######▀███▀█#▄##
 ######▐▌▀▄▀▄▀▐▄##
 ######▐▀######▐▌##
 -->
-
-</body>
-
-</html>

@@ -8,11 +8,18 @@
   <link rel="stylesheet" href="../static/css/bottombar.css" />
   <link rel="stylesheet" href="../static/css/topbarstyle.css" />
   <style>
+    .alinhamento-centro {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5vh;
+    }
+
     .qr-container {
       text-align: center;
-      width: 100%;
+      width: 80%;
       min-height: 80%;
-      background-color: #fff;
+      background-color: #ffff;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -45,14 +52,17 @@
 
     <header class="conjunto-topbar">
       <div class="organizacao">
-
-        <div class="frame-logo">
-          <img class="LOGO-A-ESTUDANTE" src="../static/images/Logo.png" />
-        </div>
-        <div class="nome-estabelecimento">
-          <div class="nome-principal">A Estudante</div>
-          <div class="subtitulo">Office Shop</div>
-        </div>
+        <a href="/">
+          <div class="frame-logo">
+            <img class="LOGO-A-ESTUDANTE" src="../static/images/Logo.png" />
+          </div>
+        </a>
+        <a href="/">
+          <div class="nome-estabelecimento">
+            <div class="nome-principal">A Estudante</div>
+            <div class="subtitulo">Office Shop</div>
+          </div>
+        </a>
 
         <form id="search-form" action="{{ url_for('search') }}" method="GET" class="conjunto-barra-de-pesquisa">
           <input type="text" name="search_term" class="barra-de-pesquisa" placeholder="Pesquise aqui" />
@@ -62,24 +72,23 @@
         </form>
 
         <div class="botoes">
-          <div class="icone-carrrinho hover-target">
-            <a id="icone-carrrinho" class="" href="/ver_carrinho">
-              <img class="icone-carrrinho" src="../static/images/Carrinho.svg" />
-            </a>
-          </div>
+          <a id="icone-carrrinho" class="icone-carrrinho" href="/ver_carrinho">
+            <img class="icone-carrrinho" src="../static/images/Carrinho.svg" />
+          </a>
         </div>
       </div>
     </header>
 
-    <div class="qr-container">
-      <h1 class="texto-zap-zap-1">Envie uma mensagem pelo WhatsApp!</h1>
-      <p class="texto-zap-zap-2">Escaneie o QR code abaixo com seu <span class="highlight">WhatsApp</span>.</p>
-      <p class="texto-zap-zap-2">Uma mensagem será gerada automaticamente para envio.</p>
-      <img class="img-zap-zap" src="{{ url_for('static', filename='images/qrcode_whatsapp.png') }}"
-        alt="QR Code WhatsApp">
-      <p class="texto-zap-zap-2">Aponte a câmera do seu celular e toque no link do WhatsApp.</p>
-    </div>
-
+    <main class="alinhamento-centro">
+      <div class="qr-container">
+        <h1 class="texto-zap-zap-1">Envie uma mensagem pelo WhatsApp!</h1>
+        <p class="texto-zap-zap-2">Escaneie o QR code abaixo com seu <span class="highlight">WhatsApp</span>.</p>
+        <p class="texto-zap-zap-2">Uma mensagem será gerada automaticamente para envio.</p>
+        <img class="img-zap-zap" src="{{ url_for('static', filename='images/qrcode_whatsapp.png') }}"
+          alt="QR Code WhatsApp">
+        <p class="texto-zap-zap-2">Aponte a câmera do seu celular e toque no link do WhatsApp.</p>
+      </div>
+    </main>
   </div>
 
   <footer class="bottombar">
@@ -94,16 +103,7 @@
       </a>
     </b>
   </footer>
-  <!--
-  
-   WW
-  o  o
- /.\/,\ THIS IS JOANA
- \'  `/ SHE IS A CODORNA
-  ()() SHE IS LOOKING FOR BOB
-  '`'` TO REVENGE YOUR CODORNA FARM AND YOUR HYDROELECTRIC POWER
 
-  -->
 </body>
 
 </html>
